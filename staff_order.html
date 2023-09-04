@@ -7,18 +7,22 @@
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
 	<!-- My CSS -->
 	<link rel="stylesheet" href="assets/css/manager.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
 	<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/progress.css">
-	<title>Admin</title>
+    <link rel="stylesheet" href="assets/css/user.css">
+    <link rel="stylesheet" href="assets/css/toast.css">
+	<title>Staff</title>
 	<!-- JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
-</head>
+   
+</head> 
 <body>
 	<!-- HEADER -->
 	<header class="header" id="header">
@@ -63,24 +67,18 @@
                 </div>
                 
                 <div class="nav__user" id="info-user">
-                    <a href="manager_tk.html"><i class='bx bx-user'></i></a>
+                    <a href="delivery_staff.html"><i class='bx bx-user'></i></a>
                 </div>
             </div>
         </nav>
     </header>
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<ul class="side-menu top">		
-			<li>
-				<a href="manager_tk.html" class="active">
-					<i class='bx bx-bar-chart-alt'></i>
-					<span class="text">Thống kê</span>
-				</a>
-			</li>
-			<li>
-				<a href="manager_sp.html">
-					<i class='bx bxs-watch-alt'></i>
-					<span class="text">Sản phẩm</span>
+		<ul class="side-menu top">
+            <li >
+				<a href="staff_info.html">
+					<i class='bx bxs-cart-alt'></i>
+					<span class="text">Thông tin tài khoản</span>
 				</a>
 			</li>
 			<li class="active">
@@ -89,49 +87,12 @@
 					<span class="text">Đơn đặt hàng</span>
 				</a>
 			</li>
-			<li>
-				<a href="manager_dg.html">
-					<i class='bx bxs-pen'></i>
-					<span class="text">Đánh giá</span>
-				</a>
-			</li>
-			<li>
-				<a href="manager_nv.html">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Nhân viên</span>
-				</a>
-			</li>
-			<li>
-				<a href="manager_kh.html">
-					<i class='bx bxs-user-detail'></i>
-					<span class="text">Khách hàng</span>
-				</a>
-			</li>
-			<li>
-				<a href="manager_hdh-ldh.html">
-					<i class='bx bxs-component'></i>
-					<span class="text">Hãng/Loại đồng hồ</span>
-				</a>
-			</li>
-			<li>
-				<a href="manager_km.html">
-					<i class='bx bxs-city'></i>
-					<span class="text">Khuyến mãi</span>
-				</a>
-			</li>
-            <li>
-				<a href="manager_bh.html">
-					<i class='bx bxs-city'></i>
-					<span class="text">Bảo hành</span>
-				</a>
-			</li>
-
-			<li>	
-				<a href="#" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Đăng xuất</span>
-				</a>
-			</li>
+            <li>	
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle' ></i>
+                    <span class="text">Đăng xuất</span>
+                </a>
+            </li>
 		</ul>
 		<!-- <ul class="side-menu">
 			<li>
@@ -188,63 +149,44 @@
     </div>
     <div class="btn__trangthai">
         <a href="#" class="btn__LocAll">Tất cả</a>
-        <a href="#" class="btn__ChoXN">Chờ xác nhận</a>
         <a href="#" class="btn__DaXN">Đã xác nhận</a>
         <a href="#" class ="btn__VanChuyen">Vận chuyển</a>
         <a href="#" class ="btn__DaGiao">Đã giao</a>
         <a href="#" class ="btn__DaHuy">Đã hủy</a>
     </div>
 </div>
-<div class="dialog" id="confirmDialog_xn">
+<!-- <div class="dialog" id="confirmDialog_xn">
     <div class="dialog-content">
-        <h2>Xác nhận đơn hàng</h2>
-        <p>Bạn có chắc chắn muốn xác nhận đơn hàng</p>
-        <form id = "submit-status">
-        <input readonly class="input_idDDH" id="id_" name = "order_id_xn" value =""></input>						
-        <input type = "hidden" name = "order_status_xn" value = "2">
-        </form>
-        <div class="dialog-buttons">
-            <button id="confirmBtn">Đồng ý</button>
-            <button id="cancelBtn">Hủy bỏ</button>
-        </div>
+      <h2>Xác nhận đơn hàng</h2>
+      <p>Bạn có chắc chắn muốn xác nhận đơn hàng </p><output style="display: inline;" id = "id_"></output>
+      <div class="dialog-buttons">
+        <button id="confirmBtn">Đồng ý</button>
+        <button id="cancelBtn">Hủy bỏ</button>
+      </div>
     </div>
 </div>
 <div class="dialog" id="confirmDialog_huy">
     <div class="dialog-content">
-        <h2>Hủy đơn hàng</h2>
-        <p>Bạn có chắc chắn muốn hủy đơn hàng</p>
-        <form id = "submit-status">
-            <input readonly id="id_1" class="input_idDDH" name = "order_id_huy" value =""></input>						
-            <input type = "hidden" name = "order_status_huy" value="5">
-        </form>
-        <div class="dialog-buttons">
-            <button id="confirmBtn1" >Đồng ý</button>
-            <button id="cancelBtn1">Hủy bỏ</button>
-        </div>
+      <h2>Hủy đơn hàng</h2>
+      <p>Bạn có chắc chắn muốn hủy đơn hàng </p><output id = "id_1"></output>
+      <div class="dialog-buttons">
+        <button id="confirmBtn1">Đồng ý</button>
+        <button id="cancelBtn1">Hủy bỏ</button>
+      </div>
     </div>
-</div>                         
+</div> -->
 <div>
+    <!-- Toast -->
+    <ul class="notifications"></ul>
+    <!-- End Toast -->
     <div class="table-data" id="ddh-data">
         <div class="order">
             <div class="head">
                 <h3>Danh sách đơn hàng</h3>
-                <form id="search-barByDate"action="">
-									<!-- Lưu kiểu tìm kiếm (Sort theo gì?) -->
-					<input type="text" hidden name="statusOrderSearch" value="3">
-						<div class="div__inputs" >
-							<div>
-								<input class="form-control"id="datepickerfrom_start" name="startDate" type="date">
-							</div>
-                            <span>-</span>
-							<div>
-								<input class="form-control" id="datepickerfrom_end"name="endDate" type="date">
-							</div>
-
-								<button class="btn btn-success" type="submit"style="display: flex; justify-content: center; align-items: center; padding: 10px;">
-                                    <i class='bx bx-search' ></i>
-								</button>
-						</div>
-				</form>
+                <form action="" id="search-bar" class="search">
+                    <input type="search" placeholder="Type something..." class="search__input">
+                    <a href="#"><i class='bx bx-search' ></i></a>
+                </form>
             </div>
         <table>
             <thead>
@@ -266,19 +208,19 @@
                         <td><p>KH1</p></td>
                         <!-- <td><time datetime="....-..-.."></time></td> -->
                         <td><p>yyyy-mm-dd</p></td>
-                        <td class="td__address"><p>339 phước long thành phố thủ đức</p></td>
+                        <td><p>339 phước long b</p></td>
                         <td><p>0845002405</p></td>
                         <td><p>10000000</p></t>
                         <td class="tt">
-                            <input class ="ttddh" style="display:none;" value="1">   
+                            <input class ="ttddh" style="display:none;" value="2">   
                             <div class="btns">
-                                <a class ="btn__DaXN" id ="toggle-green" href="#xacnhan"><i class='bx bx-check' style="border-radius: 20px; padding: 4px;"></i></a>
-                                <a class ="btn__DaHuy" id ="toggle-red" href="#huy"><i class='bx bx-x' style="border-radius: 20px; padding: 4px;"></i></a>
+                                <!-- <a class ="btn__DaXN" id ="toggle-green" href="#xacnhan"><i class='bx bx-check' style="border-radius: 20px; padding: 4px;"></i></a>
+                                <a class ="btn__DaHuy" id ="toggle-red" href="#huy"><i class='bx bx-x' style="border-radius: 20px; padding: 4px;"></i></a> -->
                             </div>
                         </td>
                         <td>1</td>
                         <td class="btn">
-                            
+                           
                             <a class ="btn__ttdh"href="#ttdh" onclick="getIdDDH_progress(this)"><i class="lni lni-delivery"></i></a>
                         </td>
                         <!-- <td><span class="status completed">Completed</span></td> -->
@@ -294,13 +236,13 @@
                         <td class="tt">
                             <input class ="ttddh" style="display:none;" value="2">
                             <div class="btns">
-                                <a class ="btn__DaXN" id ="toggle-green" href="#xacnhan"><i class='bx bx-check' style="border-radius: 20px; padding: 4px;"></i></a>
-                                <a class ="btn__DaHuy" id ="toggle-red" href="#huy"><i class='bx bx-x' style="border-radius: 20px; padding: 4px;"></i></a>
+                                <!-- <a class ="btn__DaXN" id ="toggle-green" href="#xacnhan"><i class='bx bx-check' style="border-radius: 20px; padding: 4px;"></i></a>
+                                <a class ="btn__DaHuy" id ="toggle-red" href="#huy"><i class='bx bx-x' style="border-radius: 20px; padding: 4px;"></i></a> -->
                             </div>
                         </td>
                         <td>1</td>
                         <td class="btn">
-                            
+                           
                             <a class ="btn__ttdh"href="#ttdh" onclick="getIdDDH_progress(this)"><i class="lni lni-delivery"></i></a>
                         </td>
                         <!-- <td><span class="status completed">Completed</span></td> -->
@@ -316,35 +258,13 @@
                         <td class="tt">
                             <input class ="ttddh" style="display:none;" value="3">
                             <div class="btns">
-                                <a class ="btn__DaXN" id ="toggle-green" href="#xacnhan"><i class='bx bx-check' style="border-radius: 20px; padding: 4px;"></i></a>
-                                <a class ="btn__DaHuy" id ="toggle-red" href="#huy"><i class='bx bx-x' style="border-radius: 20px; padding: 4px;"></i></a>
+                                <!-- <a class ="btn__DaXN" id ="toggle-green" href="#xacnhan"><i class='bx bx-check' style="border-radius: 20px; padding: 4px;"></i></a>
+                                <a class ="btn__DaHuy" id ="toggle-red" href="#huy"><i class='bx bx-x' style="border-radius: 20px; padding: 4px;"></i></a> -->
                             </div>
                         </td>
                         <td>1</td>
                         <td class="btn">
-                            
-                            <a class ="btn__ttdh"href="#ttdh" onclick="getIdDDH_progress(this)"><i class="lni lni-delivery"></i></a>
-                        </td>
-                        <!-- <td><span class="status completed">Completed</span></td> -->
-                    </tr>
-                    <tr>
-                        <td><p>515</p></td>   
-                        <td><p>KH1</p></td>
-                        <!-- <td><time datetime="....-..-.."></time></td> -->
-                        <td><p>yyyy-mm-dd</p></td>
-                        <td>339 phước long b</td>
-                        <td>0845002405</td>
-                        <td><p>10000000</p></t>
-                        <td class="tt">
-                            <input class ="ttddh" style="display:none;" value="4">
-                            <div class="btns">
-                                <a class ="btn__DaXN" id ="toggle-green" href="#xacnhan"><i class='bx bx-check' style="border-radius: 20px; padding: 4px;"></i></a>
-                                <a class ="btn__DaHuy" id ="toggle-red" href="#huy"><i class='bx bx-x' style="border-radius: 20px; padding: 4px;"></i></a>
-                            </div>
-                        </td>
-                        <td>1</td>
-                        <td class="btn">
-                            
+                           
                             <a class ="btn__ttdh"href="#ttdh" onclick="getIdDDH_progress(this)"><i class="lni lni-delivery"></i></a>
                         </td>
                         <!-- <td><span class="status completed">Completed</span></td> -->
@@ -359,18 +279,19 @@
                         <td><p>10000000</p></t>
                         <td class="tt">
                             <input class ="ttddh" style="display:none;" value="5">
-                            <div class="btns"> 
-                                <a class ="btn__DaXN" id ="toggle-green" href="#xacnhan"><i class='bx bx-check' style="border-radius: 20px; padding: 4px;"></i></a>
-                                <a class ="btn__DaHuy" id ="toggle-red" href="#huy"><i class='bx bx-x' style="border-radius: 20px; padding: 4px;"></i></a>
+                            <div class="btns">
+                                <!-- <a class ="btn__DaXN" id ="toggle-green" href="#xacnhan"><i class='bx bx-check' style="border-radius: 20px; padding: 4px;"></i></a>
+                                <a class ="btn__DaHuy" id ="toggle-red" href="#huy"><i class='bx bx-x' style="border-radius: 20px; padding: 4px;"></i></a> -->
                             </div>
                         </td>
                         <td>1</td>
                         <td class="btn">
-                            
+                           
                             <a class ="btn__ttdh"href="#ttdh" onclick="getIdDDH_progress(this)"><i class="lni lni-delivery"></i></a>
                         </td>
                         <!-- <td><span class="status completed">Completed</span></td> -->
                     </tr>
+                
             </tbody>
         </table>
         </div>
@@ -382,6 +303,52 @@
 </div>
 </div>
 </main>
+<div class="detail" id="detail" style="margin-top: 10%; width: 600px;height: fit-content; background-color: transparent; box-shadow: none;">
+    <div class="detail-content"  style=" margin: 0; width: 100%;">
+       
+    <div class="table-data">
+        <div class="order">
+            <span class="close_chitiet" onclick="closeDetail()">&times;</span>
+            <div class="head">
+                <h3 style="font-size: medium; margin-right: 0;">Chi tiết đơn đặt hàng:</h3>
+                <h3 style="float: left;font-size: medium;" id="id_ddh"></h3>
+                <!-- <form action="" id="search-bar" class="search">
+                    <input type="search" placeholder="Type something..." class="search__input">
+                    <a href="#"><i class='bx bx-search' ></i></a>
+                </form> -->
+            </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Hình ảnh</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                        <td><p>1</p></td>
+                        <td><p>1</p></td>
+                        <td><img src="assets/img/1.jpg"></td>      
+                        <td><p>1</p></td>
+                        <td><p>1000000</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>1</p></td>
+                        <td><p>1</p></td>
+                        <td><img src="assets/img/1.jpg"></td>      
+                        <td><p>1</p></td>
+                        <td><p>1000000</p></td>
+                    </tr>
+            </tbody>
+        </table>
+        <p class="totalBill" style="text-align: right; font-weight: bolder;">Tổng: ----</p>
+    </div>
+    </div>
+</div>
+</div>
 <div class="detail" id="detail-ttdh">
     <div class="detail-content" >
         <div class="table-data">
@@ -465,12 +432,15 @@
                     <p style="text-align: right; color: brown; font-weight: bold; margin-top: 5px; width: 100%;">Thành tiền: 6.000.000</p>
                 </div>
         </div>
+        <a class="btn_staff btn_nhandon" style="display: none;">Nhận đơn</a>
+        <a class="btn_staff btn_next gh-tc" style="display: none;"></a>
+        <a class="btn_staff btn_next gh-tb" style=" float: left;">Giao hàng thất bại</a>
+        </div>
         <div class="div_nameStaff" style="display: flex; gap: 7px">
             <p>Nhân viên giao hàng:</p>
             <p class="nameStaff"></p>
         </div>
-    </div>
-</div>
+    </div>  
 </div>
 </div>
     </section>
@@ -486,6 +456,7 @@
     <script src="assets/js/main.js"></script>
 	<script src="assets/js/chart.js"></script>
 	<script src="assets/js/mgr_script.js"></script>
-    
+    <script src="assets/js/user_script.js"></script>
+    <script src="assets/js/toast.js"></script>
 </body>
 </html>

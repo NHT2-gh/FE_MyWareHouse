@@ -10,6 +10,10 @@
     border-radius: 10px;
     padding: 10px;
 }
+/* .progress-order{
+    width: fit-content;
+    justify-content: center;
+} */
 .detail-content{
     align-items: center;
     background-color:var(--body-color-mgr);

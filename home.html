@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--=============== FAVICON ===============-->
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/b" type="image/x-icon">
 
     <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -16,13 +16,13 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <title>Home</title>
+    <title>TS-WATCH</title>
 </head>
 <body>
     <!-- ==================== HEADER ==================== -->
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="#" class="nav__logo">
+            <a href="home.html" class="nav__logo">
                 <i class='bx bxl-medium-old'></i>TS-WATCH
             </a>
     
@@ -38,9 +38,8 @@
                         <a href="#new" class="nav__link">New</a>
                     </li>
                     <li class="nav__item">
-                        <a href="user_product.html" class="nav__link">Products</a>
+                        <a href="#products" class="nav__link">Product</a>
                     </li>
-                    
                 </ul>
                 <div class="nav__close" id="nav-close">
                     <i class='bx bx-x' ></i>
@@ -75,35 +74,10 @@
         <h2 class="cart__title-center">My Cart</h2>
 
         <div class="cart__container">
-            <article class="cart__card">
+            <article class="cart__card"> 
+                <input type="checkbox" class="checkbox" name="band" value="sp1"/>
                 <div class="cart__box">
-                    <img src="assets/img/featured1.png" alt="" class="cart__img">
-                </div>
-
-                <div class="cart__details">
-                    <h3 class="cart__title">Jazzmaster</h3>
-                    <span class="cart__price">$1050</span>
-
-                    <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class="cart__amount-box">
-                                <i class='bx bx-minus' ></i>
-                            </span>
-
-                            <span class="cart__amount-number">1</span>
-
-                            <span class="cart__amount-box">
-                                <i class='bx bx-plus' ></i>
-                            </span>
-                        </div>
-
-                        <i class='bx bx-trash-alt cart__amount-trash' ></i>
-                    </div>
-                </div>
-            </article>
-            
-            <article class="cart__card">
-                <div class="cart__box">
+                    
                     <img src="assets/img/featured3.png" alt="" class="cart__img">
                 </div>
 
@@ -113,55 +87,57 @@
 
                     <div class="cart__amount">
                         <div class="cart__amount-content">
-                            <span class="cart__amount-box">
-                                <i class='bx bx-minus' ></i>
+                            <span class="cart__amount-box minus">
+                                <i class='bx bx-minus ' ></i>
                             </span>
 
-                            <span class="cart__amount-number">1</span>
+                            <input class="cart__amount-number" value="1"/>
 
-                            <span class="cart__amount-box">
-                                <i class='bx bx-plus' ></i>
+                            <span class="cart__amount-box plus">
+                                <i class='bx bx-plus ' ></i>
                             </span>
                         </div>
-
-                        <i class='bx bx-trash-alt cart__amount-trash' ></i>
                     </div>
                 </div>
+                <i class='bx bx-trash-alt cart__amount-trash' ></i>
             </article>
-
-            <article class="cart__card">
+            
+            <article class="cart__card"> 
+                <input type="checkbox" class="checkbox" name="band" value="sp1"/>
                 <div class="cart__box">
-                    <img src="assets/img/new1.png" alt="" class="cart__img">
+                    
+                    <img src="assets/img/featured3.png" alt="" class="cart__img">
                 </div>
 
                 <div class="cart__details">
-                    <h3 class="cart__title">Longines Rose</h3>
-                    <span class="cart__price">$980</span>
+                    <h3 class="cart__title">Rose Gold</h3>
+                    <span class="cart__price">$850</span>
 
                     <div class="cart__amount">
                         <div class="cart__amount-content">
-                            <span class="cart__amount-box">
+                            <span class="cart__amount-box minus">
                                 <i class='bx bx-minus' ></i>
                             </span>
 
-                            <span class="cart__amount-number">1</span>
+                            <input class="cart__amount-number" value="1"/>
 
-                            <span class="cart__amount-box">
+                            <span class="cart__amount-box plus">
                                 <i class='bx bx-plus' ></i>
                             </span>
                         </div>
-
-                        <i class='bx bx-trash-alt cart__amount-trash' ></i>
                     </div>
                 </div>
+                <i class='bx bx-trash-alt cart__amount-trash' ></i>
             </article>
+
+            
         </div>
 
         <div class="cart__prices">
             <span class="cart__prices-item">3 items</span>
             <span class="cart__prices-total">$2880</span>
         </div>
-        <button class="button home__button">ADD TO CART</button>
+        <a href="user_thanhtoan.html" class="button home__button buy">BUY NOW</a>
     </div>
 
     <!--==================== MAIN ====================-->
@@ -170,7 +146,7 @@
         <section class="home" id="home">
             <div class="home__container container grid">
                 <div class="home__img-bg">
-                    <img src="assets/img/home.png" alt="" class="home__img">
+                    <img src="assets/img/5.png" alt="" class="home__img">
                 </div>
 
                 <div class="home__social">
@@ -186,12 +162,14 @@
                 </div>
 
                 <div class="home__data">
-                    <h1 class="home__title">NEW WATCH <br> COLLECTIONS B720</h1>
+                    <h1 class="home__title">NEW WATCH <br> APPLE WATCH</h1>
                     <p class="home__description">
-                        Latest arrival of the new imported watches of the B720 series, 
-                        with a modern and resistant design.
+                        Đồng hồ thông minh Apple Watch Ultra LTE 49mm dây cao su là một trong những dòng 
+                        sản phẩm gây chú ý của Apple trong năm 2022. Với thiết kế mới mẻ, thời lượng pin 
+                        cải tiến cùng nhiều tính năng hiện đại, đây hứa hẹn sẽ là chiếc smartwatch được các 
+                        tín đồ công nghệ săn đón..
                     </p>
-                    <span class="home__price">$1245</span>
+                    <span class="home__price">18.990.000 VND</span>
 
                     <div class="home__btns">
                         <a href="#" class="button button--gray button--small">
@@ -211,14 +189,15 @@
             </h2>
 
             <div class="featured__container grid">
-                <article class="featured__card">
+                <article class="featured__card products__card">
                     <span class="featured__tag">Sale</span>
 
                     <img src="assets/img/featured1.png" alt="" class="featured__img">
 
                     <div class="featured__data">
                         <h3 class="featured__title">Jazzmaster</h3>
-                        <span class="featured__price">$1050</span>
+                            <span class="featured__price dicount-price">9000</span>
+                            <span class="featured__price none-dicount">$1050</span>
                     </div>
 
                     <button class="button featured__button">ADD TO CART</button>
@@ -278,70 +257,71 @@
                 </div>
             </div>
         </section>
-
-        <!--==================== PRODUCTS ====================-->
-        <section class="products section container" id="products">
+        <!--==================== NEW ====================-->
+        <section class="new section container" id="new">
             <h2 class="section__title">
-                Products
+                New Arrivals
             </h2>
+            
+            <div class="new__container">
+                <div class="swiper new-swiper">
+                    <div class="swiper-wrapper">
+                        <article class="new__card swiper-slide">
+                            <span class="new__tag">New</span>
+    
+                            <img src="assets/img/new1.png" alt="" class="new__img">
+    
+                            <div class="new__data">
+                                <h3 class="new__title">Longines rose</h3>
+                                <span class="new__price">$980</span>
+                            </div>
+    
+                            <button class="button new__button">ADD TO CART</button>
+                        </article>
 
-            <div class="products__container grid">
-                <article class="products__card">
-                    <img src="assets/img/product1.png" alt="" class="products__img">
+                        <article class="new__card swiper-slide">
+                            <span class="new__tag">New</span>
+    
+                            <img src="assets/img/new2.png" alt="" class="new__img">
+    
+                            <div class="new__data">
+                                <h3 class="new__title">Jazzmaster</h3>
+                                <span class="new__price">$1150</span>
+                            </div>
+    
+                            <button class="button new__button">ADD TO CART</button>
+                        </article>
 
-                    <h3 class="products__title">Spirit rose</h3>
-                    <span class="products__price">$1500</span>
+                        <article class="new__card swiper-slide">
+                            <span class="new__tag">New</span>
+    
+                            <img src="assets/img/new3.png" alt="" class="new__img">
+    
+                            <div class="new__data">
+                                <h3 class="new__title">Dreyfuss gold</h3>
+                                <span class="new__price">$750</span>
+                            </div>
+    
+                            <button class="button new__button">ADD TO CART</button>
+                        </article>
 
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-
-                <article class="products__card">
-                    <img src="assets/img/product2.png" alt="" class="products__img">
-
-                    <h3 class="products__title">Khaki pilot</h3>
-                    <span class="products__price">$1350</span>
-
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-
-                <article class="products__card">
-                    <img src="assets/img/product3.png" alt="" class="products__img">
-
-                    <h3 class="products__title">Jubilee black</h3>
-                    <span class="products__price">$870</span>
-
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-
-                <article class="products__card">
-                    <img src="assets/img/product4.png" alt="" class="products__img">
-
-                    <h3 class="products__title">Fosil me3</h3>
-                    <span class="products__price">$650</span>
-
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
-
-                <article class="products__card">
-                    <img src="assets/img/product5.png" alt="" class="products__img">
-
-                    <h3 class="products__title">Duchen</h3>
-                    <span class="products__price">$950</span>
-
-                    <button class="products__button">
-                        <i class='bx bx-shopping-bag'></i>
-                    </button>
-                </article>
+                        <article class="new__card swiper-slide">
+                            <span class="new__tag">New</span>
+    
+                            <img src="assets/img/new4.png" alt="" class="new__img">
+    
+                            <div class="new__data">
+                                <h3 class="new__title">Portuguese rose</h3>
+                                <span class="new__price">$1590</span>
+                            </div>
+    
+                            <button class="button new__button">ADD TO CART</button>
+                        </article>                       
+                    </div>
+                </div>
             </div>
         </section>
+        
 
         <!--==================== TESTIMONIAL ====================-->
         <section class="testimonial section container">
@@ -427,68 +407,70 @@
             </div>
         </section>
 
-        <!--==================== NEW ====================-->
-        <section class="new section container" id="new">
+        <!--==================== PRODUCTS ====================-->
+        <section class="products section container" id="products">
             <h2 class="section__title">
-                New Arrivals
+                Products
             </h2>
-            
-            <div class="new__container">
-                <div class="swiper new-swiper">
-                    <div class="swiper-wrapper">
-                        <article class="new__card swiper-slide">
-                            <span class="new__tag">New</span>
-    
-                            <img src="assets/img/new1.png" alt="" class="new__img">
-    
-                            <div class="new__data">
-                                <h3 class="new__title">Longines rose</h3>
-                                <span class="new__price">$980</span>
-                            </div>
-    
-                            <button class="button new__button">ADD TO CART</button>
-                        </article>
 
-                        <article class="new__card swiper-slide">
-                            <span class="new__tag">New</span>
-    
-                            <img src="assets/img/new2.png" alt="" class="new__img">
-    
-                            <div class="new__data">
-                                <h3 class="new__title">Jazzmaster</h3>
-                                <span class="new__price">$1150</span>
-                            </div>
-    
-                            <button class="button new__button">ADD TO CART</button>
-                        </article>
+            <div class="products__container grid">
+                <article class="products__card">
+                    <img src="assets/img/product1.png" alt="" class="products__img">
 
-                        <article class="new__card swiper-slide">
-                            <span class="new__tag">New</span>
-    
-                            <img src="assets/img/new3.png" alt="" class="new__img">
-    
-                            <div class="new__data">
-                                <h3 class="new__title">Dreyfuss gold</h3>
-                                <span class="new__price">$750</span>
-                            </div>
-    
-                            <button class="button new__button">ADD TO CART</button>
-                        </article>
+                    <h3 class="products__title">Spirit rose</h3>
+                    <span class="products__price">$1500</span>
 
-                        <article class="new__card swiper-slide">
-                            <span class="new__tag">New</span>
-    
-                            <img src="assets/img/new4.png" alt="" class="new__img">
-    
-                            <div class="new__data">
-                                <h3 class="new__title">Portuguese rose</h3>
-                                <span class="new__price">$1590</span>
-                            </div>
-    
-                            <button class="button new__button">ADD TO CART</button>
-                        </article>                       
-                    </div>
-                </div>
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product2.png" alt="" class="products__img">
+
+                    <h3 class="products__title">Khaki pilot</h3>
+                    <span class="products__price">$1350</span>
+
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product3.png" alt="" class="products__img">
+
+                    <h3 class="products__title">Jubilee black</h3>
+                    <span class="products__price">$870</span>
+
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product4.png" alt="" class="products__img">
+
+                    <h3 class="products__title">Fosil me3</h3>
+                    <span class="products__price">$650</span>
+
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product5.png" alt="" class="products__img">
+
+                    <h3 class="products__title">Duchen</h3>
+                    <span class="products__price">$950</span>
+
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+            </div>
+            <div>
+                <a href="user_product.html" class="button">Xem thêm</a>
             </div>
         </section>
 
@@ -597,5 +579,6 @@
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
+    <script src ="assets/js/user_script.js"></script>
 </body>
 </html>

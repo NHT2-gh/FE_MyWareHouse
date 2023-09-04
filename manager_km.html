@@ -4,8 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- Boxicons -->
+	<!-- icons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 	<!-- My CSS -->
 	<link rel="stylesheet" href="assets/css/manager.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
@@ -73,8 +74,8 @@
 			<span class="text">AdminHub</span>
 		</a> -->
 		<ul class="side-menu top">		
-			<li class="active">
-				<a href="#main__statistics" class="active">
+			<li >
+				<a href="manager_tk.html" class="active">
 					<i class='bx bx-bar-chart-alt'></i>
 					<span class="text">Thống kê</span>
 				</a>
@@ -91,8 +92,8 @@
 					<span class="text">Đơn đặt hàng</span>
 				</a>
 			</li>
-			<li>
-				<a href="manager_dg.html">
+			<li >
+				<a href="#main__danhgia">
 					<i class='bx bxs-pen'></i>
 					<span class="text">Đánh giá</span>
 				</a>
@@ -115,20 +116,20 @@
 					<span class="text">Hãng/Loại đồng hồ</span>
 				</a>
 			</li>
-			<li>
+			<li class="active">
 				<a href="manager_km.html">
 					<i class='bx bxs-city'></i>
 					<span class="text">Khuyến mãi</span>
-				</a>	
+				</a>
 			</li>
 			<li>
 				<a href="manager_bh.html">
-					<i class='bx bxs-city'></i>
+					<i class='bx bx-dialpad-alt'></i>
 					<span class="text">Bảo hành</span>
-				</a>	
+				</a>
 			</li>
 			<li>	
-				<a href="login.html" class="logout">
+				<a href="#" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Đăng xuất</span>
 				</a>
@@ -166,63 +167,92 @@
 
 		<!-- MAIN -->
 		<main>
-			<!-- <nav>
-				<i class='bx bx-menu' ></i>
-				<a href="#" class="nav-link">Categories</a>
-			</nav> -->
-			<div id="main__statistics">
-			<div class="head-title">
-				<div class="left">
-					<h1>Thống kê</h1>
-					<!-- <ul class="breadcrumb">
+            <div id = main__km>
+				<div class="head-title">
+                    <div class="left">
+                        <h1>Khuyến mãi</h1>
+                            <!-- <ul class="breadcrumb">
+                                <li>
+                                    <a href="#">statistics</a>
+                                </li>
+                                <li><i class='bx bx-chevron-right'	 ></i></li>
+                                <li>
+                                    <a class="active" href="#">Home</a>
+                                </li>
+                            </ul> -->
+                    </div>
+                </div>
+				<div class="dialog" id="confirmDialog_">
+                    <div class="dialog-content">
+                      <h2>Xác nhận xóa</h2>
+                      <p>Bạn có chắc chắn muốn xóa đợt khuyến mãi</p><output id = "id_"></output>
+                      <div class="dialog-buttons">
+                        <button id="confirmBtn">Đồng ý</button>
+                        <button id="cancelBtn">Hủy bỏ</button>
+                      </div>
+                    </div>
+                </div>   
+                <div class="table-data">
+                    <div class="order">
+                        <div class="head">
+                            <h3>Danh sách khuyến mãi</h3>
+                            <form action="" id="search-bar" class="search">
+                                <input type="search" placeholder="Type something..." class="search__input">
+                                <a href="#"><i class='bx bx-search' ></i></a>
+                                </form>
+                            <a href="#"><i class="lni lni-circle-plus" onclick="openDetail_ad()"></i></a>
+                        </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Lí do khuyến mãi</th>
+								<th>Ngày bắt đầu</th>
+								<th>Ngày kết thúc</th>
+								<th>Phần trăm khuyến mãi</th>
+                                <th>Chỉnh sửa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                    <td><p>1</p></td>
+                                    <td><p>Thích</p></td>
+									<td><p>01/01/2023</p></td>
+									<td><p>02/01/2023</p></td>
+									<td><p>30%</p></td>
+                                    <!-- <td><time datetime="....-..-.."></time></td> -->
+                                    <td class="btn">
+                                        <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+		<div class="detail" id="detail">
+			<div class="detail-content">
+				<span class="close_chitiet" onclick="closeDetail()">&times;</span>
+				<form class="form-input">
+					<ul id="myList">
 						<li>
-							<a href="#">Thống kê theo năm</a>
+							<input  type="text" id="input__saleID" name="saleID"  class="field-style field-full align-none"  placeholder="ID Khuyến mãi">
 						</li>
-						<li><i class='bx bx-chevron-right'	 ></i></li>
 						<li>
-							<a class="active" href="#">Trang chủ</a>
+							<input  type="text" id="input__reasons"  name="reasons" class="field-style field-full align-none" placeholder="Lí do khuyến mãi">
 						</li>
-					</ul> -->
-				</div>
-			</div>
-
-			<ul class="box-info">
-				<li>
-					<i class='bx bxs-basket'></i>
-					<span class="text">
-						<h3>...</h3>
-						<p>Tổng đơn đặt hàng</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-group' ></i>
-					<span class="text">
-						<h3>...</h3>
-						<p>Tổng số khách hàng</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-dollar-circle' ></i>
-					<span class="text">
-						<h3>$...</h3>
-						<p>Tổng doanh thu</p>
-					</span>
-				</li>
-			</ul>
-			<div class="chart">
-				<div class="head">
-					<h3>Biểu đồ thống kê doanh số theo năm</h3>
-				</div>
-				<canvas id="myChart" aria-label="chart" role="img"></canvas>
-			</div>
+						<li>
+							<input type="date" id="input__dateStar"  class="field-style field-split align-left" name="dateStar" placeholder="Ngày bắt đầu"></input>
+							<input type="date" id="input__dateEnd"  class="field-style field-split align-right" name="dateEnd" placeholder="Ngày kết thúc"></input>
+						</li>
+						<li>
+							<input type="text" id="input__precent"  class="field-style field-full align-none" name="percentSale" placeholder="Phần trăm khuyến mãi"></input>
+						</li>
+					</ul>
+				</form>
 		</div>
-			<!-- END STATISTICS-->
-		
-	</main>
-		
-				
-			<!-- END PRODUCT-->
-			<!-- </div> -->
+		</div>
 	</section>
 	<!-- CONTENT -->
 	

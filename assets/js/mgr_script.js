@@ -10,84 +10,14 @@ allSideMenu.forEach(item=> {
 		li.classList.add('active');
 	})
 });
-
-
-
-
 // TOGGLE SIDEBAR
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
-
-menuBar.addEventListener('click', function () {
-	sidebar.classList.toggle('hide');
-})
-
-
-
-
-
-
-
-const searchButton = document.querySelector('#content nav form .form-input button');
-const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
-const searchForm = document.querySelector('#content nav form');
-
-// searchButton.addEventListener('click', function (e) {
-// 	if(window.innerWidth < 576) {
-// 		e.preventDefault();
-// 		searchForm.classList.toggle('show');
-// 		if(searchForm.classList.contains('show')) {
-// 			searchButtonIcon.classList.replace('bx-search', 'bx-x');
-// 		} else {
-// 			searchButtonIcon.classList.replace('bx-x', 'bx-search');
-// 		}
-// 	}
-// })
-
-
-
-
-
-// if(window.innerWidth < 768) {
-// 	sidebar.classList.add('hide');
-// } else if(window.innerWidth > 576) {
-// 	searchButtonIcon.classList.replace('bx-x', 'bx-search');
-// 	searchForm.classList.remove('show');
-// }
-
-
-// window.addEventListener('resize', function () {
-// 	if(this.innerWidth > 576) {
-// 		searchButtonIcon.classList.replace('bx-x', 'bx-search');
-// 		searchForm.classList.remove('show');
-// 	}
-// })
-
-
-
-// const switchMode = document.getElementById('switch-mode');
-
-// switchMode.addEventListener('change', function () {
-// 	if(this.checked) {
-// 		document.body.classList.add('dark');
-// 	} else {
-// 		document.body.classList.remove('dark');
-// 	}
-// })
-
-// function showMain(mainId) {
-// 	// remove active class from all mains
-	
-// 	const mains = document.getElementsByTagName("main");
-// 	for (let i = 0; i < mains.length; i++) {
-// 	  mains[i].classList.remove("active");
-// 	}
-  
-// 	// add active class to the main with the specified ID
-// 	const main = document.getElementById(mainId);
-// 	main.classList.add("active");
-//   }
-
+if (menuBar){
+	menuBar.addEventListener('click', function () {
+		sidebar.classList.toggle('hide');
+	})
+}
 // CHUYEN TRANG TRONG MAIN CHINH
 window.onload = function() {
 	var links = document.querySelectorAll('#sidebar li');
@@ -110,22 +40,16 @@ window.onload = function() {
 };
 
 
-
-
-
-
-// DATAIL
+// DETAIL
   // Get the modal
-  var modal = document.getElementById("detail");
-  var modal_1 = document.getElementById("detail-ttdh");
-  // Get the button that opens the modal
-//   var btn = document.getElementsById("btn__chitiet-ddh")[0];
-
+var modal = document.getElementById("detail");
+var modal_1 = document.getElementById("detail-ttdh");
   // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close_chitiet")[0];
-  // When the user clicks the button, open the modal 
-//   var tableRows = document.querySelectorAll("#tbl-sp  tbody tr");
-
+var span = document.getElementsByClassName("close_chitiet")[0];
+var bill = document.getElementsByClassName('div_bill')[0];
+var btn_next = document.getElementsByClassName("btn_next")[0];
+var p_nameStaff = document.getElementsByClassName('nameStaff')[0];
+    
 function openProgress(row){
 	getProgress(row);
 	modal_1.style.display = "block";
@@ -134,24 +58,46 @@ function closeProgress(){
 	modal_1.style.display ="none";
 	resetProgress();
 }
-
-  function openDetail() {
+resetDetail();
+// openDlOrder
+function openDetail(btn){
+	var row = btn.parentElement.parentElement;
+	getProgress(row);
 	modal.style.display = "block";
 }
-
+// openDl in admin
+function openDetail_ad(){
+	modal.style.display = "block";
+}
   // When the user clicks on <span> (x), close the modal
-	function closeDetail() {
+function closeDetail() {
+	modal.style.display = "none";
+	resetDetail();
+}
+	// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	if (event.target == modal) {
 		modal.style.display = "none";
-		const liElements  = document.querySelectorAll("#myList li");
+		resetDetail();
+	}
+	else if(event.target == modal_1) {
+		modal_1.style.display = "none";
+		resetProgress(); 
+	}
+}
+	
+function resetDetail(){
+	const liElements  = document.querySelectorAll("#myList li");
 		if(liElements){
 		liElements.forEach(li => {
 			const childElements = li.querySelectorAll('*');
 			childElements.forEach(child => {
-				// console.log(child.id);
 				if (child.id) {
-					// if (child.id === "input__roleID" || child.id === "input__status") {
-						if (child.tagName === "SELECT"){
+					if (child.tagName === "SELECT"){
 						document.getElementById(child.id).value="0";
+					}else if(child.id === "input__fileName"){
+						document.getElementById(child.id).innerText="File name:";
+						document.getElementsByClassName("preView_img")[0].src ="";
 					}else{
 						document.getElementById(child.id).value="";
 					}
@@ -160,64 +106,16 @@ function closeProgress(){
 		});
 		});
 		}
-	}
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-		if (event.target == modal) {
-			modal.style.display = "none";
-			const liElements  = document.querySelectorAll("#myList li");
-			if(liElements){
-			liElements.forEach(li => {
-			const childElements = li.querySelectorAll('*');
-			childElements.forEach(child => {
-				// console.log(child.id);
-				if (child.id) {
-					// if (child.id === "input__roleID" || child.id === "input__status") {
-						if (child.tagName === "SELECT"){
-						document.getElementById(child.id).value="0";
-						}else{
-						document.getElementById(child.id).value="";
-						}
-						document.getElementById(child.id).readOnly=false;
-			}
-			});
-			});
-		}
-		}else if(event.target == modal_1) {
-			modal_1.style.display = "none";
-			resetProgress();
-		}
-	}
-//   ====================
-
-// const username = document.getElementById('username').value;
-// const password = document.getElementById('password').value;
-
-// // Thiết lập cookie lưu trữ thông tin người dùng
-// Cookies.set('username', username, { expires: 7 });
-
-// // Lấy giá trị của cookie "username"
-// username = Cookies.get('username');
-
-// // Kiểm tra xem cookie có tồn tại không
-// if (user_name) {
-//   // Nếu cookie tồn tại, cập nhật giao diện trang web để hiển thị tên người dùng
-//   document.getElementById('welcome-message').innerHTML = `Chào mừng ${username} đến với trang web của chúng tôi!`;
-// } else {
-//   // Nếu cookie không tồn tại, yêu cầu người dùng đăng nhập hoặc đăng ký
-//   alert('Vui lòng đăng nhập hoặc đăng ký để sử dụng các tính năng của trang web!');
-// }
-
-const tableRows = document.querySelectorAll(".table-data tbody tr");
-
-//DDH
-function getIdDDH(btn){
-	// btn = document.getElementById("btn__chitiet-ddh");
-	var row = btn.parentNode.parentNode;
-	var td = row.getElementsByTagName("td");
-	document.getElementById("id_ddh").innerHTML=td[0].innerText;
-	openDetail(btn);
 }
+const tableRows = document.querySelectorAll(".table-data tbody tr");
+//DDH
+// function getIdDDH(btn){
+// 	// btn = document.getElementById("btn__chitiet-ddh");
+// 	var row = btn.parentNode.parentNode;
+// 	var td = row.getElementsByTagName("td");
+// 	document.getElementById("id_ddh").innerHTML=td[0].innerText;
+// 	openDetail(btn);
+// }
 
 function getIdDDH_progress(btn){
 	// btn = document.getElementById("btn__chitiet-ddh");
@@ -243,7 +141,6 @@ for (var i = 0; i < tableRows.length; i++) {
 		childElements.forEach(child => {
 		  if (child.id) {
 			ids.push(child.id);
-			console.log(child.id)
 			}
 		});
 	  });
@@ -255,20 +152,28 @@ for (var i = 0; i < tableRows.length; i++) {
 			document.getElementById("input__userID").value = id_user;
 			document.getElementById("input__userName").value = name_user;
 			document.getElementById("input__phone").value = phone_user;
-			openDetail();
-		}else{
-			var id_bh=cells[0].innerText;
-			var id_sp = cells[1].innerText;
-			document.getElementById("input__IDbh").value = id_bh;
-			document.getElementById("input__IDproduct").value = id_sp;
-			openDetail();
+			openDetail_ad();
 		}
+		else if(ids[0] === "input__staffID"){
+				var length = (cells.length);
+				var id_staff = cells[0].innerText;
+				var phone_user = cells[length-3].innerText;
+				document.getElementById("input_staffID").value = id_staff;
+				document.getElementById("input__phone").value = phone_user;
+				openDetail_ad();
+		}else{
+			var id_hdh_ldh=cells[0].innerText;
+			var namem_hdh_ldh = cells[1].innerText;
+			document.getElementById("").value = id_hdh_ldh;
+			document.getElementById("").value = namem_hdh_ldh;
+			openDetail_ad();
+		}
+
 	});
 }
 }
 
 function getDetailInfo(){
-	// Duyệt qua các thẻ tr và thiết lập sự kiện click cho nút "Xóa" của mỗi thẻ tr
 	for (var i = 0; i < tableRows.length; i++) {
 	  var change_btn = tableRows[i].querySelector(".btn__chitiet");
 	  change_btn.addEventListener("click", function() {
@@ -281,25 +186,65 @@ function getDetailInfo(){
 			const childElements = li.querySelectorAll('*');
 			childElements.forEach(child => {
 			  if (child.id) {
-				console.log(count, child.id)
+				
 				if(child.id !== "input__img"){
 					var tmp = cells[count].innerText;
 					document.getElementById(child.id).value=tmp;
+				}else if(child.id === "input__img"){
+					var imgProduct = document.getElementsByClassName('img_product')[0];
+					var getSrcImg = imgProduct.src;
+					document.getElementsByClassName('preView_img')[0].src = getSrcImg;
+					var fileName = getSrcImg.substring(getSrcImg.lastIndexOf('/') + 1);
+					var spanFileName = document.getElementsByClassName('span_fileName')[0];
+					spanFileName.textContent  = 'File name: ' + fileName;
 				}
+				console.log(child.id);
+				console.log(tmp)
 				count++;
 			  }
 			});
 		  });
-		openDetail();
+		  openDetail_ad();
 		});
 	}
 	}
-
-
+	// Xu li input type = 'file'
+	var input_imgProduct = document.getElementById('input__img');
+	if (input_imgProduct){
+		input_imgProduct.addEventListener('change', function(){
+			var preView_img = document.getElementsByClassName('preView_img')[0];
+			var input_value = input_imgProduct.value;
+			var spanFileName = document.getElementsByClassName('span_fileName')[0];
+			var fileName = input_value.substring(input_value.lastIndexOf('\\') + 1);
+			spanFileName.textContent  = 'File name: ' + fileName;
+			preView_img.src = 'assets/img/' + fileName;
+			console.log(preView_img.src)
+		})
+	}
+	// SHOW TINH TRANG STAFF
+	const table_Staff = document.querySelectorAll('#tbl-staff tbody tr');
+	for ( var i = 0; i < table_Staff.length; i++){
+		var td = table_Staff[i].getElementsByTagName('td')[7];
+		var input = td.getElementsByTagName('input')[0].value;
+		// input === 0 -> staff đang hoạt động
+		if(input === '0'){
+			td.style.color = 'rgb(127, 248, 79)';
+			var icon_status = document.createElement('i');
+			var icon_statusContent = `<i class='bx bxs-circle' ></i>`;
+			icon_status.innerHTML = icon_statusContent;
+			td.append(icon_status);
+		}else{// input === 1 -> staff ngưng hoạt động
+			td.style.color = 'rgb(209, 63, 63)';
+			var icon_status = document.createElement('i');
+			var icon_statusContent = `<i class='bx bxs-circle' ></i>`;
+			icon_status.innerHTML = icon_statusContent;
+			td.append(icon_status);
+		}
+	}
 // LAY ID USER CHO DIALOG
 
 // const deleteButtons = document.querySelectorAll(".btn__xoa");
-const confirmDialog_kh = document.getElementById('confirmDialog_');
+const confirmDialog_ = document.getElementById('confirmDialog_');
 const confirmBtn = document.getElementById('confirmBtn');
 const cancelBtn = document.getElementById('cancelBtn');
 for (let i = 0; i < tableRows.length; i++) {
@@ -310,14 +255,14 @@ for (let i = 0; i < tableRows.length; i++) {
 		let cells = row.getElementsByTagName("td");
 		let id = cells[0].innerText;
 		document.getElementById("id_").innerHTML = id;
-		if(confirmDialog_kh){
-		confirmDialog_kh.style.display = 'block';
+		if(confirmDialog_){
+		confirmDialog_.style.display = 'block';
 		confirmBtn.addEventListener('click', () => {
 		  row.remove();
-		  confirmDialog_kh.style.display = 'none';
+		  confirmDialog_.style.display = 'none';
 		});
 		cancelBtn.addEventListener('click', () => {
-		  confirmDialog_kh.style.display = 'none';
+		  confirmDialog_.style.display = 'none';
 		});
 	}
 	  });
@@ -328,7 +273,7 @@ function selectBtn(btn) {
 	var btnID = btn.id;
 	var row = btn.parentNode.parentNode.parentNode;
 	var ttddh = row.getElementsByClassName("ttddh")[0];
-	var ttddh_value = ttddh.innerHTML;
+	var ttddh_value = ttddh.value;
 	if (btnID === "toggle-green"){
 	// Lấy dòng chứa nút được click
 	// var row = btn.parentNode.parentNode.parentNode;
@@ -341,7 +286,8 @@ function selectBtn(btn) {
 	var p = document.createElement("p");
 	p.innerHTML = "Đã xác nhận";
 	btn.parentNode.parentNode.replaceChild(p, edit);
-	ttddh_value.innerHTML ='2';
+	ttddh_value = 2;
+	console.log(ttddh_value)
 	}
 	else{
 		row.style.backgroundColor = "var(--red-btnh)";
@@ -351,15 +297,16 @@ function selectBtn(btn) {
 	var p = document.createElement("p");
 	p.innerHTML = "Đã hủy";
 	btn.parentNode.parentNode.replaceChild(p, edit);
+	ttddh_value = 5 ;
 	}
 	getProgress(row);
 }
+
 function selectStatus(row) {
 		var ttddh = row.getElementsByClassName("ttddh")[0];
-		var ttddh_value = ttddh.innerHTML;
+		var ttddh_value = ttddh.value;
 		var edit = ttddh.parentNode.querySelector(".btns");
 		var p = document.createElement("p");
-		console.log(ttddh_value);
 		if ( ttddh_value == 2){
 			row.style.backgroundColor = "var(--green-btnxh)";	
 			p.innerHTML = "Đã xác nhận";
@@ -388,6 +335,7 @@ const three = document.querySelector(".three");
 const four = document.querySelector(".four");
 const five = document.querySelector(".five");
 const li_huy = document.querySelectorAll("#step li.li");
+const li_five = document.querySelector(".li_five");
 
 function resetProgress() {
 	one.classList.add("active");
@@ -395,43 +343,137 @@ function resetProgress() {
     three.classList.remove("active");
     four.classList.remove("active");
 	five.classList.remove("active");
+	li_five.classList.remove("huy");
 	li_huy.forEach(element => {
         element.classList.remove("huy");
     	});
-}	
+	
+	var linkReview = document.getElementsByClassName('col_review');
+	var btn_next = document.getElementsByClassName('btn_next')[0];
+	var btn_huydon = document.getElementsByClassName('btn_huydon')[0];
+	var btn = document.getElementsByClassName('btn_viewBill')[0];
+	var btn_next_huy = document.getElementsByClassName('gh-tb')[0];
+	if(btn){
+		btn.style.display="none";
+		btn_huydon.style.display="block";
+		for(var i = 0; i < linkReview.length; i++){
+			linkReview[i].style.display="none";
+		}
+		bill.style.display="none";
+	}
+		else if (btn_next){
+		btn_next.style.display = "none";
+		btn_next.classList.add('btn_staff');
+		btn_next.style.color = "black";
+		btn_next.innerText = "Đang vận chuyển";
+		p_nameStaff.innerText = '';
+		btn_next_huy.style.display = "none";
+		btn_next_huy.classList.add('btn_staff');
+		btn_next_huy.innerText = "Giao hàng thất bại";
+        btn_next_huy.style.color = "black";
+	}	
+}
+
 function getProgress(row){
+	var linkNhanDon = document.getElementsByClassName('btn_nhandon')[0];
+	var linkReview = document.getElementsByClassName('col_review');
+	var btn_next = document.getElementsByClassName('btn_next')[0];
+	var btn_huydon = document.getElementsByClassName('btn_huydon')[0];
+	var btn = document.getElementsByClassName('btn_viewBill')[0];
+	var btn_next_huy = document.getElementsByClassName('gh-tb')[0];
+	resetProgress();
 	if(row.style.backgroundColor === "var(--green-btnxh)"){
 			one.classList.add("active");
     		two.classList.add("active");
     		three.classList.remove("active");
    	 		four.classList.remove("active");
+			li_five.classList.add("huy");
+			if(btn){
+				btn.style.display="none";
+				btn_huydon.style.display="none";
+				for(var i = 0; i < linkReview.length; i++){
+					linkReview[i].style.display="none";
+				}
+			}
+			if(linkNhanDon){
+				linkNhanDon.style.display="block";
+
+			}
 	}else if(row.style.backgroundColor === "var(--red-btnh)"){
-		one.classList.add("active");
+		one.classList.add("active"); 
     	five.classList.add("active");
     	li_huy.forEach(element => {
         element.classList.add("huy");
     	});
+		li_five.classList.remove("huy");
+		if(btn){
+			btn.style.display="none";
+			btn_huydon.style.display="none";
+			for(var i = 0; i < linkReview.length; i++){
+				linkReview[i].style.display="none";
+			}
+		}
+		if(linkNhanDon){
+			linkNhanDon.style.display="none";
+			btn_next_huy.style.display="block";
+			btn_next_huy.classList.remove('btn_staff');
+        	btn_next_huy.innerText = "Đã hủy";
+        	btn_next_huy.style.color = "red";
+		}
 	}else if(row.style.backgroundColor === "var(--orange-btnvc)"){
 		one.classList.add("active");
 		two.classList.add("active");
 		three.classList.add("active");
    	 	four.classList.remove("active");
 		five.classList.remove("active");
+		li_five.classList.add("huy");
+		if(btn){
+			btn.style.display="none";
+			btn_huydon.style.display="none";
+			for(var i = 0; i < linkReview.length; i++){
+				linkReview[i].style.display="none";
+			}
+		}
+		if(linkNhanDon){
+			linkNhanDon.style.display="none";
+			btn_next.innerText ="Giao hàng thành công";
+			btn_next.style.display = "block";
+			btn_next_huy.style.display = "block";
+		}
 	}else if(row.style.backgroundColor === "var(--yellow-btndg)"){
 		one.classList.add("active");
 		two.classList.add("active");
 		three.classList.add("active");
    	 	four.classList.add("active");
 		five.classList.remove("active");
+		li_five.classList.add("huy");
+		if(btn){
+			btn.style.display="block";
+			btn_huydon.style.display="none";
+			for(var i = 0; i < linkReview.length; i++){
+				linkReview[i].style.display="block";
+			}
+		}
+		if(linkNhanDon){
+			linkNhanDon.style.display="none";
+			btn_next.classList.remove('btn_staff');
+        	btn_next.innerText = "Đã giao hàng";
+        	btn_next.style.color = "red";
+			btn_next.style.display = "block";
+		}
 	}
 }
+
+	
+// showReview();
 // show dialog xac nhan, huy ddh
 const tableDDH = document.querySelectorAll('#ddh-data tbody tr');
 const confirmDialog_xn = document.getElementById('confirmDialog_xn');
 const confirmDialog_huy = document.getElementById('confirmDialog_huy');
 const confirmBtn1 = document.getElementById('confirmBtn1');
 const cancelBtn1 = document.getElementById('cancelBtn1');
-		for (let i = 0; i < tableDDH.length; i++) {
+const form = document.getElementById("submit-status"); 
+	for (let i = 0; i < tableDDH.length; i++) {
 	  	let row = tableDDH[i];
 		selectStatus(row);
 		resetProgress();
@@ -441,11 +483,11 @@ const cancelBtn1 = document.getElementById('cancelBtn1');
 	  	xnBtn.addEventListener("click", function() {
 		let cells = row.getElementsByTagName("td");
 		let id = cells[0].innerText;
-		document.getElementById("id_").innerHTML = id;
+		document.getElementById("id_").value = id;
 		confirmDialog_xn.style.display = 'block';
 		confirmBtn.addEventListener('click', () => {
 			confirmDialog_xn.style.display = 'none';
-		  	selectBtn(xnBtn);
+			selectBtn(xnBtn);
 		  	// const now = new Date();
 			// const datetime = now.toLocaleString();
 			// document.getElementById("dateNow").innerHTML=datetime;
@@ -458,46 +500,19 @@ const cancelBtn1 = document.getElementById('cancelBtn1');
 	  huyBtn.addEventListener("click", function() {
 		let cells = row.getElementsByTagName("td");
 		let id = cells[0].innerText;
-		document.getElementById("id_1").innerHTML = id;
+		document.getElementById("id_1").value = id;
 		confirmDialog_huy.style.display = 'block';
 		confirmBtn1.addEventListener('click', () => {
 			confirmDialog_huy.style.display = 'none';
-		  	selectBtn(huyBtn);	
-		  	// const now = new Date();
-  			// const datetime = now.toLocaleString();
-		  	// document.getElementById("dateNow").innerHTML=datetime;
+		  	selectBtn(huyBtn);
+			getProgress(row);
+		  	const now = new Date();
+  			const datetime = now.toLocaleString();
+		  	document.getElementById("dateNow").innerHTML=datetime;
 		});
 		cancelBtn1.addEventListener('click', () => {
 		  confirmDialog_huy.style.display = 'none';
 		});
 	  });
 	}
-} 
-
-
-
-// one.onclick = function(){
-//     one.classList.add("active");
-//     two.classList.remove("active");
-//     three.classList.remove("active");
-//     four.classList.remove("active");
-// }
-// two.onclick = function(){
-//     one.classList.add("active");
-//     two.classList.add("active");
-//     three.classList.remove("active");
-//     four.classList.remove("active");
-// }
-// three.onclick = function(){
-//     one.classList.add("active");
-//     two.classList.add("active");
-//     three.classList.add("active");
-//     four.classList.remove("active");
-
-// }	
-// four.onclick = function(){
-//     one.classList.add("active");
-//     two.classList.add("active");
-//     three.classList.add("active");
-//     four.classList.add("active");
-// }
+}

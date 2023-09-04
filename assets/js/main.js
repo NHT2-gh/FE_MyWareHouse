@@ -107,7 +107,6 @@ const scrollActive = () =>{
 			  sectionTop = current.offsetTop - 58,
 			  sectionId = current.getAttribute('id'),
 			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
-
 		if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
 			sectionsClass.classList.add('active-link')
 		}else{
@@ -176,3 +175,18 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+
+// ========CHECK========//
+  
+function isValidEmail(email) {
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+  
+
+function isValidPhoneNumber(phoneNumber) {
+    var phoneRegex = /^\d{10}$/;
+    return phoneRegex.test(phoneNumber);
+}
+  

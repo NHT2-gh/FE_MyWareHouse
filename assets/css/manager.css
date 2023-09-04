@@ -30,7 +30,7 @@ li {
 	--dark-grey: #AAAAAA;
 	--dark: #342E37;
 	--red: #DB504A;
-	--red-btnh: rgb(240, 157, 157);
+	--red-btnh: rgb(238, 128, 128);
 	--yellow: #ffd95e;
 	--light-yellow: #FFF2C6;
 	--yellow-btndg: #ffecad;
@@ -488,6 +488,7 @@ div.chart{
 	align-content: center;
 	background-color: white;
 	border-radius: 15px;
+	
 }
 /* DIV__PRODUCT */
 
@@ -519,7 +520,7 @@ div.chart{
 	-moz-box-sizing: border-box; 
 	padding: 8px;
 	outline: none;
-	border: 1px solid --first-color;
+	/* border: 1px solid var(--first-color); */
 	/* -webkit-transition: all 0.30s ease-in-out;
 	-moz-transition: all 0.30s ease-in-out;
 	-ms-transition: all 0.30s ease-in-out;
@@ -548,6 +549,9 @@ div.chart{
 	min-height: var(--h3-font-size);
 	min-width: 100%;
 }
+.form-input ul li select{
+	height: 40px;
+}
 .form-input ul li input[type="file"]{
 	border:1px solid rgb(110, 110, 110);
 	color: #342E37;
@@ -574,6 +578,7 @@ div.chart{
 	/* background-color: #d4c2a6; */
 	box-shadow:2px 2px gray;
 }
+
 /* table */
 #content main .table-data {
 	display: flex;
@@ -582,10 +587,11 @@ div.chart{
 	margin-top: 24px;
 	width: 100%;
 	color: var(--dark);
+	
 }
 #content main .table-data > div {
 	border-radius: 20px;
-	background: white;
+	background:white;
 	padding: 24px;
 	overflow-x: auto;
 }
@@ -627,7 +633,7 @@ div.chart{
 	border-bottom: 1px solid var(--grey);
 }
 #content main .table-data .order table td {
-	padding: 12px 0;
+	padding: 20px 10px;
 	align-items: center;
 }
 #content main .table-data .order table tr td:first-child {
@@ -642,40 +648,15 @@ div.chart{
 	border-radius: 50%;
 	object-fit: cover;
 }
+#content main .table-data .order table td.td__address{
+	max-width: 120px; overflow-x: hidden;
+}
 #content main .table-data .order table tbody tr:hover {
 	background: var(--grey);
 }
-
-/* #content main .table-data .todo {
-	flex-grow: 1;
-	flex-basis: 300px;
+#content main .table-data .order table tbody tr{
+	border-bottom: 1px solid rgb(187, 187, 187);
 }
-#content main .table-data .todo .todo-list {
-	width: 100%;
-}
-#content main .table-data .todo .todo-list li {
-	width: 100%;
-	margin-bottom: 16px;
-	background: var(--grey);
-	border-radius: 10px;
-	padding: 14px 20px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-#content main .table-data .todo .todo-list li .bx {
-	cursor: pointer;
-}
-#content main .table-data .todo .todo-list li.completed {
-	border-left: 10px solid var(--first-color);
-}
-#content main .table-data .todo .todo-list li.not-completed {
-	border-left: 10px solid var(--orange);
-}
-#content main .table-data .todo .todo-list li:last-child {
-	margin-bottom: 0;
-} */
-
 .table-data tbody tr .btn {
 	margin: 0;
 	display: grid;
@@ -702,6 +683,57 @@ div.chart{
 .table-data tbody tr .btn a:hover{
 	box-shadow:2px 2px grey;
 }
+
+.toggle-status{
+	border-radius:20px; 
+	width: 50px; 
+	padding:2px 3px; 
+	border: 2px solid black; 
+	text-align: center;
+	font-size: 14px;
+	background-color: var(--first-color);
+	font-weight: bold;
+}
+#nav__page{	
+	margin-top: 10px;
+	padding: 10px 33%;
+	justify-content: center;
+}
+#nav__page #pagination{
+	display: flex;
+	border: 1px solid black;
+	justify-content: center;
+	align-items: center;
+	border-radius: 7px;
+	background-color: var(--body-color);
+}
+#nav__page #pagination .page-item{
+	border-right: 1px solid rgb(161, 160, 160);
+	width: 100%;
+	text-align: center;
+	padding: 5px 10px;
+}
+#nav__page #pagination .page-item .page-link{
+	width: 100%;
+	height: 100%;
+	color: var(--title-color);
+}
+#nav__page #pagination .page-item.first{
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+#nav__page #pagination .page-item.last{
+	border: none;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+#nav__page #pagination .page-item:hover{
+	background-color: var(--body-color-mgr);
+	font-weight: bolder;
+}
+#nav__page #pagination .page-item.active{
+	font-weight: bolder;
+}
 /* dialog */
 
 .dialog {
@@ -718,12 +750,12 @@ div.chart{
 .dialog-content {
 	position: fixed;
 	top: 50%;
-	left: 60%;
+	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: white;
 	padding: 20px;
 	border-radius: 10px;	
-	width: 500px;
+	width: 30%;
 	text-align: center;
 	box-shadow: 3px 3px rgba(114, 114, 114, 0.514);
 	border: 2px solid #342E37 ;
@@ -764,11 +796,9 @@ div.chart{
 .Loc__DDH{
 	max-width: 100%;
 	background: #FAFAFA;
-	padding: 30px;
-	margin: 10px ;
-	/* 	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35); */
+	padding: 20px;
 	border-radius: 20px;
-	/* border: 6px solid #305A72; */
+	justify-content: center;
 }
 .Loc__DDH span{
 	display: block;
@@ -778,7 +808,6 @@ div.chart{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
 	grid-gap: 30px;
-	margin-top: 20px;
 }
 .btn__trangthai a{
 	/* border:2px solid black; */
@@ -834,29 +863,55 @@ div.chart{
 .btns a:hover{
 	box-shadow: 2px 2px gray;
 }
+.tt p{
+	font-weight: bold;
+}
+#search-barByDate .div__inputs{
+	border: 2px solid black;
+	display: flex; align-items: center;
+	padding: 4px;
+	border-radius: 10px;
+}
+#search-barByDate .form-control{
+	padding: 3px;
+	border: 1px solid black;
+	margin: 0 5px;
+	border-radius: 7px;
+}
+#search-barByDate .div__inputs .btn-success{
+	color: rgb(247, 148, 18);
+	border-radius: 30px;
+}
+#search-barByDate .form-control:hover{
+	border-color: var(--first-color);
+}
 /* DIV HIEN CHI TIET */
 .detail {
 	display: none; 
 	width: 100%;
-	padding: 20x 20px;
+	padding: 50x 20px;
 	font-family: var(--poppins);
 	max-height: calc(100vh - 56px);
 	overflow-y: auto;
 	background-color: transparent;
 	position: absolute;
-	
+	padding-bottom: 40px;
 }
 .detail-content {
 	background-color: var(--body-color-mgr);
-	margin: 7% auto; 
+	margin: 2% 20%; 
 	padding-top:0;
 	padding: 10px;
 	border: 1px solid #888;
-	width: 80%; 
+	width: 60%; 
 	position: relative;
 	border-radius: 10px;
 	transition: 0.3s;
+	height: 80%;
 	/* transition-delay: 1s; */
+}
+.detail-content .form-input{
+	box-shadow: none;
 }
 .close_chitiet{
 	/* color: var(--title-color); */
@@ -874,7 +929,7 @@ div.chart{
 #content .detail .table-data {
 	display: flex;
 	flex-wrap: wrap;
-	grid-gap: 24px;
+	grid-gap: 20px;
 	margin-top: 0px;
 	width: 100%;
 	color: var(--dark);
@@ -888,12 +943,11 @@ div.chart{
 #content .detail .table-data .head {
 	display: flex;
 	align-items: center;
-	grid-gap: 16px;
-	margin-bottom: 20px;
+	grid-gap: 10px;
+
 }
 #content .detail .table-data .head h3, #content .detail div .head h3{
-	margin-right: auto;
-	font-size: 24px;
+	font-size: medium;
 	font-weight: 600;
 	color: var(--dark);
 	margin-bottom: 20px;
@@ -922,9 +976,8 @@ div.chart{
 	border-bottom: 1px solid var(--grey);
 }
 #content .detail .table-data .order table td {
-	padding: 14px 0;
+	padding: 10px 0;
 	align-items: center;
-	
 }
 #content .detail .table-data .order table td p{
 	font-size: 13px;
@@ -960,38 +1013,31 @@ div.chart{
 #content .detail .table-data .order table tr td .status.pending {
 	background: var(--orange);
 }
-
-
-/* #content .detail.table-data .todo {
-	flex-grow: 1;
-	flex-basis: 300px;
-}
-#content .detail.table-data .todo .todo-list {
+/* TABLE-DETAIL-ODER */
+.listOrder .OrderOfList{
 	width: 100%;
 }
-#content .detail.table-data .todo .todo-list li {
+.listOrder .OrderOfList .oderDetail{
+	padding: 4px 20px;
+	border-bottom: 1px solid rgb(182, 179, 179);
+}
+.oderDetail .productOfOder{
+	display: flex; 
+	align-items: center; 
+	gap:80px; 
+	justify-content: space-between; 
 	width: 100%;
-	margin-bottom: 16px;
-	background: var(--grey);
-	border-radius: 10px;
-	padding: 14px 20px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 }
-#content .detail.table-data .todo .todo-list li .bx {
-	cursor: pointer;
+.oderDetail .productOfOder img{
+	max-width: 50px; max-height: 50px; align-items: center; justify-content: center;
 }
-#content .detail.table-data .todo .todo-list li.completed {
-	border-left: 10px solid var(--first-color);
+.oderDetail .productOfOder div{
+	width: 500px;
 }
-#content .detail.table-data .todo .todo-list li.not-completed {
-	border-left: 10px solid var(--orange);
+.oderDetail a{
+	text-align: end;
 }
-#content .detail.table-data .todo .todo-list li:last-child {
-	margin-bottom: 0;
-} */
-
+/* //TABLE-DATA// */
 .table-data tbody tr .btn {
 	margin: 2px;
 	display: grid;
@@ -1018,6 +1064,12 @@ div.chart{
 }
 .table-data tbody tr .btn a:hover{
 	box-shadow:2px 2px grey;
+}
+.input_idDDH{
+	border: none;
+	text-align: center;
+	pointer-events: none;
+	
 }
 /* ================== */
 @media screen and (max-width: 768px) {

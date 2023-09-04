@@ -159,6 +159,7 @@ form {
   padding: 0 50px;
   height: 100%;
   text-align: center;
+  
 }
 
 input {
@@ -323,4 +324,17 @@ input {
 
 .social-container a:hover {
   border: 1px solid #333;
+}
+.txt_error{
+  margin-top: 0;
+  text-align: start;
+  font-size: small;
+}
+.txt_error .bx-check-circle{
+  margin-right: 5px;
+  color:rgb(5, 190, 5);
+}
+.txt_error .bx-error-circle{
+  margin-right: 5px;
+  color: rgb(214, 0, 0);
 }
