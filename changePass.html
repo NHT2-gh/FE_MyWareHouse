@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="assets/css/manager.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/new.css">
+
+    <title>User</title>
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="dashboard.html" class="nav__logo">
+                <i class='bx bxl-medium-old'></i>MY WAREHOUSE
+            </a>
+
+            <!-- <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#featured" class="nav__link">Featured</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#new" class="nav__link">New</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="user_product.html" class="nav__link">Products</a>
+                        </li>
+                    </ul>
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x' ></i>
+                    </div>
+                </div> -->
+
+            <div class="nav__btns">
+                <!-- Theme change button -->
+                <form action="" id="search-bar" class="search">
+                    <input type="search" placeholder="Type something..." class="search__input">
+                    <a href="#"><i class='bx bx-search'></i></a>
+                </form>
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+                <!-- <div class="nav__shop" id="cart-shop">
+                        <i class='bx bx-shopping-bag' ></i>
+                    </div> -->
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+
+                <div class="nav__user" id="info-user">
+                    <a href="dashboard.html"><i class='bx bx-user'></i></a>
+                    <ul class="dropMenu">
+                        <li>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <img class="avt-dropMenu" src="assets/img/nike.png" alt="">
+                                <p>Thanh Nguyễn</p>
+                            </div>
+                            <p style="font-size: 14px;color: rgb(118, 113, 113);">Quản lí kho</p>
+                        </li>
+                        <li>
+                            <img src="assets/img/edit.png" alt="">
+                            <a href="profile.html">Edit Profile</a>
+                        </li>
+                        <li>
+                            <img src="assets/img/logout.png" alt="">
+                            <a style="color: rgb(242, 90, 90);" href="login.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <!-- <a href="#" class="brand">
+    			<i class='bx bxs-smile'></i>
+    			<span class="text">AdminHub</span>
+    		</a> -->
+        <ul class="side-menu top">
+            <li>
+                <a href="profile.html" class="active">
+                    <img src="assets/img/dashboard.png" alt="">
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#">
+                    <img src="assets/img/sneakers.png" alt="">
+                    <span class="text">Change Password</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+
+            <a href="#" class="nav-link"><i class='bx bx-menu'></i></a>
+            <a href="#" class="btn-download">
+                <i class='bx bxs-cloud-download'></i>
+                <span class="text">Download PDF</span>
+            </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            <div id="main_infoUser">
+                <div class="form-changePass" style="text-align: center;" id="form-change">
+                    <form class="form-input">
+                        <img src="assets/img/protect.png" alt="">
+                        <h3>
+                            Để tăng cường bảo mật hãy xác minh tài khoản bằng Email
+                        </h3>
+                        <ul>
+                            <li>
+                                <input type="email" id="input__email" name="email" class="field-style field-full align-none"
+                                    placeholder="Nhập email để xác minh tài khoản">
+                            </li>
+                            <li style="margin-top:20px;">
+                                <input type="submit" value="Gửi mã xác nhận" />
+                            </li>
+                        </ul>
+                       
+                        <!-- <ul id="">
+                            <li>
+                                <label class="form-label">Mật khẩu hiện tại</label>
+                                <input type="text" id="input_oldPass" name="oldpassword"
+                                    class="field-style field-full align-none" placeholder="Nhập mật khẩu hiện tại">
+                            </li>
+                            <li>
+                                <label class="form-label">Mật khẩu mới</label>
+                                <input type="text" id="input__newPass" name="newpassword"
+                                    class="field-style field-full align-none" placeholder="Nhập mật khẩu mới">
+                            </li>
+                            <li>
+                                <label class="form-label">Xác nhận mật khẩu mới</label>
+                                <input type="text" id="input__email" name="renewpassword"
+                                    class="field-style field-full align-none" placeholder="Nhập lại mật khẩu mới">
+                            </li>
+                            <li style="margin-top:20px;">
+                                <input type="submit" value="Xác nhận" />
+                            </li>
+                        </ul> -->
+                    </form>
+                </div>
+            </div>
+        </main>
+    </section>
+    <!-- CONTENT -->
+
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+    </a>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+    <!-- <script src="assets/js/lineChart.js"></script> -->
+    <script src="assets/js/mgr_script.js"></script>
+    <script src="assets/js/user_script.js"></script>
+
+</body>
+
+</html>

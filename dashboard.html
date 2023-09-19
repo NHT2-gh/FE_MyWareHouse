@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="assets/css/manager.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+	<title>My Warehouse</title>
+	<!-- JS -->
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+</head>
+<body>
+	<!-- HEADER -->
+	<header class="header" id="header">
+        <nav class="nav container">
+            <a href="" class="nav__logo">
+                <i class='bx bxl-medium-old'></i>MY WAREHOUSE
+            </a>
+    
+            <!-- <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#featured" class="nav__link">Featured</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#new" class="nav__link">New</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="user_product.html" class="nav__link">Products</a>
+                    </li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x' ></i>
+                </div>
+            </div> -->
+    
+            <div class="nav__btns">
+                <!-- Theme change button -->
+                <form action="" id="search-bar" class="search">
+                    <input type="search" placeholder="Type something..." class="search__input">
+                    <a href="#"><i class='bx bx-search' ></i></a>
+                </form>
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+                <!-- <div class="nav__shop" id="cart-shop">
+                    <i class='bx bx-shopping-bag' ></i>
+                </div> -->
+    
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt' ></i>
+                </div>
+                
+                <div class="nav__user" id="info-user">
+                    <a href="dashboard.html"><i class='bx bx-user'></i></a>
+					<ul class="dropMenu">
+						<li>
+							<div style="display: flex; justify-content: center; align-items: center;">
+								<img class="avt-dropMenu" src="assets/img/nike.png" alt="">
+								<p>Thanh Nguyễn</p>
+							</div>
+							<p style="font-size: 14px;color: rgb(118, 113, 113);">Quản lí kho</p>
+						</li>
+						<li>
+							<img src="assets/img/edit.png" alt="">
+							<a href="test.html">Edit Profile</a>
+						</li>
+						<li>
+							<img src="assets/img/logout.png" alt="">
+							<a style="color: rgb(242, 90, 90);" href="login.html">Logout</a>
+						</li>
+					</ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<!-- <a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">AdminHub</span>
+		</a> -->
+		<ul class="side-menu top">		
+			<li class="active">
+				<a href="#" class="active">
+					<img src="assets/img/dashboard.png" alt="">
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="product.html">
+					<img src="assets/img/sneakers.png" alt="">
+					<span class="text">Product</span>
+				</a>
+			</li>
+			<!-- <li>
+				<a href="#">
+					<img src="assets/img/oders.png" alt="">
+					
+					<span class="text">Orders</span>
+				</a>
+			</li> -->
+			<li>
+				<a href="#">
+					<img src="assets/img/Delivery.png" alt="">
+					<span class="text">Supplier Delivery Note</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="assets/img/transfer.png" alt="">
+					<span class="text">Stock Transfer Note</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="assets/img/staff.png" alt="">
+					<span class="text">Staff</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="assets/img/nike.png" alt="">
+					<span class="text">Supplier</span>
+				</a>
+			</li>
+			
+			<li class="side-menu-bottom">	
+				<a href="login.html" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Đăng xuất</span>
+				</a>
+			</li>
+		</ul>
+		<!-- <ul class="side-menu">
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Brands</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Categorys</span>
+				</a>
+			</li>
+		</ul> -->
+	</section>
+	<!-- SIDEBAR -->
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			
+			<a href="#" class="nav-link"><i class='bx bx-menu' ></i></a>
+			<a href="#" class="btn-download">
+				<i class='bx bxs-cloud-download' ></i>
+				<span class="text">Download PDF</span>
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<!-- <nav>
+				<i class='bx bx-menu' ></i>
+				<a href="#" class="nav-link">Categories</a>
+			</nav> -->
+			<div id="main_dashboard">
+			<div class="head-title">
+				<div class="left">
+					<!-- <h1></h1> -->
+					<!-- <ul class="breadcrumb">
+						<li>
+							<a href="#">Thống kê theo năm</a>
+						</li>
+						<li><i class='bx bx-chevron-right'	 ></i></li>
+						<li>
+							<a class="active" href="#">Trang chủ</a>
+						</li>
+					</ul> -->
+				</div>
+			</div>
+			<div style="display: flex; justify-content: space-around;" class="dashboard_top">
+				
+				<ul style="flex:4" class="box-info">
+					<li>
+						<i class='bx bxs-basket'></i>
+						<span class="text">
+							<h3>30</h3>
+							<p>Total Product</p>
+						</span>
+					</li>
+					<li>
+						<i class='bx bxs-group'></i>
+						<span class="text">
+							<h3>2</h3>
+							<p>Total Goods Issue</p>
+						</span>
+					</li>
+					<li>
+						<i class='bx bxs-dollar-circle'></i>
+						<span class="text">
+							<h3>$4M</h3>
+							<p>Total Inventory Cost</p>
+						</span>
+					</li>
+					<li>
+						<i class='bx bxs-dollar-circle'></i>
+						<span class="text">
+							<h3>2</h3>
+							<p>Total Goods En Route</p>
+						</span>
+					</li>
+				</ul>
+				<div style="flex: 6;" class="chart">
+					<!-- <div class="head">
+						<h3>Biểu đồ lợi nhuận</h3>
+					</div> -->
+					<canvas id="myChart" style="width:100%; max-width: 100%;max-height: 300px;"></canvas>
+				</div>
+			</div>
+
+			
+			<div style="display: flex; width: 100%;" class="dashboard_bottom">
+				<div style="flex:4;" class="topProduct">
+					<div class="listTop">
+						<div class="head">
+							<h3>Top Selling Products</h3>
+						</div>
+						<ul>
+							<li>
+								<img src="assets/img/1.jpg" alt="">
+								<span>Name Product</span>
+								<p>20</p>
+							</li>
+							<li>
+								<img src="assets/img/1.jpg" alt="">
+								<span>Name Product</span>
+								<p>20</p>
+							</li>
+							<li>
+								<img src="assets/img/1.jpg" alt="">
+								<span>Name Product</span>
+								<p>20</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+					<div style="flex: 6;" class="notification">
+						<div class="head">
+							<img src="assets/img/notification.png" alt="">
+							<h3>Notification</h3>
+							<h4 style="border: 1px solid; padding:5px 7px; border-radius: 7px;">3</h4>
+						</div>
+						<div>
+							<ul>
+								<li>
+									<img src="assets/img/warning.png" alt="">
+									<span>Có vài sản phẩm đang trong tình trạng không đủ cung ứng </span>
+									<a style="padding: 5px 10px; background-color: rgb(241, 167, 98); border-radius: 18px; color: black; cursor: pointer;;">Chi tiết</a>
+								</li>
+								<li>
+									<img src="assets/img/sucess.png" alt="">
+									<span>Phiếu đề nghị nhập hàng YCNH01 của bạn đã được duyệt</span>
+									<a
+										style="padding: 5px 10px; background-color: rgb(241, 167, 98); border-radius: 18px; color: black; cursor: pointer;;">Chi
+										tiết</a>
+								</li>
+								<li>
+									<img src="assets/img/request.png" alt="">
+									<span>Hiện tại đang có phiếu yêu cầu xuất hàng đang chờ duyệt</span>
+									<a
+										style="padding: 5px 10px; background-color: rgb(241, 167, 98); border-radius: 18px; color: black; cursor: pointer;;">Chi
+										tiết</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+			<!-- END STATISTICS-->
+		<!-- <iframe id="editProfile" src="test.html"> </iframe> -->
+	</main>
+		
+				
+			<!-- END PRODUCT-->
+			<!-- </div> -->
+	</section>
+	<!-- CONTENT -->
+	
+	 <!--=============== SCROLL UP ===============-->
+	 <a href="#" class="scrollup" id="scroll-up"> 
+        <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
+    </a>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+	<script src="assets/js/lineChart.js"></script>
+	<script src="assets/js/mgr_script.js"></script>
+
+</body>
+</html>

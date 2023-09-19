@@ -693,9 +693,7 @@
       margin-bottom: 10px;
   }
 }
-main #main_infoUser{
-  padding-bottom: 40px;
-}
+
 #main_infoUser .head-title{
   align-items: center;
   font-size: 20px;
@@ -717,7 +715,6 @@ main #main_infoUser{
 }
 #main_infoUser .form-input{
   padding: 20px 30px;
-  margin: 10px 15%; 
   position: relative;
 }
 #main_infoUser .form-input .form-label{

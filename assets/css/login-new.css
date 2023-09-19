@@ -23,6 +23,8 @@ body {
   font-family: "Poppins", sans-serif;
   overflow: hidden;
   height: 100vh;
+  background-image: url("file:///C:/Users/NHT4V/Documents/NHT2/My WareHouse/FE_MyWareHouse/assets/img/login.png");
+  
 }
 
 h1 {
@@ -151,6 +153,7 @@ a.ghost:hover i.login{
 }
 
 form {
+  /* background-color: transparent; */
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -159,7 +162,8 @@ form {
   padding: 0 50px;
   height: 100%;
   text-align: center;
-  
+  /* backdrop-filter: blur(20px); */
+
 }
 
 input {
@@ -172,7 +176,7 @@ input {
 }
 
 .container {
-  background-color: #fff;
+  /* background-color: transparent; */
   border-radius: 25px;
   box-shadow: 0 14px 28px gray;
   position: relative;
@@ -180,6 +184,8 @@ input {
   width: 768px;
   max-width: 100%;
   min-height: 500px;
+  /* backdrop-filter: blur(20px); */
+  background-color: #fff;
 }
 
 .form-container {
@@ -243,11 +249,10 @@ input {
   transform: translate(-100%);
 }
 .overlay {
-  background-image: url("file:///C:/Users/Admin/Documents/web/TEST/assets/img/br_login.jpg");
   background-repeat: no-repeat;
   background-size:cover;
   background-position: 0 0;
-  color: #fff;
+  color: #474747;
   position: relative;
   left: -100%;
   height: 100%;
