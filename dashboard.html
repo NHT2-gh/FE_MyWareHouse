@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="assets/css/manager.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
 	<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+	<link rel="stylesheet" href="assets/css/new.css">
+
 	<title>My Warehouse</title>
 	<!-- JS -->
 	
@@ -71,7 +73,7 @@
 						</li>
 						<li>
 							<img src="assets/img/edit.png" alt="">
-							<a href="test.html">Edit Profile</a>
+							<a href="profile.html">Edit Profile</a>
 						</li>
 						<li>
 							<img src="assets/img/logout.png" alt="">
@@ -108,16 +110,23 @@
 					<span class="text">Orders</span>
 				</a>
 			</li> -->
+			<!-- <li>
+				<a href="#">
+					<img src="assets/img/oders.png" alt="">
+			
+					<span class="text">Orders</span>
+				</a>
+			</li> -->
 			<li>
 				<a href="#">
 					<img src="assets/img/Delivery.png" alt="">
-					<span class="text">Supplier Delivery Note</span>
+					<span class="text">Goods receipt</span>
 				</a>
 			</li>
 			<li>
 				<a href="#">
 					<img src="assets/img/transfer.png" alt="">
-					<span class="text">Stock Transfer Note</span>
+					<span class="text">Goods Issue</span>
 				</a>
 			</li>
 			<li>
@@ -132,13 +141,7 @@
 					<span class="text">Supplier</span>
 				</a>
 			</li>
-			
-			<li class="side-menu-bottom">	
-				<a href="login.html" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Đăng xuất</span>
-				</a>
-			</li>
+
 		</ul>
 		<!-- <ul class="side-menu">
 			<li>
@@ -261,35 +264,31 @@
 						<div class="head">
 							<img src="assets/img/notification.png" alt="">
 							<h3>Notification</h3>
-							<h4 style="border: 1px solid; padding:5px 7px; border-radius: 7px;">3</h4>
+							<h4>3</h4>
 						</div>
 						<div>
 							<ul>
 								<li>
 									<img src="assets/img/warning.png" alt="">
 									<span>Có vài sản phẩm đang trong tình trạng không đủ cung ứng </span>
-									<a style="padding: 5px 10px; background-color: rgb(241, 167, 98); border-radius: 18px; color: black; cursor: pointer;;">Chi tiết</a>
+									<a class="btn__detail"><img src="assets/img/info.png" alt=""></a>
 								</li>
 								<li>
 									<img src="assets/img/sucess.png" alt="">
 									<span>Phiếu đề nghị nhập hàng YCNH01 của bạn đã được duyệt</span>
-									<a
-										style="padding: 5px 10px; background-color: rgb(241, 167, 98); border-radius: 18px; color: black; cursor: pointer;;">Chi
-										tiết</a>
+									<a class="btn__detail"><img src="assets/img/info.png" alt=""></a>
 								</li>
 								<li>
 									<img src="assets/img/request.png" alt="">
 									<span>Hiện tại đang có phiếu yêu cầu xuất hàng đang chờ duyệt</span>
-									<a
-										style="padding: 5px 10px; background-color: rgb(241, 167, 98); border-radius: 18px; color: black; cursor: pointer;;">Chi
-										tiết</a>
+									<a class="btn__detail"><img src="assets/img/info.png" alt=""></a>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
+				<iframe style="display: block;" src="pur_request.html" frameborder="0"></iframe>
 			</div>
-			
 		</div>
 			<!-- END STATISTICS-->
 		<!-- <iframe id="editProfile" src="test.html"> </iframe> -->

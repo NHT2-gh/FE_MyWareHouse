@@ -321,66 +321,9 @@ body {
 	border-radius: 0 36px 36px 0;
 	cursor: pointer;
 }
-#content nav .notification {
-	font-size: 20px;
-	position: relative;
-}
-#content nav .notification .num {
-	position: absolute;
-	top: -6px;
-	right: -6px;
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	border: 2px solid var(--light);
-	background: var(--red);
-	color: var(--light);
-	font-weight: 700;
-	font-size: 12px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-#content nav .profile img {
-	width: 36px;
-	height: 36px;
-	object-fit: cover;
-	border-radius: 50%;
-}
-#content nav .switch-mode {
-	display: block;
-	min-width: 50px;
-	height: 25px;
-	border-radius: 25px;
-	background: var(--grey);
-	cursor: pointer;
-	position: relative;
-}
-#content nav .switch-mode::before {
-	content: '';
-	position: absolute;
-	top: 2px;
-	left: 2px;
-	bottom: 2px;
-	width: calc(25px - 4px);
-	background: var(--first-color);
-	border-radius: 50%;
-	transition: all .3s ease;
-}
-#content nav #switch-mode:checked + .switch-mode::before {
-	left: calc(100% - (25px - 4px) - 2px);
-}
-/* NAVBAR */
+/* END NAVBAR */
 
-
-
-
-
-/* MAIN */
-
-/* main #main__hdh, main #main__ldh, main #main__danhgia, main #main__ncc, main #main__ddh{
-	padding-bottom: 30%;
-} */
+/* MAIN DASHBOARD*/
 #content main {
 	width: 100%;
 	padding: 20px 20px;
@@ -435,10 +378,6 @@ body {
 	grid-gap: 10px;
 	font-weight: 500;
 }
-
-
-
-
 #content main .box-info {
 	display: grid;
 	/* grid-template-columns: repeat(2, minmax(180px, 250px)); */
@@ -448,7 +387,7 @@ body {
 }
 #content main .box-info li {
 	padding: 10px;
-	background: var(--light);
+	background-color: var(--body-color);
 	border-radius: 20px;
 	display: flex;
 	align-items: center;
@@ -479,19 +418,12 @@ body {
 #content main .box-info li .text h3 {
 	font-size: 24px;
 	font-weight: 600;
-	color: var(--dark);
+	color: var(--title-color);
 }
 #content main .box-info li .text p {
-	color: var(--dark);	
+	color: var(--title-color);	
 	font-size: 14px;
 }
-
-
-
-
-
-
-/* DASHBOARD */
 #main_dashboard{
 	margin-bottom: 50px;
 }
@@ -527,7 +459,14 @@ div #myChart, .listTop, .notification{
 .topProduct li img {
 	height: 50px;
 }
-/* END DASHBOARD */
+.notification ul li .btn__detail{
+
+	cursor: pointer;
+}
+.notification ul li .btn__detail:hover{
+}
+
+/* END MAIN DASHBOARD */
 
 
 /* PRODUCT */
@@ -579,6 +518,66 @@ div #myChart, .listTop, .notification{
 }
 /* END PRODUCT */
 
+/* PROFILE */
+main #main_infoUser {
+	margin: 0 25%;
+	height: 100%;
+	width: 50%;
+	border: none;
+}
+
+#main_infoUser .head-title {
+	align-items: center;
+	font-size: 20px;
+	margin: 10px 30px;
+}
+
+#main_infoUser .form-input .btn__changePass {
+	font-weight: bold;
+	cursor: pointer;
+	color: black;
+}
+
+#main_infoUser .form-input .btn__changePass:hover {
+	text-decoration: underline;
+}
+
+.form-info,
+.form-changePass {
+	margin: 0 20px;
+}
+
+#main_infoUser .form-input {
+	padding: 20px 30px;
+	position: relative;
+}
+
+#main_infoUser .form-input .form-label {
+	color: black;
+	font-weight: bold;
+}
+
+#main_infoUser .form-input #avt-user {
+	width: 20%;
+	margin-left: 40%;
+	height: 100px;
+	margin-bottom: 20px;
+}
+
+#main_infoUser .form-input #avt-user img {
+	border-radius: 100%;
+	border: 1px solid black;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+}
+/* END PROFILE */
+
+/* REQUEST */
+.request-content{
+	background-color: var(--body-color);
+}
+/* END REQUEST */
 
 /* FORM INPUT */
 .form-input{
@@ -683,15 +682,21 @@ div #myChart, .listTop, .notification{
 	display: flex;
 	align-items: center;
 	grid-gap: 16px;
+	margin-bottom: 15px;
 }
 #content main .table-data .head h3, #content main div .head h3{
 	font-size: 24px;
 	font-weight: 600;
-	margin-bottom: 10px;
 	height: 100%;
 	color: var(--title-color);
 }
-
+#content main div .head h4{
+	border: 1px solid var(--title-color);
+	padding: 3px 7px;
+	border-radius: 7px;
+	color: var(--orange);
+	font-size: small;
+}
 #content main .table-data .head .lni {
 	cursor: pointer;
 	border: 1px solid rgb(81, 189, 81);
@@ -775,48 +780,6 @@ div #myChart, .listTop, .notification{
 	font-size: 14px;
 	background-color: var(--first-color);
 	font-weight: bold;
-}
-
-/* PAGE */
-#nav__page{	
-	margin-top: 10px;
-	padding: 10px 33%;
-	justify-content: center;
-}
-#nav__page #pagination{
-	display: flex;
-	border: 1px solid black;
-	justify-content: center;
-	align-items: center;
-	border-radius: 7px;
-	background-color: var(--body-color);
-}
-#nav__page #pagination .page-item{
-	border-right: 1px solid rgb(161, 160, 160);
-	width: 100%;
-	text-align: center;
-	padding: 5px 10px;
-}
-#nav__page #pagination .page-item .page-link{
-	width: 100%;
-	height: 100%;
-	color: var(--title-color);
-}
-#nav__page #pagination .page-item.first{
-	border-top-left-radius: 7px;
-	border-bottom-left-radius: 7px;
-}
-#nav__page #pagination .page-item.last{
-	border: none;
-	border-top-right-radius: 7px;
-	border-bottom-right-radius: 7px;
-}
-#nav__page #pagination .page-item:hover{
-	background-color: var(--body-color-mgr);
-	font-weight: bolder;
-}
-#nav__page #pagination .page-item.active{
-	font-weight: bolder;
 }
 
 /* DIALOG */
@@ -984,11 +947,11 @@ div #myChart, .listTop, .notification{
 }
 .detail-content {
 	background-color: var(--body-color-mgr);
-	margin: 10% 25%; 
+	margin: 8% 27%; 
 	padding-top:0;
 	padding: 10px;
 	border: 1px solid #888;
-	width: 50%; 
+	width: 46%; 
 	position: relative;
 	border-radius: 10px;
 	transition: 0.3s;
