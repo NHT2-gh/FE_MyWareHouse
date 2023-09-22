@@ -553,7 +553,7 @@ main #main_infoUser {
 }
 
 #main_infoUser .form-input .form-label {
-	color: black;
+	color: var(--title-color);
 	font-weight: bold;
 }
 
@@ -582,7 +582,7 @@ main #main_infoUser {
 /* FORM INPUT */
 .form-input{
 	width: 100%;
-	background: #FAFAFA;
+	background: var(--body-color);
 	padding: 20px;
 	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
 	border-radius: 20px;

@@ -48,6 +48,9 @@
     flex: 5;
     text-align: center;
 }
+.request-content button[type="submit"]{
+   
+}
 iframe {
     width: 100%;
     height: 100%;
