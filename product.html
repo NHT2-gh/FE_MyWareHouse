@@ -9,10 +9,10 @@
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
 	<!-- My CSS -->
-    <link rel="stylesheet" href="assets/css/new.css">
+    <!-- <link rel="stylesheet" href="assets/css/new.css"> -->
 	<link rel="stylesheet" href="assets/css/manager.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
-	<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+	<!-- <link rel="stylesheet" href="assets/css/swiper-bundle.min.css"> -->
 
 	<title>Product</title>
 	<!-- JS -->
@@ -201,7 +201,7 @@
                                 <input type="search" placeholder="Type something..." class="search__input">
                                 <a href="#"><i class='bx bx-search' ></i></a>
                                 </form>
-                            <!-- <a href="#" onclick="openDetail_ad()"><i class="lni lni-circle-plus"></i></a> -->
+                            <!-- <a href="#" onclick="()"><i class="lni lni-circle-plus"></i></a> -->
                         </div>
                     <table>
                         <thead>
@@ -210,7 +210,9 @@
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Inventory Number</th>
+                                <th>Object</th>
                                 <th>Category</th>
+                                <th>Material</th>
                                 <th>Color</th>  
                                 <th>Size</th>
                                 <th>Price</th>
@@ -221,23 +223,67 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
-                                    <p>B6S01</p></td>
-                                    <td>Nike Air Force 1 '07</td>
+                                    <td><p class="id">B6S01</p></td>
+                                    <td><p class="name">Nike Air Force 1 '07</p></td>
                                     <td><img class="img_product" src="assets/img/1.png"></td>
-                                    <td><p>100</p></t>
-                                    <td><p>Life Style</p></td>
+                                    <td><p class="inventory">100</p></t>
+                                    <td><p class="obj">Men's Shose</p></td>
+                                    <td><p class="category">Life Style</p></td>
                                     <td>
-                                        <p>Back</p>
+                                        <p class="mal">Leather</p>
                                     </td>
                                     <td>
-                                        <p>6</p>
+                                        <p class="clr">Back</p>
                                     </td>
-                                    <td><p>150</p></td>
-                                    <td><p>2023</p></t>
-                                    <td><p>Nike</p></td>
+                                    <td>
+                                        <p class="size">6</p>
+                                    </td>
+                                    <td><p class="prc">150</p></td>
+                                    <td><p class="mfg">2023</p></t>
+                                    <td><p class="suppl">Nike</p></td>
                                     <td class="btn">
-                                        <!-- <a class ="btn__chitiet" href="#change" onclick="getDetailInfo()"><i class='bx bx-detail' ></i></a> -->
+                                        <a class ="btn__detail product" href="#detail"><i class='bx bx-detail' data-image="assets/img/1.png"></i></a>
+                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
+                                    </td>
+                                    <!-- <td><span class="status completed">Completed</span></td> -->
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="id">B6S02</p>
+                                    </td>
+                                    <td>
+                                        <p class="name">Nike Air Force 1</p>
+                                    </td>
+                                    <td><img class="img_product" src="assets/img/1.png"></td>
+                                    <td>
+                                        <p class="inventory">100</p>
+                                        </t>
+                                    <td>
+                                        <p class="obj">Men's Shose</p>
+                                    </td>
+                                    <td>
+                                        <p class="category">Life Style</p>
+                                    </td>
+                                    <td>
+                                        <p class="mal">Leather</p>
+                                    </td>
+                                    <td>
+                                        <p class="clr">Back</p>
+                                    </td>
+                                    <td>
+                                        <p class="size">6</p>
+                                    </td>
+                                    <td>
+                                        <p class="prc">200</p>
+                                    </td>
+                                    <td>
+                                        <p class="mfg">2023</p>
+                                        </t>
+                                    <td>
+                                        <p class="suppl">Nike</p>
+                                    </td>
+                                    <td class="btn">
+                                        <a class="btn__detail product" href="#detail"><i class='bx bx-detail' data-image="assets/img/1.png"></i></a>
                                         <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
                                     </td>
                                     <!-- <td><span class="status completed">Completed</span></td> -->
@@ -265,37 +311,48 @@
                     <!-- <span class="close_chitiet" onclick="closeDetail()">&times;</span> -->
                     <div class="info-product">
                         <div class="header-detail">
-                            <h3>B6S01</h3>
+                            <h3 class="id"></h3>
                         </div>
                         <form style="display: flex;">
                             <div style="flex: 5; justify-content: center;">
                                 <ul class="info">
                                     <li>
-                                        <h3 class="nameBrand">Nike Air Force 1 '07</h3>
+                                        
+                                        <h3 class="name"></h3>
                                     </li>
                                     <li>
-                                        <h3>6 - Men's Shoes</h3>
+                                        <h3 class="size"></h3>
+                                        <h3> - </h3>
+                                        <h3 class="obj"></h3>
+                                    </li>
+                                     <li>
+                                        <h4>Category:</h4>
+                                        <h4 class="category"></h4>
                                     </li>
                                     <li>
-                                        <h4>Color: Back</h4>
+                                        <h4>Color:</h4>
+                                        <h4 class="clr"></h4>
                                     </li>
                                     <li>
-                                        <h4>Material: Leather</h4>
+                                        <h4>Material:</h4>
+                                        <h4 class="mal"></h4>
                                     </li>
                                     <li>
-                                        <h4>Mfg: 2023</h4>
+                                        <h4>Mfg:</h4>
+                                        <h4 class="mfg"></h4>
                                     </li>
                                     <li>
-                                        <h3>Price: 2,929,000₫</h3>
+                                        <h3>Price:</h3>
+                                        <h3 class="prc"></h3>
                                     </li>
                                 </ul>
                             </div>
                             <div style="flex: 5;text-align: center;">
                                 <ul class="img">
                                     <li>
-                                        <p>Made in Nike</p>
+                                        <p class="suppl"></p>
                                     </li>
-                                    <li><img style="height: 200px;" class="img-product" src="assets/img/1.png" alt=""></li>
+                                    <li><img class ="img_product" style="height: 200px;" class="img-product" alt=""></li>
                                     
                                 </ul>
                             </div>

@@ -3,7 +3,12 @@ if (document.readyState == "loading") {
 } else {
   ready();
 }
-function ready() {}
+function ready() {
+  var btn = document.getElementsByClassName("btn__detail product");
+  for (var i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click", getInfoDetail);
+  }
+}
 
 // ACTIVE SIDEBAR
 const allSideMenu = document.querySelectorAll("#sidebar .side-menu.top li a");
@@ -28,9 +33,41 @@ if (menuBar) {
 }
 
 // DETAIL
-const div_detail = document.getElementById("detail");
+var div_detail = document.getElementById("detail");
+// open
+function openDetail() {
+  div_detail.style.display = "block";
+}
+// close
 window.onclick = function (event) {
   if (event.target == div_detail) {
     div_detail.style.display = "none";
   }
 };
+// get info detail
+function getInfoDetail(event) {
+  var btn_detail = event.currentTarget;
+  // cell in table data
+  var row = btn_detail.closest("tr");
+  var cell = row.querySelectorAll("td *");
+  var infoProduct = document.getElementsByClassName("info-product")[0];
+  var listClassName = [];
+  for (var i = 0; i < cell.length; i++) {
+    // console.log(cell[i].querySelectorAll("*")[0].className);
+    if (cell[i].className) {
+      listClassName.push(cell[i].className);
+    }
+  }
+  for (var i = 0; i < listClassName.length; i++) {
+    var data = row.getElementsByClassName(listClassName[i])[0];
+    var detailInfo = infoProduct.getElementsByClassName(listClassName[i])[0];
+    if (detailInfo && listClassName[i] !== "img_product") {
+      detailInfo.innerHTML = data.innerText;
+    } else if (listClassName[i] == "img_product") {
+      var imageUrl = event.target.getAttribute("data-image");
+      detailInfo.src = imageUrl;
+    }
+  }
+  openDetail();
+}
+//END DETAIL
