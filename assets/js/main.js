@@ -44,6 +44,7 @@ window.onclick = function (event) {
     div_detail.style.display = "none";
   }
 };
+
 // get info detail
 function getInfoDetail(event) {
   var btn_detail = event.currentTarget;
@@ -64,7 +65,7 @@ function getInfoDetail(event) {
     if (detailInfo && listClassName[i] !== "img_product") {
       detailInfo.innerHTML = data.innerText;
     } else if (listClassName[i] == "img_product") {
-      var imageUrl = event.target.getAttribute("data-image");
+      var imageUrl = btn_detail.getAttribute("data-image");
       detailInfo.src = imageUrl;
     }
   }
