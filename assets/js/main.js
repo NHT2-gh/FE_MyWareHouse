@@ -8,6 +8,14 @@ function ready() {
   for (var i = 0; i < btn.length; i++) {
     btn[i].addEventListener("click", getInfoDetail);
   }
+  var btnRequest_addProduct = document.getElementById("btnRequest__addProduct");
+  if (btnRequest_addProduct) {
+    btnRequest_addProduct.addEventListener("click", addProduct);
+  }
+  var btn = document.getElementsByClassName("btn__detail g_receipt");
+  for (var i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click", openDetail);
+  }
 }
 
 // ACTIVE SIDEBAR
@@ -72,3 +80,75 @@ function getInfoDetail(event) {
   openDetail();
 }
 //END DETAIL
+
+//Hidden cell table product
+const rows = document.querySelectorAll("#main__product .table-data table tr");
+for (let i = 0; i < rows.length; i++) {
+  var element = rows[i];
+  if (i == 0) {
+    var cellHidden = element.querySelectorAll("th");
+  } else {
+    var cellHidden = element.querySelectorAll("td");
+  }
+  for (let index = 5; index < cellHidden.length - 1; index++) {
+    var chidl = cellHidden[index];
+    chidl.style.display = "none";
+  }
+}
+
+//
+function exportToExcel() {
+  // Lấy đối tượng bảng cần xuất
+  var table2excel = new Table2Excel();
+  table2excel.export(document.querySelectorAll("table-to-export"));
+  // Sử dụng TableExport để xuất dữ liệu ra Excel
+  // var exportTable = new TableExport(table, {
+  //   headers: true, // Bao gồm tiêu đề trong Excel
+  //   footers: false, // Không bao gồm chân trang trong Excel
+  //   formats: ["xlsx"], // Định dạng xuất (xlsx, csv, txt, ...)
+  //   filename: "exported_data", // Tên tệp xuất
+  // });
+
+  // var exportData = exportTable.getExportData()["table-to-export"]["xlsx"];
+  // var xlsxData = exportData.data;
+  // var xlsxColumns = exportData.mimeType;
+  // var xlsxFilename = "your-filename.xlsx";
+
+  // var wb = XLSX.utils.book_new();
+  // wb.SheetNames.push("Sheet1");
+  // var ws = XLSX.utils.json_to_sheet(xlsxData, { header: xlsxColumns });
+  // wb.Sheets["Sheet1"] = ws;
+  // var wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
+
+  // function s2ab(s) {
+  //   var buf = new ArrayBuffer(s.length);
+  //   var view = new Uint8Array(buf);
+  //   for (var i = 0; i < s.length; i++) {
+  //     view[i] = s.charCodeAt(i) & 0xff;
+  //   }
+  //   return buf;
+  // }
+
+  // saveAs(
+  //   new Blob([s2ab(wbout)], { type: "application/octet-stream" }),
+  //   xlsxFilename
+  // );
+}
+
+// REQUEST
+
+function addProduct(event) {
+  const productTable = document.getElementById("product-table");
+  const rowTemplate = document.getElementById("row-tmp");
+  const tbody = productTable.querySelector("tbody");
+  const newRow = rowTemplate.cloneNode(true);
+  newRow.style.display = "table-row";
+
+  // Thêm hàng mới vào bảng
+  tbody.appendChild(newRow);
+  // delete
+  const removeButton = newRow.querySelector(".bx-trash");
+  removeButton.addEventListener("click", function () {
+    tbody.removeChild(newRow); // Xóa hàng khi nhấn nút "Xóa"
+  });
+}

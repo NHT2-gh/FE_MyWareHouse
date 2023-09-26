@@ -10,12 +10,12 @@
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
     <!-- My CSS -->
-    <link rel="stylesheet" href="assets/css/new.css">
+    <!-- <link rel="stylesheet" href="assets/css/new.css"> -->
     <link rel="stylesheet" href="assets/css/manager.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
-    <title>Goods Receipt</title>
+    <title>Product</title>
     <!-- JS -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -25,7 +25,7 @@
 <body>
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="" class="nav__logo">
+            <a href="dashboard.html" class="nav__logo">
                 <i class='bx bxl-medium-old'></i>MY WAREHOUSE
             </a>
 
@@ -113,7 +113,7 @@
                     <span class="text">Orders</span>
                 </a>
             </li>
-            <li  class="active">
+            <li class="active">
                 <a href="#">
                     <img src="assets/img/Delivery.png" alt="">
                     <span class="text">Goods receipt</span>
@@ -151,7 +151,7 @@
     					<span class="text">Categorys</span>
     				</a>
     			</li>
-    		</ul> -->
+    	</ul> -->
     </section>
     <!-- SIDEBAR -->
 
@@ -184,6 +184,7 @@
                                 </li>
                             </ul>
                     </div> -->
+                    
                 </div>
                 <div class="dialog" id="confirmDialog_">
                     <div class="dialog-content">
@@ -197,60 +198,54 @@
                 </div>
                 <div class="table-data">
                     <div class="order">
-                        <div class="head">
-                            <!-- <h3>Danh sách sản phẩm</h3> -->
+                        <div class="head" style="justify-content: space-between;">
                             <form action="" id="search-bar" class="search">
                                 <input type="search" placeholder="Type something..." class="search__input">
                                 <a href="#"><i class='bx bx-search'></i></a>
                             </form>
-                            <!-- <a href="#" onclick="openDetail_ad()"><i class="lni lni-circle-plus"></i></a> -->
+                        
+                            <form id="search-barByDate" style="display: none;" action="">
+                                <!-- Lưu kiểu tìm kiếm (Sort theo gì?) -->
+                                <input type="text" hidden name="statusOrderSearch" value="3">
+                                <div class="div__inputs">
+                                    <div>
+                                        <input class="form-control" id="datepickerfrom_start" name="startDate" type="date">
+                                    </div>
+                                    <span>-</span>
+                                    <div>
+                                        <input class="form-control" id="datepickerfrom_end" name="endDate" type="date">
+                                    </div>
+                            
+                                    <button class="btn btn-success" type="submit"
+                                        style="display: flex; justify-content: center; align-items: center; padding: 10px;">
+                                        <i class='bx bx-search'></i>
+                                    </button>
+                                </div>
+                            </form>
+                            <a href="#"><i class="lni lni-circle-plus"></i></a>
                         </div>
                         <table>
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Image</th>
-                                    <th>Inventory Number</th>
-                                    <th>Category</th>
-                                    <th>Color</th>
-                                    <th>Size</th>
-                                    <th>Price</th>
-                                    <th>Mfg</th>
+                                    <th>Date</th>
+                                    <th>Name Staff</th>
                                     <th>Supplier</th>
-                                    <th>Action</th>
+                                    <th>View</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <p>B6S01</p>
+                                        <p>GR01</p>
                                     </td>
-                                    <td>Nike Air Force 1 '07</td>
-                                    <td><img class="img_product" src="assets/img/1.png"></td>
+                                    <td>26/09/2023</td>
                                     <td>
-                                        <p>100</p>
-                                        </t>
-                                    <td>
-                                        <p>Life Style</p>
+                                        <p>Sơn Trịnh</p>
                                     </td>
-                                    <td>
-                                        <p>Back</p>
-                                    </td>
-                                    <td>
-                                        <p>6</p>
-                                    </td>
-                                    <td>
-                                        <p>150</p>
-                                    </td>
-                                    <td>
-                                        <p>2023</p>
-                                        </t>
-                                    <td>
-                                        <p>Nike</p>
-                                    </td>
+                                    <td>Nike</td>
                                     <td class="btn">
-                                        <a class="btn__chitiet" href="#change" onclick="getDetailInfo()"><i
+                                        <a class="btn__detail g_receipt" href="#change"><i
                                                 class='bx bx-detail'></i></a>
                                         <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
                                     </td>
@@ -274,49 +269,74 @@
             </div> -->
             </div>
         </main>
-        <div class="detail product" id="detail">
-            <div class="detail-content product">
+        <div class="detail g_receipt" id="detail">
+            <div class="detail-content g_receipt" style="width: 60%; margin: 10% 20%;">
                 <!-- <span class="close_chitiet" onclick="closeDetail()">&times;</span> -->
                 <div class="info-product">
-                    <div class="header-detail">
-                        <h3>B6S01</h3>
-                    </div>
-                    <form style="display: flex;">
-                        <div style="flex: 5; justify-content: center;">
-                            <ul class="info">
-                                <li>
-                                    <h3 class="nameBrand">Nike Air Force 1 '07</h3>
-                                </li>
-                                <li>
-                                    <h3>6 - Men's Shoes</h3>
-                                </li>
-                                <li>
-                                    <h4>Color: Back</h4>
-                                </li>
-                                <li>
-                                    <h4>Material: Leather</h4>
-                                </li>
-                                <li>
-                                    <h4>Mfg: 2023</h4>
-                                </li>
-                                <li>
-                                    <h3>Price: 2,929,000₫</h3>
-                                </li>
-                            </ul>
-                        </div>
-                        <div style="flex: 5;text-align: center;">
-                            <ul class="img">
-                                <li>
-                                    <p>Made in Nike</p>
-                                </li>
-                                <li><img style="height: 200px;" class="img-product" src="assets/img/1.png" alt=""></li>
-
-                            </ul>
-                        </div>
-                    </form>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2">ID</th>
+                                <th rowspan="2">Name</th>
+                                <th colspan="2">Quantity</th>
+                                <th rowspan="2">Unit Price</th>
+                                <th rowspan="2">Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>According to document</td>
+                                <td>Actually imported</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>B6S01</p>
+                                </td>
+                                <td>
+                                    <p>Nike Air Force</p>
+                                </td>
+                                <td>
+                                    <p>100</p>
+                                </td>
+                                <td>
+                                    <p></p>
+                                </td>
+                                <td>
+                                    <p>200$</p>
+                                </td>
+                                <td>
+                                    <p>Nothing</p>
+                                </td>  
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>B6S01</p>
+                                </td>
+                                <td>
+                                    <p>Nike Air Force</p>
+                                </td>
+                                <td>
+                                    <p>100</p>
+                                </td>
+                                <td><p></p></td>
+                                <td>
+                                    <p>200$</p>
+                                </td>
+                                <td>
+                                    <p>Nothing</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                        <a class="btn_view">View Inventory</a>
+                    
                 </div>
-
-
+                </div>  
             </div>
         </div>
     </section>
@@ -330,8 +350,7 @@
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/chart.js"></script>
-    <script src="assets/js/mgr_script.js"></script>
+    <script src="assets/js/theme.js"></script>
 </body>
 
 </html>

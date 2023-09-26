@@ -583,7 +583,7 @@ main #main_infoUser {
 .request-content .head_request {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	/* align-items: center; */
 	gap: 100px;
 }
 
@@ -597,17 +597,19 @@ main #main_infoUser {
 }
 
 .request-content .info_request {
-	padding: 30px 30px;
+	padding: 10px 30px;
 }
 
 .request-content .info_request p {
 	margin-bottom: 5px;
 }
-
-.request-content .info_product {
-	padding: 0 30px;
+.request-content .info_product input{
+	border: none;
+	text-align: center;
+	max-width: 100%;
+	font-size: 16px;
+	color: black;
 }
-
 .request-content .info_product table {
 	width: 100%;
 	border-collapse: collapse;
@@ -619,7 +621,13 @@ main #main_infoUser {
 	border: 1px solid black;
 	text-align: center;
 }
-
+.request-content .info_product table td{
+	max-width: 100px;
+}
+.request-content .info_product i.bx-trash{
+	color: var(--red);
+	cursor: pointer;
+}
 .request-content .sign_request i {
 	float: right;
 	display: block;
@@ -627,12 +635,15 @@ main #main_infoUser {
 
 .request-content .sign_request .sign-area {
 	display: flex;
-	margin: 20px 0 50px 0;
+	margin: 20px 0 0px 0;
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
 }
+.request-content .sign_request .sign-area div img{
+	transform: rotate(45deg);
 
+}
 .request-content .sign_request .sign-area div {
 	flex: 5;
 	text-align: center;
@@ -646,7 +657,10 @@ iframe {
 	height: 100%;
 	position: absolute;
 	top: 5%;
-	display: block;
+	display: none;
+}
+.hidden_request{
+
 }
 /* END REQUEST */
 
@@ -929,9 +943,22 @@ iframe {
   }
 
 /* RECEIPT */
-#main__ddh{
-	margin-bottom: 50px;
+.detail-content.g_receipt .info-product{
+	padding: 20px;
 }
+.detail-content.g_receipt .info-product a.btn_view{
+	padding: 3px 5px;
+	border-radius: 5px;
+	font-weight: bold;
+	color: var(--title-color);
+	cursor: pointer;
+	background-color: var(--dark-grey);
+}
+.detail-content.g_receipt .info-product a.btn_view:hover{
+	box-shadow: 1.5px 3px rgb(83, 81, 81);
+	color: #fff;
+}
+
 .Loc__DDH{
 	max-width: 100%;
 	background: #FAFAFA;
@@ -1009,7 +1036,7 @@ iframe {
 #search-barByDate .div__inputs{
 	border: 2px solid black;
 	display: flex; align-items: center;
-	padding: 4px;
+	/* padding: 4px; */
 	border-radius: 10px;
 }
 #search-barByDate .form-control{
@@ -1021,6 +1048,7 @@ iframe {
 #search-barByDate .div__inputs .btn-success{
 	color: rgb(247, 148, 18);
 	border-radius: 30px;
+	background-color: transparent;
 }
 #search-barByDate .form-control:hover{
 	border-color: var(--first-color);
@@ -1048,6 +1076,16 @@ iframe {
 	transition: 0.3s;
 	height: 80%;
 	/* transition-delay: 1s; */
+}
+.detail-content table{
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+.detail-content table th,
+.detail-content table td {
+	border: 1px solid black;
+	text-align: center;
 }
 .detail-content .form-input{
 	box-shadow: none;
@@ -1152,6 +1190,7 @@ iframe {
 #content .detail .table-data .order table tr td .status.pending {
 	background: var(--orange);
 }
+
 /* TABLE-DETAIL-ODER */
 .listOrder .OrderOfList{
 	width: 100%;

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- icons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="assets/css/manager.css">
+
+    <!-- <link rel="stylesheet" href="assets/css/swiper-bundle.min.css"> -->
+
+    <title>Request</title>
+    <!-- JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"
+        integrity="sha512-XmZS54be9JGMZjf+zk61JZaLZyjTRgs41JLSmx5QlIP5F+sSGIyzD2eJyxD4K6kGGr7AsVhaitzZ2WTfzpsQzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/cpexcel.js"
+    integrity="sha512-yi8FNVU1yTsGyKcq01t6Ti5U2flfCXRvam3U00sPCRJUSMs/ZhghiJPyh25QmI5Tr3L87d+aS1Irozv4Qt631g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="assets/js/table2excel.js"></script>
+</head>
+
+<body>
+    <div style="display: block; padding: 0;" class="detail pur_request" id="detail">
+        <div class="detail-content" style="width: 50%; margin: 0 25%;">
+            <div class="request-content">
+                <h3 class="title">DANH SÁCH SẢN PHẨM ĐỀ NGHỊ NHẬP HÀNG</h3>
+                <div class="info_product">
+                    <table id="table-to-export">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <p>B6S01</p>
+                                </td>
+                                <td>
+                                    <p>Nike Air Force 1 '07</p>
+                                </td>
+                                <td>
+                                    <p>100</p>
+                                <td>
+                                    <p> Nothing</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <p>B6S01</p>
+                                </td>
+                                <td>
+                                    <p>Nike Air Force 1 '07</p>
+                                </td>
+                                <td>
+                                    <p>100</p>
+                                <td>
+                                    <p> Nothing</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <p>B6S01</p>
+                                </td>
+                                <td>
+                                    <p>Nike Air Force 1 '07</p>
+                                </td>
+                                <td>
+                                    <p>100</p>
+                                <td>
+                                    <p> Nothing</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <input id="exportExcel" type="submit" value="Xuất File Excel" />
+        </div>
+    </div>
+    <!--=============== MAIN JS ===============-->
+
+    <script src="assets/js/main.js"></script>
+
+    <!-- Export to Excel -->
+    <script>
+        document.getElementById("exportExcel").addEventListener("click", function () {
+            var table2excel = new Table2Excel();
+            table2excel.export(document.querySelectorAll("#table-to-export"));
+        })
+
+    </script>
+</body>
