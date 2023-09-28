@@ -27,12 +27,32 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <!-- <script src="assets/js/table2excel.js"></script> -->
     <style>
-         @font-face {
-        font-family: 'Poppins';
-        src: url('path/to/custom-font.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+        a.btn{
+	        text-decoration: none;
+            padding: 3px 10px;
+	        border-radius: 5px;
+	        color: black;
+	        cursor: pointer;
+	        background-color: white;
+	        border: 2px solid black;
+            font-weight: bold;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        input.btn{
+            padding: 3px 10px;
+	        border-radius: 5px;
+	        color: black;
+	        cursor: pointer;
+	        background-color: white;
+	        border: 2px solid black;
+            font-weight: bold;
+            font-family:Arial, Helvetica, sans-serif;
+            float: right;
+        }
+        input.btn:hover, a.btn:hover{
+            box-shadow: 1px 2px gray;
+        }
     .request-content{
 	background-color: var(--body-color);
 	padding: 20px;
@@ -68,6 +88,7 @@
 	max-width: 95%;
 	font-size: 16px;
 	color: black;
+    font-family: "Poppins";
 }
 .request-content .info_product table {
 	width: 100%;
@@ -80,7 +101,7 @@
 	border: 1px solid black;
 	text-align: center;
 }
-.request-content .info_product table td{
+.request-content .info_product table tbody td{
 	max-width: 100px;
 }
 .request-content .info_product i.bx-trash{
@@ -112,27 +133,26 @@
 </head>
 
 <body>
-<div style="display: block; padding: 0;" class="detail pur_request" id="">
-    <div class="detail-content" >
-        <div class="request-content">
-            <div class="head_request">
-                <div>
+    <div class="request-content">
+        <div class="head_request">
+            <div>
                     <h4><i class='bx bxl-medium-old'></i>  MY WAREHOUSE</h4>
-                    <h5>Địa chỉ: ABC, DEF, HG</h5>
+                    <h5>Address: ABC, DEF, HG</h5>
                     <h5>001/DNNH</h5>
                 </div>
                 <!-- <div>
                     <h5>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h5>
                     <h5>ĐỘC LẬP - TỰ DO - HẠNH PHÚC</h5>
                 </div> -->
+                
             </div>
-            <h3 class="title">PHIẾU ĐỀ NGHỊ NHẬP HÀNG</h3>
+            <h3 class="title">REQUEST FOR GOODS RECEIPT</h3>
             <div class="info_request">
-                <p>Kính gửi: </p>
-                <p>Người đề nghị: </p>
-                <p>Chức danh: </p>
-                <p>Bộ phần đề nghị: </p>
-                <p>Mục đích sử dụng: </p>
+                <p>Dear: </p> <span></span>
+                <p>Requester: </p> <span></span>
+                <p>Position: </p> <span></span>
+                <p>Requesting Department: </p> <span></span>
+                <p>Intended Use: </p> <span></span>
             </div>
             <div class="info_product">
                 <table id="product-table">
@@ -162,7 +182,6 @@
                             <td><i class='bx bx-trash'></i></td>
                         </tr>
                         <tr id="row-tmp" style="display: none;">
-                            
                             <td>
                                 <p><input type="text" placeholder="..."></p>
                             </td>
@@ -181,27 +200,24 @@
                 <a href="#" id = "btnRequest__addProduct"><i class="lni lni-circle-plus"></i></a>
             </div>
             <div class="sign_request">
-                <i>Ngày....Tháng....Năm.....</i>
+                <i>Date…….Month……Year………..</i>
                 <br>
                 <div class="sign-area">
                     <div>
-                        <span>Quản lý kho</span>
+                        <span>Stockkeeper</span>
                         <br>
                         <img src="assets/img/approved.png" alt="">
                     </div>
                     <div>
-                        <span>Quản lý phòng kinh doanh</span>
+                        <span>Sales Department</span>
                         <br>
                         <img src="assets/img/approved.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
-        
-    </div>
-    
-</div>
-<input id="export-pdf" type="submit" value="Save & Send" />
+<input class="btn" id="export-pdf" type="submit" value="Save & Send" />
+<a href="purchase_order.html" class="btn">Create purchase Order</a>
 <!--=============== MAIN JS ===============-->
 
 <script src="assets/js/main.js"></script>
@@ -225,7 +241,7 @@
             
         });
         // Lấy toàn bộ thẻ trong thẻ <body>
-        var content = document.querySelector(".detail.pur_request");
+        var content = document.querySelector(".request-content");
         doc.html(content, {
             callback: function (doc) {
                 doc.save('request.pdf');
@@ -235,10 +251,11 @@
                 x: 0,
                 y: 0,
                 width: 190,
-                windowWidth: 1024
+                windowWidth: 1200
             });
         
     });
+
 </script>
 
 </body>

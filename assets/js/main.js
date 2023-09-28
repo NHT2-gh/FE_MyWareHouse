@@ -4,17 +4,35 @@ if (document.readyState == "loading") {
   ready();
 }
 function ready() {
-  var btn = document.getElementsByClassName("btn__detail product");
-  for (var i = 0; i < btn.length; i++) {
-    btn[i].addEventListener("click", getInfoDetail);
+  // detail
+  const btn_dlPro = document.getElementsByClassName("btn__detail product");
+  for (var i = 0; i < btn_dlPro.length; i++) {
+    btn_dlPro[i].addEventListener("click", getInfoDetail);
   }
-  var btnRequest_addProduct = document.getElementById("btnRequest__addProduct");
+
+  //request
+  const btnRequest_addProduct = document.getElementById(
+    "btnRequest__addProduct"
+  );
   if (btnRequest_addProduct) {
-    btnRequest_addProduct.addEventListener("click", addProduct);
+    btnRequest_addProduct.addEventListener("click", request_addProduct);
   }
-  var btn = document.getElementsByClassName("btn__detail g_receipt");
-  for (var i = 0; i < btn.length; i++) {
-    btn[i].addEventListener("click", openDetail);
+  //receipt
+  const btn_dlGre = document.getElementsByClassName("btn__detail g_receipt");
+  for (var i = 0; i < btn_dlGre.length; i++) {
+    btn_dlGre[i].addEventListener("click", openDetail);
+  }
+  // dashboard
+  var btn_dlDash = document.getElementsByClassName("btn__detail dashboard");
+  for (let i = 0; i < btn_dlDash.length; i++) {
+    btn_dlDash[i].addEventListener("click", openIframe);
+  }
+
+  const btnInventory_addMember = document.getElementById(
+    "btnInventory__addMember"
+  );
+  if (btnInventory_addMember) {
+    btnInventory_addMember.addEventListener("click", addMember);
   }
 }
 
@@ -71,10 +89,31 @@ function getInfoDetail(event) {
     var data = row.getElementsByClassName(listClassName[i])[0];
     var detailInfo = infoProduct.getElementsByClassName(listClassName[i])[0];
     if (detailInfo && listClassName[i] !== "img_product") {
-      detailInfo.innerHTML = data.innerText;
+      detailInfo.value = data.innerText;
+      detailInfo.readOnly = true;
     } else if (listClassName[i] == "img_product") {
       var imageUrl = btn_detail.getAttribute("data-image");
       detailInfo.src = imageUrl;
+    }
+  }
+  openDetail();
+}
+function resetDetail() {
+  var infoProduct = document.getElementsByClassName("info-product")[0];
+  var cell = document.querySelectorAll("td *");
+  var listClassName = [];
+  for (var i = 0; i < cell.length; i++) {
+    if (cell[i].className) {
+      listClassName.push(cell[i].className);
+    }
+  }
+  for (var i = 0; i < listClassName.length; i++) {
+    var detailInfo = infoProduct.getElementsByClassName(listClassName[i])[0];
+    if (detailInfo && listClassName[i] !== "img_product") {
+      detailInfo.value = "";
+      detailInfo.readOnly = false;
+    } else if (listClassName[i] == "img_product") {
+      detailInfo.src = "";
     }
   }
   openDetail();
@@ -97,47 +136,46 @@ for (let i = 0; i < rows.length; i++) {
 }
 
 //
-function exportToExcel() {
-  // Lấy đối tượng bảng cần xuất
-  var table2excel = new Table2Excel();
-  table2excel.export(document.querySelectorAll("table-to-export"));
-  // Sử dụng TableExport để xuất dữ liệu ra Excel
-  // var exportTable = new TableExport(table, {
-  //   headers: true, // Bao gồm tiêu đề trong Excel
-  //   footers: false, // Không bao gồm chân trang trong Excel
-  //   formats: ["xlsx"], // Định dạng xuất (xlsx, csv, txt, ...)
-  //   filename: "exported_data", // Tên tệp xuất
-  // });
+// function exportToExcel() {
+//   // Lấy đối tượng bảng cần xuất
+//   var table2excel = new Table2Excel();
+//   table2excel.export(document.querySelectorAll("table-to-export"));
+//   // Sử dụng TableExport để xuất dữ liệu ra Excel
+//   // var exportTable = new TableExport(table, {
+//   //   headers: true, // Bao gồm tiêu đề trong Excel
+//   //   footers: false, // Không bao gồm chân trang trong Excel
+//   //   formats: ["xlsx"], // Định dạng xuất (xlsx, csv, txt, ...)
+//   //   filename: "exported_data", // Tên tệp xuất
+//   // });
 
-  // var exportData = exportTable.getExportData()["table-to-export"]["xlsx"];
-  // var xlsxData = exportData.data;
-  // var xlsxColumns = exportData.mimeType;
-  // var xlsxFilename = "your-filename.xlsx";
+//   // var exportData = exportTable.getExportData()["table-to-export"]["xlsx"];
+//   // var xlsxData = exportData.data;
+//   // var xlsxColumns = exportData.mimeType;
+//   // var xlsxFilename = "your-filename.xlsx";
 
-  // var wb = XLSX.utils.book_new();
-  // wb.SheetNames.push("Sheet1");
-  // var ws = XLSX.utils.json_to_sheet(xlsxData, { header: xlsxColumns });
-  // wb.Sheets["Sheet1"] = ws;
-  // var wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
+//   // var wb = XLSX.utils.book_new();
+//   // wb.SheetNames.push("Sheet1");
+//   // var ws = XLSX.utils.json_to_sheet(xlsxData, { header: xlsxColumns });
+//   // wb.Sheets["Sheet1"] = ws;
+//   // var wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
 
-  // function s2ab(s) {
-  //   var buf = new ArrayBuffer(s.length);
-  //   var view = new Uint8Array(buf);
-  //   for (var i = 0; i < s.length; i++) {
-  //     view[i] = s.charCodeAt(i) & 0xff;
-  //   }
-  //   return buf;
-  // }
+//   // function s2ab(s) {
+//   //   var buf = new btn_dlDashBuffer(s.length);
+//   //   var view = new Uint8btn_dlDash(buf);
+//   //   for (var i = 0; i < s.length; i++) {
+//   //     view[i] = s.charCodeAt(i) & 0xff;
+//   //   }
+//   //   return buf;
+//   // }
 
-  // saveAs(
-  //   new Blob([s2ab(wbout)], { type: "application/octet-stream" }),
-  //   xlsxFilename
-  // );
-}
+//   // saveAs(
+//   //   new Blob([s2ab(wbout)], { type: "application/octet-stream" }),
+//   //   xlsxFilename
+//   // );
+// }
 
 // REQUEST
-
-function addProduct(event) {
+function request_addProduct(event) {
   const productTable = document.getElementById("product-table");
   const rowTemplate = document.getElementById("row-tmp");
   const tbody = productTable.querySelector("tbody");
@@ -152,3 +190,32 @@ function addProduct(event) {
     tbody.removeChild(newRow); // Xóa hàng khi nhấn nút "Xóa"
   });
 }
+
+function addMember(event) {
+  const Table = document.getElementById("listMember");
+  const rowTmp = document.getElementById("row-hidden");
+  const Tbody = Table.querySelector("tbody");
+  const newMember = rowTmp.cloneNode(true);
+  newMember.style.display = "table-row";
+
+  // Thêm hàng mới vào bảng
+  Tbody.appendChild(newMember);
+  // delete
+  const removeMember = newMember.querySelector(".bx-trash");
+  removeMember.addEventListener("click", function () {
+    Tbody.removeChild(newMember); // Xóa hàng khi nhấn nút "Xóa"
+  });
+}
+
+// DASHBOARD
+
+function openIframe(event) {
+  var liElement = event.currentTarget.closest("li");
+  var classLiElement = liElement.className;
+  // var iframe = document.getElementById(classLiElement);
+  var matchingFile = classLiElement + ".html";
+  // Mở tệp HTML tương ứng nếu tồn tại
+  window.location.href = matchingFile;
+}
+
+//PRODUCT

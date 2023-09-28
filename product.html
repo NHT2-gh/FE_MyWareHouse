@@ -98,21 +98,28 @@
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li  class="active">
-                <a href="#">
+            <li class="active">
+                <a href="product.html">
                     <img src="assets/img/sneakers.png" alt="">
                     <span class="text">Product</span>
                 </a>
             </li>
+            <!-- <li>
+    				<a href="#">
+    					<img src="assets/img/oders.png" alt="">
+    					
+    					<span class="text">Orders</span>
+    				</a>
+    			</li> -->
+            <!-- <li>
+    				<a href="#">
+    					<img src="assets/img/oders.png" alt="">
+    			
+    					<span class="text">Orders</span>
+    				</a>
+    			</li> -->
             <li>
-                <a href="#">
-                    <img src="assets/img/oders.png" alt="">
-    
-                    <span class="text">Orders</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
+                <a href="g__receipt.html">
                     <img src="assets/img/Delivery.png" alt="">
                     <span class="text">Goods receipt</span>
                 </a>
@@ -135,6 +142,7 @@
                     <span class="text">Supplier</span>
                 </a>
             </li>
+    
         </ul>
         <!-- <ul class="side-menu">
     			<li>
@@ -196,12 +204,11 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-                            <!-- <h3>Danh sách sản phẩm</h3> -->
                                 <form action="" id="search-bar" class="search">
                                 <input type="search" placeholder="Type something..." class="search__input">
                                 <a href="#"><i class='bx bx-search' ></i></a>
                                 </form>
-                            <!-- <a href="#" onclick="()"><i class="lni lni-circle-plus"></i></a> -->
+                            <a onclick="resetDetail()" href="#"><i class="lni lni-circle-plus"></i></a>
                         </div>
                     <table>
                         <thead>
@@ -316,58 +323,65 @@
                     <!-- <span class="close_chitiet" onclick="closeDetail()">&times;</span> -->
                     <div class="info-product">
                         <div class="header-detail">
-                            <h3 class="id"></h3>
+                            <input style="height: 100%; font-size: large;" type="text" name=""class="id" id="" placeholder="...ID...">
+                            <!-- <h3 class="id"></h3> -->
+                            <input style="float: right;" type="submit" value="Save">
                         </div>
                         <form style="display: flex;">
                             <div style="flex: 5; justify-content: center;">
                                 <ul class="info">
                                     <li>
                                         
-                                        <h3 class="name"></h3>
+                                        <input style="font-size: 20px; max-width: 200px;" type="text" class="name"  placeholder="...Name..."></input>
                                     </li>
                                     <li>
-                                        <h3 class="size"></h3>
+                                        <input style="max-width: 50px;" type="text" class="size" placeholder=".Size.."></input>
                                         <h3> - </h3>
-                                        <h3 class="obj"></h3>
+                                        <input type="text" class="obj"></input>
                                     </li>
                                      <li>
                                         <h4>Category:</h4>
-                                        <h4 class="category"></h4>
+                                        <input type="text" class="category"></input>
                                     </li>
                                     <li>
                                         <h4>Color:</h4>
-                                        <h4 class="clr"></h4>
+                                        <input type="text" class="clr"></input>
                                     </li>
                                     <li>
                                         <h4>Material:</h4>
-                                        <h4 class="mal"></h4>
+                                        <input type="text" class="mal"></input>
                                     </li>
                                     <li>
                                         <h4>Mfg:</h4>
-                                        <h4 class="mfg"></h4>
+                                        <input type="text" class="mfg"></input>
                                     </li>
                                     <li>
                                         <h3>Price:</h3>
-                                        <h3 class="prc"></h3>
+                                        <input style="max-width: 60px; font-weight: bold; font-size: 20px;" type="text" class="prc"></input>
                                         <h3>$</h3>
                                     </li>
+                                    
                                 </ul>
                             </div>
                             <div style="flex: 5;text-align: center;">   
                                 <ul class="img">
                                     <li>
-                                        <p class="suppl"></p>
+                                        <span>Made in </span>
+                                        <input style="font-weight: 200; font-style: italic;" type="text" class="suppl"></input>
                                     </li>
                                     <li><img class ="img_product" style="height: 200px;" class="img-product" alt=""></li>
                                     
                                 </ul>
                             </div>
+                            
                         </form>
+                        
                     </div>
                     
 
             </div>
         </div>
+        
     </section>
     <!--=============== SCROLL UP ===============-->
 	 <a href="#" class="scrollup" id="scroll-up"> 
@@ -380,5 +394,14 @@
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
 	<script src="assets/js/theme.js"></script>
+    
+
+    <!-- <script>
+        const input = document.querySelectorAll('.info-product input');
+        for (let i = 0; i < input.length; i++) {
+            const element = input[i];
+            element.style.width = (element.value.length * 10) + 'px'; // Sử dụng 10px cho mỗi ký tự làm ví dụ. Bạn có thể điều chỉnh dựa trên font và kích thước của bạn.
+        }
+    </script> -->
 </body>
 </html>
