@@ -28,6 +28,12 @@
     <!-- <script src="assets/js/table2excel.js"></script> -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+        p{
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+        }
         a.btn{
 	        text-decoration: none;
             padding: 3px 10px;
@@ -38,6 +44,7 @@
 	        border: 2px solid black;
             font-size: 20px;
             font-weight: bold;
+            align-items: center;
         }
         input.btn{
             padding: 3px 10px;
@@ -47,6 +54,7 @@
 	        background-color: white;
 	        border: 2px solid black;
             font-weight: bold;
+            width: 100px;
         }
         input.btn:hover, a.btn:hover{
             box-shadow: 1px 2px gray;
@@ -193,13 +201,15 @@
                                 <td><i class='bx bx-trash'></i></td>
                             </tr>
                         </tbody>
-                        <a href="#" id="btnInventory__addMember"><i class="lni lni-circle-plus"></i></a>
+                        <a href="#" class="staff_inventory" id="btnInventory__addMember"><i class="lni lni-circle-plus"></i></a>
                     </table>
 
                 </div>
                 <div style="flex: 3;">
-                    <p>ID Oder: DDH01</p>
-                    <p>Created by:</p>
+                    <span>ID Oder/Request: OD01</span>
+                    <span></span>
+                    <br>
+                    <span>Created by:</span>
                     <span></span>
                 </div>
             </div>
@@ -264,57 +274,48 @@
                             <td><input type="checkbox" name="" id=""></td>
                             <td><input type="checkbox" name="" id=""></td>
                         </tr>
-                        <!-- <tr id="row-tmp" style="display: none;">
-            
-                            <td>
-                                <p><input type="text" placeholder="..."></p>
-                            </td>
-                            <td>
-                                <p><input type="text" placeholder="..."></p>
-                            </td>
-                            <td>
-                                <p><input type="number" value="1" min="1"></p>
-                            <td>
-                                <p><input type="text" placeholder="..."></p>
-                            </td>
-                            <td><i class='bx bx-trash'></i></td>
-                        </tr> -->
                     </tbody>
                 </table>
                 <!-- <a href="#" id="btnRequest__addProduct"><i class="lni lni-circle-plus"></i></a> -->
             </div>
             <div class="sign_request">
-                <!-- <i>Ngày....Tháng....Năm.....</i>
-                    <br> -->
                 <div class="sign-area">
                     <div>
-                        <span>Quản lý kho</span>
+                        <span>Stockkeeper</span>
                         <br>
-                        <img src="assets/img/approved.png" alt="">
+                        <!-- <img src="assets/img/approved.png" alt=""> -->
                     </div>
                     <div>
-                        <span>Quản lý phòng kinh doanh</span>
+                        <span>Sales Department</span>
                         <br>
-                        <img src="assets/img/approved.png" alt="">
+                        <!-- <img src="assets/img/approved.png" alt=""> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
-    <input class="btn" id="export-pdf" type="submit" value="Save & Send" />
+    <div class="staff_inventory">
+            <input style="float: right;" class="btn" type="submit" value="Save & Send" />
+    </div>
+    <div class="stockkeeper">
+        <input style="float: right;" class="btn" type="submit" value="Accept" />
+    </div>
+    <input style="background-color: rgb(87, 173, 47); width: 100px;" class="btn" id="exportExcel" type="submit"
+        value="Export Excel">
+    <input style="background-color: rgb(248, 177, 85);" class="btn" id="export-pdf" type="submit" value="Export PDF" />
     <!--=============== MAIN JS ===============-->
 
     <script src="assets/js/main.js"></script>
 
     <!-- Export to Excel -->
-    <!-- <script>
+    <script>
     document.getElementById("exportExcel").addEventListener("click", function(){
         var table2excel = new Table2Excel();
         table2excel.export(document.querySelectorAll("#table-to-export"));
     })
 
-</script> -->
+</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="assets/dist/jspdf.umd.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>

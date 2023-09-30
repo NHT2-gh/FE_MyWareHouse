@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+	<!-- My CSS -->
+	<link rel="stylesheet" href="assets/css/manager.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+	<title>Admin</title>
+	<!-- JS -->
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+</head>
+<body>
+	<!-- HEADER -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="dashboard.html" class="nav__logo">
+                <i class='bx bxl-medium-old'></i>MY WAREHOUSE
+            </a>
+    
+            <!-- <div class="nav__menu" id="nav-menu">
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="#home" class="nav__link active-link">Home</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#featured" class="nav__link">Featured</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#new" class="nav__link">New</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="user_product.html" class="nav__link">Products</a>
+                            </li>
+                        </ul>
+                        <div class="nav__close" id="nav-close">
+                            <i class='bx bx-x' ></i>
+                        </div>
+                    </div> -->
+    
+            <div class="nav__btns">
+                <!-- Theme change button -->
+                <form action="" id="search-bar" class="search">
+                    <input type="search" placeholder="Type something..." class="search__input">
+                    <a href="#"><i class='bx bx-search'></i></a>
+                </form>
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+                <!-- <div class="nav__shop" id="cart-shop">
+                            <i class='bx bx-shopping-bag' ></i>
+                        </div> -->
+    
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+    
+                <div class="nav__user" id="info-user">
+                    <a href="dashboard.html"><i class='bx bx-user'></i></a>
+                    <ul class="dropMenu">
+                        <li>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <img class="avt-dropMenu" src="assets/img/nike.png" alt="">
+                                <p>Thanh Nguyễn</p>
+                            </div>
+                            <p style="font-size: 14px;color: rgb(118, 113, 113);">Quản lí kho</p>
+                        </li>
+                        <li>
+                            <img src="assets/img/edit.png" alt="">
+                            <a href="profile.html">Edit Profile</a>
+                        </li>
+                        <li>
+                            <img src="assets/img/logout.png" alt="">
+                            <a style="color: rgb(242, 90, 90);" href="login.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+	<!-- SIDEBAR -->
+    <section id="sidebar">
+        <ul class="side-menu top">
+            <li>
+                <a href="#" class="active">
+                    <img src="assets/img/dashboard.png" alt="">
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="product.html">
+                    <img src="assets/img/sneakers.png" alt="">
+                    <span class="text">Product</span>
+                </a>
+            </li>
+            <li>
+                <a href="orders.html">
+                    <img src="assets/img/oders.png" alt="">
+    
+                    <span class="text">Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="g__receipt.html">
+                    <img src="assets/img/Delivery.png" alt="">
+                    <span class="text">Goods receipt</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/img/transfer.png" alt="">
+                    <span class="text">Goods Issue</span>
+                </a>
+            </li>
+            <li>
+                <a href="inventory_report.html">
+                    <img src="assets/img/inventory.png" alt="">
+                    <span class="text">Inventory Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="invoice.html">
+                    <img src="assets/img/invoice.png" alt="">
+                    <span class="text">Invoice</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="staff.html">
+                    <img src="assets/img/staff.png" alt="">
+                    <span class="text">Staff</span>
+                </a>
+            </li>
+            <li>
+                <a href="store.html">
+                    <img src="assets/img/nike.png" alt="">
+                    <span class="text">Store</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+	<!-- SIDEBAR -->
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			
+			<a href="#" class="nav-link"><i class='bx bx-menu' ></i></a>
+			<a href="#" class="btn-download">
+				<i class='bx bxs-cloud-download' ></i>
+				<span class="text">Download PDF</span>
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+            <div id ="main__staff">
+                <div class="table-data" id="tbl-staff">
+                    <div class="order">
+                        <div class="head">
+                            <form action="" id="search-bar" class="search">
+                                <input type="search" placeholder="Type something..." class="search__input">
+                                <a href="#"><i class='bx bx-search' ></i></a>
+                            </form>
+                            <a href="#" onclick="openDetail(), resetDetail()"><i class="lni lni-circle-plus"></i></a>
+                        </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Full Name</th>
+                                <th>Gender</th>
+                                <th>Brith</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>UserID</th>
+                                <th></th>
+                                <th>View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>1</p></td>
+                                    <td>Nguyễn Thanh</td>
+                                    <td><p>Nữ</p></td>
+                                    <td><p>2002-05-01</p></td>
+                                    <td class="td__address" ><p>Phước Long B 11</p></td>
+                                    <td><p>0845002405</p></td>
+                                    <td><p>SF01</p></td>
+                                    <td><input type="hidden" value="1"></td>
+                                    <td class="btn">
+                                        <!-- <a class ="btn__chitiet" href="#detail"><i class='bx bx-detail' ></i></a> -->
+                                        <a class ="btn__detail" href="#change" onclick="getDetailInfoAcc()"><i class='bx bx-detail' ></i></a>
+                                        <!-- <a class ="btn__xoa"href="#delete" onclick="showDialog_del()"><i class='bx bxs-trash' ></i></a> -->
+                                    </td>
+                                    <!-- <td><span class="status completed">Completed</span></td> -->
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>1</p></td>
+                                        <td>Nguyễn Thanh</td>
+                                        <td><p>Nữ</p></t>
+                                        <td><p>2002-05-01</p></td>
+                                        <td><p>Phước Long B</p></t>
+                                        <td><p>0845002405</p></td>
+                                        <td><p>NV1</p></td>
+                                        <td><input type="hidden" value="2"></td>
+                                        <td class="btn">
+                                            <!-- <a class ="btn__chitiet" href="#detail"><i class='bx bx-detail' ></i></a> -->
+                                            <a class ="btn__detail" href="#change" onclick="getDetailInfoAcc()"><i class='bx bx-detail' ></i></a>
+                                            <!-- <a class ="btn__xoa"href="#delete" onclick="showDialog_del()"><i class='bx bxs-trash' ></i></a> -->
+                                        </td>
+                                        <!-- <td><span class="status completed">Completed</span></td> -->
+                                    </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </main>
+        <div class="detail" id="detail">
+            <div class="detail-content">
+                <div class="staff__account">
+                    <span onclick="closeDetail()" class="close_chitiet">&times;</span>
+                    <form class="form-input">
+                        <ul id="myList">
+                            <li>
+                                <input  type="text" id="input__staffID" name="userID"  class="field-style field-full align-none"  placeholder="Staff ID">
+                            </li>
+                            <li>
+                                <input  type="text" id="input__loginName"  name="userName" class="field-style field-full align-none" placeholder="Login Name">
+                            </li>
+                            <li>
+                                <input type="password" id="input__pass" name="passUser" class="field-style field-full align-none" placeholder="Password">
+                            </li>
+                            <li>
+                                <select type="text" id="input__status"  class="field-style field-split align-left" name="status">
+                                    <option value="0">Status</option>
+                                    <option value="1">Active</option>
+                                    <option value="2">Inactive</option>
+                                </select>
+                                <select type="text" id="input__roleID"  class="field-style field-split align-right" name="role_id">
+                                    <option value="0">Position</option>
+                                    <option value="1">Stock taking</option>
+                                    <option value="2">Inspector</option>
+                                    <option value="3">Accountting</option>
+                                </select>
+                            </li>
+                            <li>
+                                <input  id="input__email" type="text" class="field-style field-full align-none" name="email" placeholder="Email">
+                            </li>  
+                            <li>
+                                <input  id="input__phone" type="text" class="field-style field-full align-none" placeholder="Phone" name="phone">
+                            </li>
+                            <li>
+                                <input  type="submit" value="Save" />
+                            </li>
+                
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=============== SCROLL UP ===============-->
+	 <a href="#" class="scrollup" id="scroll-up"> 
+        <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
+    </a>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+	<script src="assets/js/chart.js"></script>
+	<!-- <script src="assets/js/mgr_script.js"></script> -->
+</body>
+</html>

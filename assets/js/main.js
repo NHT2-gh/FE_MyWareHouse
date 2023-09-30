@@ -10,13 +10,22 @@ function ready() {
     btn_dlPro[i].addEventListener("click", getInfoDetail);
   }
 
-  //request
+  //purchase_request
   const btnRequest_addProduct = document.getElementById(
     "btnRequest__addProduct"
   );
   if (btnRequest_addProduct) {
     btnRequest_addProduct.addEventListener("click", request_addProduct);
   }
+
+  // export_request
+  const checkBoxRequest_seclect =
+    document.getElementsByClassName("select-product");
+  for (let i = 0; i < checkBoxRequest_seclect.length; i++) {
+    const checkBox = checkBoxRequest_seclect[i];
+    checkBox.addEventListener("click", secletProduct);
+  }
+
   //receipt
   const btn_dlGre = document.getElementsByClassName("btn__detail g_receipt");
   for (var i = 0; i < btn_dlGre.length; i++) {
@@ -60,16 +69,24 @@ if (menuBar) {
 
 // DETAIL
 var div_detail = document.getElementById("detail");
+const iframeShow = document.getElementsByClassName("showForm")[0];
 // open
 function openDetail() {
   div_detail.style.display = "block";
 }
-// close
+// close detail
 window.onclick = function (event) {
   if (event.target == div_detail) {
     div_detail.style.display = "none";
+  } else if (event.target == iframeShow) {
+    iframeShow.style.display = "none";
   }
 };
+
+//close iframe
+function closeDetail() {
+  iframeShow.style.display = "none";
+}
 
 // get info detail
 function getInfoDetail(event) {
@@ -89,8 +106,7 @@ function getInfoDetail(event) {
     var data = row.getElementsByClassName(listClassName[i])[0];
     var detailInfo = infoProduct.getElementsByClassName(listClassName[i])[0];
     if (detailInfo && listClassName[i] !== "img_product") {
-      detailInfo.value = data.innerText;
-      detailInfo.readOnly = true;
+      detailInfo.innerHTML = data.innerText;
     } else if (listClassName[i] == "img_product") {
       var imageUrl = btn_detail.getAttribute("data-image");
       detailInfo.src = imageUrl;
@@ -98,26 +114,113 @@ function getInfoDetail(event) {
   }
   openDetail();
 }
-function resetDetail() {
-  var infoProduct = document.getElementsByClassName("info-product")[0];
-  var cell = document.querySelectorAll("td *");
-  var listClassName = [];
-  for (var i = 0; i < cell.length; i++) {
-    if (cell[i].className) {
-      listClassName.push(cell[i].className);
-    }
+
+// js cũ
+function getDetailInfoAcc() {
+  var tableRows = document.querySelectorAll(".table-data tbody tr");
+  // Duyệt qua các thẻ tr và thiết lập sự kiện click cho nút "Xóa" của mỗi thẻ tr
+  for (var i = 0; i < tableRows.length; i++) {
+    var detail_btn = tableRows[i].querySelector(".btn__detail");
+    detail_btn.addEventListener("click", function () {
+      // Lấy dữ cliệu từ các ô td của thẻ tr được click
+      var cells = this.parentNode.parentNode.getElementsByTagName("td");
+      // Lấy id của phần tử con của ul
+      const liElements = document.querySelectorAll("#myList li");
+      var ids = [];
+      liElements.forEach((li) => {
+        const childElements = li.querySelectorAll("*");
+        childElements.forEach((child) => {
+          if (child.id) {
+            document.getElementById(child.id).readOnly = true;
+            console.log(child.id);
+          }
+        });
+      });
+      var length = cells.length;
+      console.log(length);
+      var id_user = cells[length - 2].innerText;
+      var name_user = cells[1].innerText;
+      var phone_user = cells[length - 3].innerText;
+      var status = cells[7].querySelector("input").value;
+      console.log(length, id_user, name_user, phone_user, status);
+      document.getElementById("input__status").value = status;
+      document.getElementById("input__staffID").value = id_user;
+      document.getElementById("input__loginName").value = name_user;
+      document.getElementById("input__phone").value = phone_user;
+      openDetail();
+    });
   }
-  for (var i = 0; i < listClassName.length; i++) {
-    var detailInfo = infoProduct.getElementsByClassName(listClassName[i])[0];
-    if (detailInfo && listClassName[i] !== "img_product") {
-      detailInfo.value = "";
-      detailInfo.readOnly = false;
-    } else if (listClassName[i] == "img_product") {
-      detailInfo.src = "";
-    }
-  }
-  openDetail();
 }
+function closeDetail() {
+  div_detail.style.display = "none";
+}
+function resetDetail() {
+  const liElements = document.querySelectorAll("#myList li");
+  if (liElements) {
+    liElements.forEach((li) => {
+      const childElements = li.querySelectorAll("*");
+      childElements.forEach((child) => {
+        if (child.id) {
+          if (child.tagName === "SELECT") {
+            document.getElementById(child.id).value = "0";
+          } else if (child.id === "input__fileName") {
+            document.getElementById(child.id).innerText = "File name:";
+            document.getElementsByClassName("preView_img")[0].src = "";
+          } else {
+            document.getElementById(child.id).value = "";
+          }
+          document.getElementById(child.id).readOnly = false;
+        }
+      });
+    });
+  }
+}
+// SHOW TINH TRANG STAFF
+const table_Staff = document.querySelectorAll("#tbl-staff tbody tr");
+for (var i = 0; i < table_Staff.length; i++) {
+  var td = table_Staff[i].getElementsByTagName("td")[7];
+  var input = td.getElementsByTagName("input")[0].value;
+  // input === 1 -> staff đang hoạt động
+  if (input === "1") {
+    td.style.color = "rgb(127, 248, 79)";
+    var icon_status = document.createElement("i");
+    var icon_statusContent = `<i class='bx bxs-circle' ></i>`;
+    icon_status.innerHTML = icon_statusContent;
+    td.append(icon_status);
+  } else {
+    // input === 2 -> staff ngưng hoạt động
+    td.style.color = "rgb(209, 63, 63)";
+    var icon_status = document.createElement("i");
+    var icon_statusContent = `<i class='bx bxs-circle' ></i>`;
+    icon_status.innerHTML = icon_statusContent;
+    td.append(icon_status);
+  }
+}
+// function resetDetail() {
+//   var infoProduct = document.getElementsByClassName("info-product")[0];
+//   var cell = document.querySelectorAll("td *");
+//   var listClassName = [];
+//   for (var i = 0; i < cell.length; i++) {
+//     if (cell[i].className) {
+//       listClassName.push(cell[i].className);
+//     }
+//   }
+//   for (var i = 0; i < listClassName.length; i++) {
+//     var detailInfo = infoProduct.getElementsByClassName(listClassName[i])[0];
+//     if (detailInfo && listClassName[i] !== "img_product") {
+//       detailInfo.value = "";
+//       detailInfo.readOnly = false;
+//     } else if (listClassName[i] == "img_product") {
+//       detailInfo.src = "";
+//     }
+//   }
+//   openDetail();
+// }
+function addProduct() {
+  const iframe_addProduct = document.getElementById("iframeAdd");
+  iframe_addProduct.style.display = "block";
+}
+
 //END DETAIL
 
 //Hidden cell table product
@@ -190,7 +293,7 @@ function request_addProduct(event) {
     tbody.removeChild(newRow); // Xóa hàng khi nhấn nút "Xóa"
   });
 }
-
+// add inventory member
 function addMember(event) {
   const Table = document.getElementById("listMember");
   const rowTmp = document.getElementById("row-hidden");
@@ -207,6 +310,33 @@ function addMember(event) {
   });
 }
 
+//
+// function secletProduct(event) {
+//   var btn = event.currentTarget;
+//   if (btn.checked) {
+//     var row = btn.closest("tr");
+//     var codeProduct = row.getElementsByClassName("code")[0].innerText;
+//     var nameProduct = row.getElementsByClassName("name")[0].innerText;
+//     console.log(codeProduct, nameProduct);
+//     addProduct_inRequest(codeProduct, nameProduct);
+//   }
+// }
+// function addProduct_inRequest(codeProduct, nameProduct) {
+//   const productTable = document.getElementById("product-table");
+//   const rowTemplate = document.getElementById("row-tmp");
+//   const tbody = productTable.querySelector("tbody");
+//   const newRow = rowTemplate.cloneNode(true);
+//   newRow.style.display = "table-row";
+//   newRow.querySelectorAll("td")[0].innerHTML = codeProduct;
+//   newRow.querySelectorAll("td")[1].innerHTML = nameProduct;
+//   // Thêm hàng mới vào bảng
+//   tbody.appendChild(newRow);
+//   // // delete
+//   // const removeButton = newRow.querySelector(".bx-trash");
+//   // removeButton.addEventListener("click", function () {
+//   //   tbody.removeChild(newRow); // Xóa hàng khi nhấn nút "Xóa"
+//   // });
+// }
 // DASHBOARD
 
 function openIframe(event) {

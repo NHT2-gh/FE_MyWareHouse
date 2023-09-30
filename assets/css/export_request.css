@@ -1,0 +1,96 @@
+
+.order .head {
+    float: right;
+}
+
+.choose_product{
+    font-weight: 600;
+}
+
+table .quantityRe {
+    max-width: 45px;
+}
+
+.create-btn {
+    float: right;
+    margin-top: 20px;
+}
+
+.create-btn button{
+    background-color: #6bba62;
+    border-color: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: #fff;
+}
+
+.create-btn button:hover {
+    background-color: black;
+}
+
+#dia-request {
+    position: fixed;
+    top: 50%; /* Đặt top ở giữa màn hình */
+    left: 50%; /* Đặt left ở giữa màn hình */
+    transform: translate(-50%, -50%);
+    border: none;
+    width: 50%;
+    height: 100%;
+}
+
+.group-btn {
+    float: right;
+    margin-bottom: 30px;
+    margin-right: 30px;
+}
+
+.group-btn button{
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: #fff;
+}
+
+.group-btn button:hover {
+    opacity: 0.5;
+    color: #000;
+}
+
+.group-btn .submit {
+    outline: none;
+    background-color: #f5dd7b;
+}
+
+.group-btn #close-dia {
+    background-color: #fd5959;
+}
+
+.detail_info {
+    display: flex;
+}
+
+.detail_info input {
+    font-family: var(--poppins);
+    border: none;
+    outline: none;
+    width: 300px;
+    height: 24px;
+    margin-left: 26px;
+    background: transparent; 
+}
+
+#listProductReq input {
+    border: none;
+    outline: none;
+    background: transparent; 
+}
+
+.sign_request .dated{
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+
+

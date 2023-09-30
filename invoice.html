@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
-    <title>Goods Receipt</title>
+    <title>Invoice</title>
     <!-- JS -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -105,18 +105,18 @@
             <li>
                 <a href="orders.html">
                     <img src="assets/img/oders.png" alt="">
-    
+
                     <span class="text">Orders</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="g__receipt.html">
                     <img src="assets/img/Delivery.png" alt="">
                     <span class="text">Goods receipt</span>
                 </a>
             </li>
             <li>
-                <a href="g_issue.html">
+                <a href="#">
                     <img src="assets/img/transfer.png" alt="">
                     <span class="text">Goods Issue</span>
                 </a>
@@ -127,14 +127,14 @@
                     <span class="text">Inventory Report</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="#">
                     <img src="assets/img/invoice.png" alt="">
                     <span class="text">Invoice</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="staff.html">
                     <img src="assets/img/staff.png" alt="">
                     <span class="text">Staff</span>
                 </a>
@@ -178,7 +178,7 @@
                                 </li>
                             </ul>
                     </div> -->
-                    
+
                 </div>
                 <div class="dialog" id="confirmDialog_">
                     <div class="dialog-content">
@@ -188,7 +188,7 @@
                             <button id="confirmBtn">Đồng ý</button>
                             <button id="cancelBtn">Hủy bỏ</button>
                         </div>
-                </div>
+                    </div>
                 </div>
                 <div class="table-data">
                     <div class="order">
@@ -197,54 +197,54 @@
                                 <input type="search" placeholder="Type something..." class="search__input">
                                 <a href="#"><i class='bx bx-search'></i></a>
                             </form>
-                        
+
                             <form id="search-barByDate" style="display: none;" action="">
                                 <!-- Lưu kiểu tìm kiếm (Sort theo gì?) -->
                                 <input type="text" hidden name="statusOrderSearch" value="3">
                                 <div class="div__inputs">
                                     <div>
-                                        <input class="form-control" id="datepickerfrom_start" name="startDate" type="date">
+                                        <input class="form-control" id="datepickerfrom_start" name="startDate"
+                                            type="date">
                                     </div>
                                     <span>-</span>
                                     <div>
                                         <input class="form-control" id="datepickerfrom_end" name="endDate" type="date">
                                     </div>
-                            
+
                                     <button class="btn btn-success" type="submit"
                                         style="display: flex; justify-content: center; align-items: center; padding: 10px;">
                                         <i class='bx bx-search'></i>
                                     </button>
                                 </div>
                             </form>
-                            <a href="#"><i class="lni lni-circle-plus"></i></a>
+                            <!-- <a href="#"><i class="lni lni-circle-plus"></i></a> -->
                         </div>
                         <table>
-                           
+
                             <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Date</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th>ID Oder/Request</th>
                                     <th>Name Staff</th>
-                                    <th>ID Order</th>
-                                    <th>View</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <p>GI01</p>
+                                        <p>GR01</p>
                                     </td>
-                                    <td>26/09/2023</td>
+                                    <td><p>26/09/2023</p></td>
+                                    <td><p>200</p></td>
+                                    <td>400</td>
+                                    <td>
+                                        <p>OD01</p>
+                                    </td>
                                     <td>
                                         <p>Sơn Trịnh</p>
                                     </td>
-                                    <td><p>OD01</p></td>
-                                    <td class="btn">
-                                        <a class="btn__detail g_receipt" href="#change"><i
-                                                class='bx bx-detail'></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
-                                    </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
                                 </tr>
                             </tbody>
                         </table>
@@ -253,79 +253,6 @@
                 </div>
             </div>
         </main>
-        <div class="detail g_receipt" id="detail">
-            <div class="detail-content g_receipt" style="width: 60%; margin: 10% 20%;">
-                <!-- <span class="close_chitiet" onclick="closeDetail()">&times;</span> -->
-                <div class="info-product">
-                    <!-- <div class="head">
-                        <span>ID Goods receipt: </span>
-                        <span>GR01</span>
-                    </div> -->
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th colspan="2">Quantity</th>
-                                <th>Unit Price</th>
-                                <th>Note</th>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>According to document</th>
-                                <th>Actually imported</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            <tr>
-                                <td>
-                                    <p>B6S01</p>
-                                </td>
-                                <td>
-                                    <p>Nike Air Force</p>
-                                </td>
-                                <td>
-                                    <p>100</p>
-                                </td>
-                                <td>
-                                    <p></p>
-                                </td>
-                                <td>
-                                    <p>200$</p>
-                                </td>
-                                <td>
-                                    <p>Nothing</p>
-                                </td>  
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>B6S01</p>
-                                </td>
-                                <td>
-                                    <p>Nike Air Force</p>
-                                </td>
-                                <td>
-                                    <p>100</p>
-                                </td>
-                                <td><p></p></td>
-                                <td>
-                                    <p>200$</p>
-                                </td>
-                                <td>
-                                    <p>Nothing</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <a class="btn_view">View Inventory</a>
-                </div>
-                </div>  
-            </div>
-        </div>
     </section>
     <!--=============== SCROLL UP ===============-->
     <a href="#" class="scrollup" id="scroll-up">

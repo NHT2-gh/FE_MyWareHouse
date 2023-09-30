@@ -9,9 +9,6 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="assets/css/manager.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
-	<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-	<link rel="stylesheet" href="assets/css/new.css">
-
 	<title>My Warehouse</title>
 	<!-- JS -->
 	
@@ -86,10 +83,6 @@
     </header>
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<!-- <a href="#" class="brand">
-			<i class='bx bxs-smile'></i>
-			<span class="text">AdminHub</span>
-		</a> -->
 		<ul class="side-menu top">		
 			<li class="active">
 				<a href="#" class="active">
@@ -103,20 +96,13 @@
 					<span class="text">Product</span>
 				</a>
 			</li>
-			<!-- <li>
-				<a href="#">
+			<li>
+				<a href="orders.html">
 					<img src="assets/img/oders.png" alt="">
 					
 					<span class="text">Orders</span>
 				</a>
-			</li> -->
-			<!-- <li>
-				<a href="#">
-					<img src="assets/img/oders.png" alt="">
-			
-					<span class="text">Orders</span>
-				</a>
-			</li> -->
+			</li>
 			<li>
 				<a href="g__receipt.html">
 					<img src="assets/img/Delivery.png" alt="">
@@ -127,6 +113,18 @@
 				<a href="#">
 					<img src="assets/img/transfer.png" alt="">
 					<span class="text">Goods Issue</span>
+				</a>
+			</li>
+			<li>
+				<a href="inventory_report.html">
+					<img src="assets/img/inventory.png" alt="">
+					<span class="text">Inventory Report</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="assets/img/invoice.png" alt="">
+					<span class="text">Invoice</span>
 				</a>
 			</li>
 			<li>
@@ -141,22 +139,7 @@
 					<span class="text">Supplier</span>
 				</a>
 			</li>
-
 		</ul>
-		<!-- <ul class="side-menu">
-			<li>
-				<a href="#">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Brands</span>
-				</a>
-			</li>
-			<li>
-				<a href="#" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Categorys</span>
-				</a>
-			</li>
-		</ul> -->
 	</section>
 	<!-- SIDEBAR -->
 
@@ -237,26 +220,24 @@
 			
 			<div style="display: flex; width: 100%;" class="dashboard_bottom">
 				<div style="flex:4;" class="topProduct">
-					<div class="listTop">
+					<div class="recent_order">
 						<div class="head">
-							<h3>Top Selling Products</h3>
+							<h3>Recent Order</h3>
+							<a href="orders.html">SEE ALL</a>
 						</div>
 						<ul>
 							<li>
-								<img src="assets/img/1.jpg" alt="">
-								<span>Name Product</span>
-								<p>20</p>
+								<p>#OD01</p>
+								<p>30/09/2023</p>
+								<p>$4450.0</p>
+								<div class="status completed">Completed</div>
+							</li>
+							<!-- <li>
+								
 							</li>
 							<li>
-								<img src="assets/img/1.jpg" alt="">
-								<span>Name Product</span>
-								<p>20</p>
-							</li>
-							<li>
-								<img src="assets/img/1.jpg" alt="">
-								<span>Name Product</span>
-								<p>20</p>
-							</li>
+								
+							</li> -->
 						</ul>
 					</div>
 				</div>
@@ -278,7 +259,7 @@
 									<span>Phiếu đề nghị nhập hàng DNNH01 của bạn đã được duyệt</span>
 									<a class="btn__detail dashboard"><img src="assets/img/info.png" alt=""></a>
 								</li>
-								<li class="">
+								<li class="export_request">
 									<img src="assets/img/request.png" alt="">
 									<span>Hiện tại đang có phiếu yêu cầu xuất hàng đang chờ duyệt</span>
 									<a class="btn__detail dashboard"><img src="assets/img/info.png" alt=""></a>
@@ -298,8 +279,10 @@
 			</div>
 		</div>
 			<!-- END STATISTICS-->
-		<!-- <iframe id="editProfile" src="test.html"> </iframe> -->
 	</main>
+			<!-- <iframe style="display: block; height: 100%;width: 100%; padding: 0; background-color: white; margin-bottom: 100px;"
+			src="request.html"> </iframe> -->
+
 		
 				
 			<!-- END PRODUCT-->

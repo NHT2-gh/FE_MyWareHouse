@@ -28,30 +28,30 @@
     <!-- <script src="assets/js/table2excel.js"></script> -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
-        a.btn{
-	        text-decoration: none;
-            padding: 3px 10px;
-	        border-radius: 5px;
-	        color: black;
-	        cursor: pointer;
-	        background-color: white;
-	        border: 2px solid black;
-            font-weight: bold;
-            font-family:Arial, Helvetica, sans-serif;
+        .hidden{
+            display: none;
+        }
+        p{
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        .btn{
+            background-color: #94d88c;
+            border-color: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: rgb(121, 149, 112);
+            cursor: pointer;
         }
         input.btn{
-            padding: 3px 10px;
-	        border-radius: 5px;
-	        color: black;
-	        cursor: pointer;
-	        background-color: white;
-	        border: 2px solid black;
-            font-weight: bold;
-            font-family:Arial, Helvetica, sans-serif;
-            float: right;
-        }
-        input.btn:hover, a.btn:hover{
-            box-shadow: 1px 2px gray;
+            border: none;
         }
     .request-content{
 	background-color: var(--body-color);
@@ -79,8 +79,8 @@
 	padding: 10px 30px;
 }
 
-.request-content .info_request p {
-	margin-bottom: 5px;
+.request-content .info_request div span {
+
 }
 .request-content .info_product input{
 	border: none;
@@ -102,7 +102,6 @@
 	text-align: center;
 }
 .request-content .info_product table tbody td{
-	max-width: 100px;
 }
 .request-content .info_product i.bx-trash{
 	color: var(--red);
@@ -133,41 +132,45 @@
 </head>
 
 <body>
+    <!-- <a class="btn" href="dashboard.html">&lt;</a> -->
     <div class="request-content">
         <div class="head_request">
             <div>
-                    <h4><i class='bx bxl-medium-old'></i>  MY WAREHOUSE</h4>
+                    <h4><i class='bx bxl-medium-old hidden_icon'></i>  MY WAREHOUSE</h4>
                     <h5>Address: ABC, DEF, HG</h5>
                     <h5>001/DNNH</h5>
                 </div>
-                <!-- <div>
-                    <h5>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h5>
-                    <h5>ĐỘC LẬP - TỰ DO - HẠNH PHÚC</h5>
-                </div> -->
-                
+                <div>
+                    <h5>SOCIALIST REPUBLIC OF VIETNAM</h5>
+                    <h5>Independence - Freedom - Happiness</h5>
+                </div>
             </div>
             <h3 class="title">REQUEST FOR GOODS RECEIPT</h3>
             <div class="info_request">
-                <p>Dear: </p> <span></span>
-                <p>Requester: </p> <span></span>
-                <p>Position: </p> <span></span>
-                <p>Requesting Department: </p> <span></span>
-                <p>Intended Use: </p> <span></span>
+                <span>Dear: </span> <span></span>
+                <br>
+                <span>Requester: </span><span></span>
+                <br>
+                <span>Position: </span><span></span>
+                <br>
+                <span>Requesting Department: </span> <span></span>
+                <br>
+                <span>Intended Use: </span> <span></span>
             </div>
             <div class="info_product">
                 <table id="product-table">
                     <thead>
                         <tr>
+                            <th>No.</th>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Quantity</th>
                             <th>Note</th>
-                            <th></th>
-
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td></td>
                             <td>
                                 <p>B6S01</p>
                             </td>
@@ -179,9 +182,9 @@
                             <td>
                                 <p> <input type="text" placeholder="Note"></p>
                             </td>
-                            <td><i class='bx bx-trash'></i></td>
                         </tr>
                         <tr id="row-tmp" style="display: none;">
+                            <td></td>
                             <td>
                                 <p><input type="text" placeholder="..."></p>
                             </td>
@@ -193,53 +196,70 @@
                             <td>
                                 <p><input type="text" placeholder="..."></p>
                             </td>
-                            <td><i class='bx bx-trash'></i></td>
+                            <td class="stockkeeper"><i class='bx bx-trash'></i></td>
                         </tr>
                     </tbody>
                 </table>
-                <a href="#" id = "btnRequest__addProduct"><i class="lni lni-circle-plus"></i></a>
+            <a href="#" class="stockkeeper" id="btnRequest__addProduct"><i class="lni lni-circle-plus"></i></a>
+
             </div>
             <div class="sign_request">
-                <i>Date…….Month……Year………..</i>
-                <br>
                 <div class="sign-area">
                     <div>
                         <span>Stockkeeper</span>
                         <br>
-                        <img src="assets/img/approved.png" alt="">
+                        <!-- <img src="assets/img/approved.png" alt=""> -->
                     </div>
                     <div>
+                        <i>Date…….Month……Year………..</i>
+                        <br>
+                        <br>
                         <span>Sales Department</span>
                         <br>
-                        <img src="assets/img/approved.png" alt="">
+                        <!-- <img src="assets/img/approved.png" alt=""> -->
                     </div>
                 </div>
             </div>
         </div>
-<input class="btn" id="export-pdf" type="submit" value="Save & Send" />
-<a href="purchase_order.html" class="btn">Create purchase Order</a>
+        <div class="stockkeeper">
+            <input style="float: right;" class="btn" type="submit" value="Save & Send"/>
+        </div>
+        <div class ="sales_staff">
+            <a style="background-color: rgb(209, 109, 72);" href="purchase_order.html" class="btn">Create purchase order</a>
+        </div>
+        <div class = "sales_manager">
+            <input style="float: right;" class="btn" type="submit" value="Accept" />
+        </div>
+<input style="background-color: rgb(87, 173, 47); width: 100px;" class="btn" id="exportExcel" type="" value="Export Excel">
+<input style="background-color: rgb(248, 177, 85); width: 100px;" class="btn" id="export-pdf" type="" value="Export PDF">
 <!--=============== MAIN JS ===============-->
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/table2excel.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="assets/dist/jspdf.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
 
 <!-- Export to Excel -->
-<!-- <script>
+<script>
+    // Excel
     document.getElementById("exportExcel").addEventListener("click", function(){
         var table2excel = new Table2Excel();
         table2excel.export(document.querySelectorAll("#table-to-export"));
     })
 
-</script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="assets/dist/jspdf.umd.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
-<script>
+    // PDF
     window.jsPDF = window.jspdf.jsPDF
     document.getElementById('export-pdf').addEventListener('click', function () {
         var doc = new jsPDF({
             format: 'a4'
             
         });
+        var icon = document.getElementsByClassName("hidden_icon");
+        for (let i = 0; i < icon.length; i++) {
+            var element = icon[i];
+            element.style.display = "none";
+        }
         // Lấy toàn bộ thẻ trong thẻ <body>
         var content = document.querySelector(".request-content");
         doc.html(content, {
@@ -257,5 +277,4 @@
     });
 
 </script>
-
 </body>

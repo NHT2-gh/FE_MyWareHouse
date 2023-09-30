@@ -445,38 +445,45 @@ a.btn {
 	margin:0 20px;
 
 }
-.topProduct{
+.recent_order{
 	margin: 10px;
 }
-div #myChart, .listTop, .notification{	
+div #myChart, .recent_order, .notification{	
 	align-content: center;
 	background-color: var(--body-color);
 	border-radius: 15px;
 	padding: 10px;
 }
-.topProduct ul li, .notification ul li{
+.recent_order ul li, .notification ul li{
 	display: flex;
 	justify-content: space-around;
-	border: 1px solid;
-	height: 60px;
+	border-bottom: 1px solid rgba(162, 162, 162, 0.553);
+	height: 45px;
 	align-items: center;
 	padding: 3px;
-	border-radius: 15px;
 	margin: 10px 20px;	
 	font-size: 17px;
-	box-shadow: 0px 2px gray;
 }
-
-.topProduct li img {
-	height: 50px;
+.recent_order ul li p:first-child{
+	font-weight: 500;
+}
+.recent_order ul li .status{
+	padding: 3px 5px;
+}
+.recent_order ul li .status.completed{
+	color: rgb(106, 194, 106);
 }
 .notification ul li .btn__detail{
 
 	cursor: pointer;
 }
-.notification ul li .btn__detail:hover{
+.recent_order .head{
+	justify-content: space-between;
 }
-
+.recent_order .head a{
+	font-size: small;
+	color: var(--title-color);
+}
 /* END MAIN DASHBOARD */
 
 
@@ -495,11 +502,8 @@ div #myChart, .listTop, .notification{
 	padding: 0 10px;
 }
 
-.detail-content.product .header-detail input {
+.detail-content.product .header-detail h3 {
 	color: #fff;
-	border: none;
-	background-color: transparent;
-	font-weight: bold;
 	justify-content: center;
 }
 
@@ -525,18 +529,17 @@ div #myChart, .listTop, .notification{
 	display: flex;
 	gap:10px;
 }
-.info-product input{
-	border: none;
+/* .info-product input{
 	background-color: transparent;
 	max-width: 100px;
 	font-weight: 500;
 	font-size: 18px;
-}
+} */
 .info-product ul.img li:first-child {
 	font-style: italic;
 }
 
-.info-product ul.info li:last-child input {
+.info-product ul.info li:last-child h3 {
 	color: rgb(209, 70, 70);
 }
 /* END PRODUCT */
@@ -675,13 +678,11 @@ main #main_infoUser {
 
 iframe {
 	width: 100%;
-	height: 100%;
+	height: 60%;
+	padding: 8% 27% 0;
 	position: absolute;
-	top: 5%;
 	display: none;
-}
-.hidden_request{
-
+	align-items: center;
 }
 /* END REQUEST */
 
@@ -1090,7 +1091,7 @@ iframe {
 }
 .detail-content {
 	background-color: var(--body-color-mgr);
-	margin: 8% 27%; 
+	margin: 8% 27% 0; 
 	padding-top:0;
 	padding: 10px;
 	border: 1px solid #888;

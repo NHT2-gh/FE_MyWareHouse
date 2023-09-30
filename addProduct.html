@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- icons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+
+    <!-- My CSS -->
+    <!-- <link rel="stylesheet" href="assets/css/new.css"> -->
+    <link rel="stylesheet" href="assets/css/manager.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- <link rel="stylesheet" href="assets/css/swiper-bundle.min.css"> -->
+
+    <title>Product</title>
+    <!-- JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+</head>
+<style>
+    body{
+        background-color: transparent;
+    }
+    .info-product .info li{
+        display: flex;
+    }
+    .info-product .info li :first-child{
+        min-width: 80px;
+    }
+    .info-product input{
+        max-width: 150px;
+    }
+</style>
+<body>
+<!-- <div style="padding: 0; display: block;" class="detail product" id="detail">    -->
+    <div style="width: 100%; margin: 0;" class="detail-content product">
+        <!-- <span class="close_chitiet" onclick="closeDetail()">&times;</span> -->
+        <div class="info-product">
+            <div class="header-detail" style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex;">
+                    <h3 class="id">ID:</h3>
+                    <input style="height: 80%; font-size: large;" type="text" name="" class="id" id="">
+                </div>
+                <input style="padding: 4px 5px;" type="submit" value="Save">
+            </div>
+            <form style="display: flex;">
+                <div style="flex: 5; justify-content: center;">
+                    <ul class="info">
+                        <li>
+                            <h3>Name: </h3>
+                            <input type="text" class="name"></input>
+                        </li>
+                        <li>
+                            <h3>Size: </h3>
+                            <input type="text" class="size"></input>
+                        </li>
+                        <li>
+                            <h4>Object: </h4>
+                            <input type="text" class="obj"></input>
+                        </li>
+                        <li>
+                            <h4>Category:</h4>
+                            <input type="text" class="category"></input>
+                        </li>
+                        <li>
+                            <h4>Color:</h4>
+                            <input type="text" class="clr"></input>
+                        </li>
+                        <li>
+                            <h4>Material:</h4>
+                            <input type="text" class="mal"></input>
+                        </li>
+                        <li>
+                            <h4>Mfg:</h4>
+                            <input type="text" class="mfg"></input>
+                        </li>
+                        <li>
+                            <h3>Price:</h3>
+                            <input type="text"
+                                class="prc"></input>
+                            <h3>$</h3>
+                        </li>
+
+                    </ul>
+                </div>
+                <div style="flex: 5;text-align: center;">
+                    <ul class="img">
+                        <li>
+                            <span>Made in</span>
+                            <input style="font-weight: 200; font-style: italic; max-width: 150px; margin-left: 10px;" type="text" class="suppl"></input>
+                        </li>
+                        <li>
+                            <input style="width: 100%;" type="file" name="" id="">
+                            <img src="assets/img/1.png" class="img_product" style="max-height: 200px;" class="img-product" alt="">
+                            
+                        </li>
+
+                    </ul>
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </div>
+<!-- </div> -->
+</body>
+<script src="assets/js/main.js"></script>
+</html>

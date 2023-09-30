@@ -11,13 +11,10 @@
 	<!-- My CSS -->
     <!-- <link rel="stylesheet" href="assets/css/new.css"> -->
 	<link rel="stylesheet" href="assets/css/manager.css">
-	<link rel="stylesheet" href="assets/css/styles.css">
-	<!-- <link rel="stylesheet" href="assets/css/swiper-bundle.min.css"> -->
+	<link rel="stylesheet" href="assets/css/styles.css">  
 
 	<title>Product</title>
 	<!-- JS -->
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
@@ -87,13 +84,9 @@
     </header>
     <!-- SIDEBAR -->
     <section id="sidebar">
-        <!-- <a href="#" class="brand">
-    			<i class='bx bxs-smile'></i>
-    			<span class="text">AdminHub</span>
-    		</a> -->
         <ul class="side-menu top">
             <li>
-                <a href="dashboard.html" class="active">
+                <a href="#" class="active">
                     <img src="assets/img/dashboard.png" alt="">
                     <span class="text">Dashboard</span>
                 </a>
@@ -104,20 +97,13 @@
                     <span class="text">Product</span>
                 </a>
             </li>
-            <!-- <li>
-    				<a href="#">
-    					<img src="assets/img/oders.png" alt="">
-    					
-    					<span class="text">Orders</span>
-    				</a>
-    			</li> -->
-            <!-- <li>
-    				<a href="#">
-    					<img src="assets/img/oders.png" alt="">
-    			
-    					<span class="text">Orders</span>
-    				</a>
-    			</li> -->
+            <li>
+                <a href="orders.html">
+                    <img src="assets/img/oders.png" alt="">
+    
+                    <span class="text">Orders</span>
+                </a>
+            </li>
             <li>
                 <a href="g__receipt.html">
                     <img src="assets/img/Delivery.png" alt="">
@@ -128,6 +114,18 @@
                 <a href="#">
                     <img src="assets/img/transfer.png" alt="">
                     <span class="text">Goods Issue</span>
+                </a>
+            </li>
+            <li>
+                <a href="inventory_report.html">
+                    <img src="assets/img/inventory.png" alt="">
+                    <span class="text">Inventory Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/img/invoice.png" alt="">
+                    <span class="text">Invoice</span>
                 </a>
             </li>
             <li>
@@ -142,22 +140,7 @@
                     <span class="text">Supplier</span>
                 </a>
             </li>
-    
         </ul>
-        <!-- <ul class="side-menu">
-    			<li>
-    				<a href="#">
-    					<i class='bx bxs-cog' ></i>
-    					<span class="text">Brands</span>
-    				</a>
-    			</li>
-    			<li>
-    				<a href="#" class="logout">
-    					<i class='bx bxs-log-out-circle' ></i>
-    					<span class="text">Categorys</span>
-    				</a>
-    			</li>
-    		</ul> -->
     </section>
 	<!-- SIDEBAR -->
 
@@ -208,7 +191,7 @@
                                 <input type="search" placeholder="Type something..." class="search__input">
                                 <a href="#"><i class='bx bx-search' ></i></a>
                                 </form>
-                            <a onclick="resetDetail()" href="#"><i class="lni lni-circle-plus"></i></a>
+                            <a onclick="addProduct()" href="#"><i class="lni lni-circle-plus"></i></a>
                         </div>
                     <table>
                         <thead>
@@ -323,57 +306,54 @@
                     <!-- <span class="close_chitiet" onclick="closeDetail()">&times;</span> -->
                     <div class="info-product">
                         <div class="header-detail">
-                            <input style="height: 100%; font-size: large;" type="text" name=""class="id" id="" placeholder="...ID...">
-                            <!-- <h3 class="id"></h3> -->
-                            <input style="float: right;" type="submit" value="Save">
+                            <!-- <input style="height: 100%; font-size: large;" type="text" name=""class="id" id="" placeholder="...ID..."> -->
+                            <h3 class="id"></h3>
+                            <!-- <input style="float: right;" type="submit" value="Save"> -->
                         </div>
-                        <form style="display: flex;">
+                        <form style="display: flex; max-width: 100%;">
                             <div style="flex: 5; justify-content: center;">
                                 <ul class="info">
                                     <li>
-                                        
-                                        <input style="font-size: 20px; max-width: 200px;" type="text" class="name"  placeholder="...Name..."></input>
+                        
+                                        <h3 class="name"></h3>
                                     </li>
                                     <li>
-                                        <input style="max-width: 50px;" type="text" class="size" placeholder=".Size.."></input>
+                                        <h3 class="size"></h3>
                                         <h3> - </h3>
-                                        <input type="text" class="obj"></input>
+                                        <h3 class="obj"></h3>
                                     </li>
-                                     <li>
+                                    <li>
                                         <h4>Category:</h4>
-                                        <input type="text" class="category"></input>
+                                        <h4 class="category"></h4>
                                     </li>
                                     <li>
                                         <h4>Color:</h4>
-                                        <input type="text" class="clr"></input>
+                                        <h4 class="clr"></h4>
                                     </li>
                                     <li>
                                         <h4>Material:</h4>
-                                        <input type="text" class="mal"></input>
+                                        <h4 class="mal"></h4>
                                     </li>
                                     <li>
                                         <h4>Mfg:</h4>
-                                        <input type="text" class="mfg"></input>
+                                        <h4 class="mfg"></h4>
                                     </li>
                                     <li>
                                         <h3>Price:</h3>
-                                        <input style="max-width: 60px; font-weight: bold; font-size: 20px;" type="text" class="prc"></input>
+                                        <h3 class="prc"></h3>
                                         <h3>$</h3>
                                     </li>
-                                    
                                 </ul>
                             </div>
-                            <div style="flex: 5;text-align: center;">   
+                            <div style="flex: 5;text-align: center;">
                                 <ul class="img">
                                     <li>
-                                        <span>Made in </span>
-                                        <input style="font-weight: 200; font-style: italic;" type="text" class="suppl"></input>
+                                        <p class="suppl"></p>
                                     </li>
-                                    <li><img class ="img_product" style="height: 200px;" class="img-product" alt=""></li>
-                                    
+                                    <li><img class="img_product" style="height: 200px;" class="img-product" alt=""></li>
+                        
                                 </ul>
                             </div>
-                            
                         </form>
                         
                     </div>
@@ -381,12 +361,16 @@
 
             </div>
         </div>
+        <iframe id="iframeAdd" class="showForm" src="addProduct.html" frameborder="0">
+            
+        </iframe>
+        <span class="close_chitiet">&times;</span>
         
     </section>
     <!--=============== SCROLL UP ===============-->
 	 <a href="#" class="scrollup" id="scroll-up"> 
         <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
-    </a>
+    </a>    
 
     <!--=============== SWIPER JS ===============-->
     <script src="assets/js/swiper-bundle.min.js"></script>
