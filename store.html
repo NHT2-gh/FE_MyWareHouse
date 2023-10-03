@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
-    <title>Goods Receipt</title>
+    <title>Product</title>
     <!-- JS -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -102,21 +102,21 @@
                     <span class="text">Product</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="orders.html">
                     <img src="assets/img/oders.png" alt="">
-    
+
                     <span class="text">Orders</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="g__receipt.html">
                     <img src="assets/img/Delivery.png" alt="">
                     <span class="text">Goods receipt</span>
                 </a>
             </li>
             <li>
-                <a href="g_issue.html">
+                <a href="#">
                     <img src="assets/img/transfer.png" alt="">
                     <span class="text">Goods Issue</span>
                 </a>
@@ -164,7 +164,7 @@
 
         <!-- MAIN -->
         <main>
-            <div id="main__g-receipt">
+            <div id="main__store">
                 <div class="head-title">
                     <!-- <div class="left">
                         <h1>Sản Phẩm</h1>
@@ -178,7 +178,7 @@
                                 </li>
                             </ul>
                     </div> -->
-                    
+
                 </div>
                 <div class="dialog" id="confirmDialog_">
                     <div class="dialog-content">
@@ -188,7 +188,7 @@
                             <button id="confirmBtn">Đồng ý</button>
                             <button id="cancelBtn">Hủy bỏ</button>
                         </div>
-                </div>
+                    </div>
                 </div>
                 <div class="table-data">
                     <div class="order">
@@ -197,102 +197,30 @@
                                 <input type="search" placeholder="Type something..." class="search__input">
                                 <a href="#"><i class='bx bx-search'></i></a>
                             </form>
-                        
-                            <form id="search-barByDate" style="display: none;" action="">
-                                <!-- Lưu kiểu tìm kiếm () -->
-                                <input type="text" hidden name="statusOrderSearch" value="3">
-                                <div class="div__inputs">
-                                    <div>
-                                        <input class="form-control" id="datepickerfrom_start" name="startDate" type="date">
-                                    </div>
-                                    <span>-</span>
-                                    <div>
-                                        <input class="form-control" id="datepickerfrom_end" name="endDate" type="date">
-                                    </div>
-                            
-                                    <button class="btn btn-success" type="submit"
-                                        style="display: flex; justify-content: center; align-items: center; padding: 10px;">
-                                        <i class='bx bx-search'></i>
-                                    </button>
-                                </div>
-                            </form>
                             <a href="#"><i class="lni lni-circle-plus"></i></a>
                         </div>
                         <table>
-                           
+
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Date</th>
-                                    <th>Staff Name</th>
-                                    <th>ID Order</th>
-                                    <th>View</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Phone</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <p>GR01</p>
+                                        <p>ST01</p>
                                     </td>
-                                    <td>26/09/2023</td>
+                                    <td>Name</td>
+                                    <td>Address</td>
                                     <td>
-                                        <p>Nguyen Thi Thanh Thao</p>
-                                    </td>
-                                    <td><p>OI01</p></td>
-                                    <td class="btn">
-                                        <a class="btn__detail g_receipt" href="#change"><i
-                                                class='bx bx-detail'></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
-                                    </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>GR02</p>
-                                    </td>
-                                    <td>27/09/2023</td>
-                                    <td>
-                                        <p>Van Trung Tin</p>
-                                    </td>
-                                    <td>
-                                        <p>OI02</p>
+                                        <p>Phone</p>
                                     </td>
                                     <td class="btn">
-                                        <a class="btn__detail g_receipt" href="#change"><i class='bx bx-detail'></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
-                                    </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>GR03</p>
-                                    </td>
-                                    <td>29/09/2023</td>
-                                    <td>
-                                        <p>Van Trung Tin</p>
-                                    </td>
-                                    <td>
-                                        <p>OI03</p>
-                                    </td>
-                                    <td class="btn">
-                                        <a class="btn__detail g_receipt" href="#change"><i class='bx bx-detail'></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
-                                    </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>GR04</p>
-                                    </td>
-                                    <td>30/09/2023</td>
-                                    <td>
-                                        <p>Nguyen Huynh Truc Thanh</p>
-                                    </td>
-                                    <td>
-                                        <p>OI04</p>
-                                    </td>
-                                    <td class="btn">
-                                        <a class="btn__detail g_receipt" href="#change"><i class='bx bx-detail'></i></a>
+                                        <a class="btn__detail store" href="#change"><i class='bx bx-detail'></i></a>
                                         <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
                                     </td>
                                     <!-- <td><span class="status completed">Completed</span></td> -->
@@ -302,67 +230,66 @@
                     </div>
 
                 </div>
+                <!-- <div aria-label="Page navigation" id="nav__page">
+                <ul class="pagination" id="pagination">
+                    <li class="page-item first disabled"><a href="#First" class="page-link">First</a></li>
+                    <li class="page-item prev disabled"><a href="#Previous" class="page-link">Previous</a></li>
+                    <li class="page-item active"><a href="#1" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#2" class="page-link">2</a></li>
+                    <li class="page-item"><a href="#3" class="page-link">3</a></li>
+                    <li class="page-item next"><a href="#Next" class="page-link">Next</a></li>
+                    <li class="page-item last"><a href="#Last" class="page-link">Last</a></li>
+                </ul>
+            </div> -->
             </div>
         </main>
         <div class="detail g_receipt" id="detail">
             <div class="detail-content g_receipt" style="width: 60%; margin: 10% 20%;">
                 <!-- <span class="close_chitiet" onclick="closeDetail()">&times;</span> -->
                 <div class="info-product">
-                    <!-- <div class="head">
+                    <div class="head">
                         <span>ID Goods receipt: </span>
                         <span>GR01</span>
-                    </div> -->
+                    </div>
                     <table>
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th colspan="2">Quantity</th>
+                                <th>Quantity</th>
                                 <th>Unit Price($)</th>
                                 <th>Note</th>
                             </tr>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>According to document</th>
-                                <th>Actually imported</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
                         </thead>
                         <tbody>
-                            
+
                             <tr>
                                 <td>
-                                    <p>SI01</p>
+                                    <p>B6S01</p>
                                 </td>
                                 <td>
-                                    <p>Nike Air Max 1</p>
-                                </td>
-                                <td>
-                                    <p>150</p>
-                                </td>
-                                <td>
-                                    <p>150</p>
-                                </td>
-                                <td>
-                                    <p>95</p>
-                                </td>
-                                <td>
-                                    <p>Nothing</p>
-                                </td>  
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>SI05</p>
-                                </td>
-                                <td>
-                                    <p>Nike Free RN 5.0</p>
+                                    <p>Nike Air Force</p>
                                 </td>
                                 <td>
                                     <p>100</p>
                                 </td>
-                                <td><p>100</p></td>
+                                <td>
+                                    <p>200</p>
+                                </td>
+                                <td>
+                                    <p>Nothing</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>B6S01</p>
+                                </td>
+                                <td>
+                                    <p>Nike Air Force</p>
+                                </td>
+                                <td>
+                                    <p>100</p>
+                                </td>
                                 <td>
                                     <p>200</p>
                                 </td>
@@ -372,10 +299,12 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a href="inventory.html" class="btn_view">View Inventory</a>
+
+
+
                 </div>
-                </div>  
             </div>
+        </div>
         </div>
     </section>
     <!--=============== SCROLL UP ===============-->

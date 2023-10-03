@@ -162,10 +162,10 @@ function resetDetail() {
       childElements.forEach((child) => {
         if (child.id) {
           if (child.tagName === "SELECT") {
-            document.getElementById(child.id).value = "0";
-          } else if (child.id === "input__fileName") {
+            document.getElementById(child.id).value = "-1";
+          } else if (child.id === "input__img") {
             document.getElementById(child.id).innerText = "File name:";
-            document.getElementsByClassName("preView_img")[0].src = "";
+            document.getElementsByClassName("")[0].src = "";
           } else {
             document.getElementById(child.id).value = "";
           }
@@ -175,20 +175,21 @@ function resetDetail() {
     });
   }
 }
+
 // SHOW TINH TRANG STAFF
 const table_Staff = document.querySelectorAll("#tbl-staff tbody tr");
 for (var i = 0; i < table_Staff.length; i++) {
   var td = table_Staff[i].getElementsByTagName("td")[7];
   var input = td.getElementsByTagName("input")[0].value;
-  // input === 1 -> staff đang hoạt động
-  if (input === "1") {
+  // input === 0 -> staff đang hoạt động
+  if (input === "0") {
     td.style.color = "rgb(127, 248, 79)";
     var icon_status = document.createElement("i");
     var icon_statusContent = `<i class='bx bxs-circle' ></i>`;
     icon_status.innerHTML = icon_statusContent;
     td.append(icon_status);
   } else {
-    // input === 2 -> staff ngưng hoạt động
+    // input === 1 -> staff ngưng hoạt động
     td.style.color = "rgb(209, 63, 63)";
     var icon_status = document.createElement("i");
     var icon_statusContent = `<i class='bx bxs-circle' ></i>`;

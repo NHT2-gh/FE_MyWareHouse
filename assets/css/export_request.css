@@ -1,14 +1,32 @@
 
 .order .head {
-    float: right;
+    display: flex;
+    justify-content: space-between;
 }
 
 .choose_product{
     font-weight: 600;
 }
-
+.order .head div:first-child{
+    background-color: gray;
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: white;
+}
+.order .head div:first-child:hover{
+    background-color: grey;
+    color: black;
+    cursor: pointer;
+}
+.hidden{
+    display: none;
+}
+.order .head div:first-child:focus .hidden{
+    display: block;
+}
 table .quantityRe {
     max-width: 45px;
+    text-align: center;
 }
 
 .create-btn {

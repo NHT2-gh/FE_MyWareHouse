@@ -86,9 +86,7 @@
             padding: 10px 30px;
         }
 
-        .request-content .info_request p {
-            margin-bottom: 5px;
-        }
+        .request-content .info_request div span {}
 
         .request-content .info_product input {
             border: none;
@@ -111,6 +109,8 @@
             text-align: center;
         }
 
+        .request-content .info_product table tbody td {}
+
         .request-content .info_product i.bx-trash {
             color: var(--red);
             cursor: pointer;
@@ -123,7 +123,7 @@
 
         .request-content .sign_request .sign-area {
             display: flex;
-            margin: 20px 0 50px 0;
+            margin: 20px 0 0px 0;
             justify-content: center;
             align-items: center;
             font-weight: bold;
@@ -144,10 +144,10 @@
 
 <body>
     <!-- <a class="btn" href="dashboard.html">&lt;</a> -->
-    <div style="display: block;" class="request-content">
+    <div class="request-content">
         <div class="head_request">
             <div>
-                <h4><i class='bx bxl-medium-old'></i> MY WAREHOUSE</h4>
+                <h4><i class='bx bxl-medium-old hidden_icon'></i> MY WAREHOUSE</h4>
                 <h5>Address: ABC, DEF, HG</h5>
             </div>
             <div>
@@ -155,93 +155,98 @@
                 <h5>Independence - Freedom - Happiness</h5>
             </div>
         </div>
-        <h3 class="title">GOOD DELIVERY NOTE</h3>
+        <h3 class="title">GOODS DELIVERY</h3>
         <div class="info_request">
-                <span>Dear: Stockkeeper</span><span></span>
-                <br>
-                <span>From: Sales Department</span><span></span>
-                <br>
-                <span>Position: Sales manager</span><span></span>
-                <br>
-                <span>Reason: There are orders from stores</span><span></span>
+            <span>Create by: Nguyen Thi Thanh Thao</span><span></span>
+            <br>
+            <span>Position: </span><span>Stockkeeper</span>
         </div>
         <div class="info_product">
-            <table id="product-table">
+            <table>
                 <thead>
                     <tr>
-                        <th>No.</th>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Quantity</th>
+                        <th colspan="2">Quantity</th>
+                        <th>Unit Price($)</th>
                         <th>Note</th>
                     </tr>
-                </thead>
-                <tbody id="listProductReq">
                     <tr>
-                            <td>1</td>
-                            <td>
-                                <p>SI01</p>
-                            </td>
-                            <td>
-                                <p>Nike Air Max 1</p>
-                            </td>
-                            <td>
-                                <p>100</p>
-                            <td>
-                                <p>Nothing</p>
-                            </td>
+                        <th></th>
+                        <th></th>
+                        <th>According to document</th>
+                        <th>Actually imported</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+            
+                    <tr>
+                        <td>
+                            <p>SI01</p>
+                        </td>
+                        <td>
+                            <p>Nike Air Max 1</p>
+                        </td>
+                        <td>
+                            <p>100</p>
+                        </td>
+                        <td>
+                            <p></p>
+                        </td>
+                        <td>
+                            <p>170</p>
+                        </td>
+                        <td>
+                            <p>Nothing</p>
+                        </td>
                     </tr>
                     <tr>
-                        <td>2</td>
                         <td>
                             <p>SI02</p>
                         </td>
                         <td>
                             <p>Nike Air Force 1</p>
-                        </td>
+                        </td>   
                         <td>
                             <p>100</p>
+                        </td>
+                        <td>
+                            <p></p>
+                        </td>
+                        <td>
+                            <p>130</p>
+                        </td>
                         <td>
                             <p>Nothing</p>
                         </td>
                     </tr>
-                    <tr id="row-tmp" style="display: none;">
-                        <td>2</td>
-                        <td>
-                            <p><input type="text" placeholder="..."></p>
-                        </td>
-                        <td>
-                            <p><input type="text" placeholder="..."></p>
-                        </td>
-                        <td>
-                            <p><input type="number" value="1" min="1"></p>
-                        <td>
-                            <p><input type="text" placeholder="..."></p>
-                        </td>
-                        <td class=""><i class='bx bx-trash'></i></td>
-                    </tr>
                 </tbody>
             </table>
+            <a href="#" class="stockkeeper hidden" id="btnRequest__addProduct"><i class="lni lni-circle-plus"></i></a>
 
         </div>
         <div class="sign_request">
             <div class="sign-area">
                 <div>
-                    
+
+                    <br>
+                    <!-- <img src="assets/img/approved.png" alt=""> -->
                 </div>
                 <div>
-                    <i>Date 20 Month 9 Year 2023.</i>
+                    <i>Date 20 Month 9 Year 2023</i>
                     <br>
-                    <span>Stock keeper</span>
+                    <span>Stockkeeper</span>
+                    <br>
+
+                    <!-- <img src="assets/img/approved.png" alt=""> -->
                 </div>
             </div>
         </div>
     </div>
-    <div class="staff_inventory ">
-        <a style="float: right;" class="btn" href="inventory.html">Conduct Inventory</a>
-    </div>
-    <div class="stockkeeper hidden">
-        <input style="float: right;" class="btn" type="submit" value="Accept" />
+    <div class="stockkeeper">
+        <input style="float: right;" class="btn" type="submit" value="Save & Send" />
     </div>
     <input style="background-color: rgb(87, 173, 47); width: 100px;" class="btn" id="exportExcel" type=""
         value="Export Excel">

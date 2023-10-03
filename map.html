@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Map</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h2, h3{
+            line-height: 120px;
+            margin: 0;
+        }
+        p{
+            margin:0;
+        }
+        .title{
+            margin-bottom: 40px;
+            width: 50%;
+            margin: 20px 25%;
+        }
+        .title div{
+            width: 100%;
+            margin: auto 25%;
+            font-weight: bold;
+        }
+        .title div input{
+            font-size: 18px;
+            border-radius: 10px;
+            padding: 4px;
+        }
+        .warehouse_map{
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid black;
+        }
+        .area{
+            margin: 40px;
+        }
+        .warehouse_map .middle_area{
+            height: 100%;
+            width: 220px;
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .middle_area .door{
+            height: 50px;
+            background-color: #D9D9D9;
+        }
+        .middle_area .door h3{
+            line-height: 50px;
+        }
+        .middle_area div{
+            height: 100px;
+            width: 100%;
+            margin: 70px 0;
+        }
+        .area .unit_area{
+            width: 100%;
+            border-top: 2px dashed black;
+            padding-top:20px;
+        }
+        .area .area_name{
+            text-align: center;
+        }
+        .shelf{
+            width: fit-content;
+            border: 1px solid black;
+            margin-bottom: 20px;
+            padding: 3px 0;
+        }
+        .shelf .unit_shelf{
+            /* height: 62px; */
+            width: 100%;
+            padding: 0 10px;
+        }
+        .shelf .unit_shelf:hover .bin{
+            background-color: #FCC686;
+        }
+        .shelf .unit_shelf:hover .unit_shelf_name{
+            font-weight: bold;
+        }
+        .bin{
+            height: 30px;
+            width: 30px;
+            background-color: #D9D9D9;
+            margin: 5px;
+            border: 1px solid rgb(98, 97, 97);
+        }
+        .map_detail{
+            position: absolute;
+            border: 1px solid black;
+            width: 800px;
+            height: 400px;
+            margin: 10% auto;
+        }
+        .map_detail .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 90px;
+        }   
+        .map_detail .bottom{
+           display: flex; 
+           margin: 0 120px;
+            justify-content: center;
+            align-items: center;
+            width: 588px;
+        }
+         .map_detail .bottom h3{
+            /* margin: 0 30px 0 0; */
+            text-align: center;
+         }
+        .map_detail h3{
+            line-height: 60px;
+            width: 100%;
+        }
+        .map_detail .bin_detail{
+            height: 60px;
+            width: 60px;
+            border: 1px solid black;
+            background-color:#D9D9D9;
+        }
+        .map_detail .bin_detail:hover{
+            background-color: #FCC686;
+        }
+        .map_detail table{
+            /* border: 1px solid black; */
+            
+            background-color: #5F5D5D;
+        }
+        .unit_shelf_detail{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+    <div class="title">
+        <div>
+            <span>Find Product Here:</span>
+            <input type="search" name="" id="">
+        </div>
+    </div>
+    <div class="warehouse_map">
+        <div class="area">
+            <h3 class="area_name">A</h3>
+            <div class="unit_area"></div>
+        </div>
+        <div class="middle_area">
+                <div style="margin-top:0" class="door">
+                    <h3>OUT</h3>
+                </div>
+                <div class="packaging"  style="height: 120px; background-color: #F59A9A;">
+                    <h3>PACKAGING</h3>
+                </div>
+                <div style="height: 250px;background-color: #FCC686;"class="work">
+                    <h2 style="line-height: 250px;">WORK AREA</h2>
+                </div>
+                <div class="receiving" style="height: 120px; background-color: #C7FACC;">
+                    <h3>RECEIVING</h3>
+                </div>
+                <div style="margin-bottom:0;" class="door">
+                    <h3>IN</h3>
+                </div>
+        </div>
+        <div class="area">
+            <h3 class="area_name">B</h3>
+            <div class="unit_area">
+            </div>
+        </div>
+    </div>
+    <div class="map_detail">
+        <div class="main">
+            <div>
+                <h3>
+                    A
+                </h3>
+                <h3>
+                    B
+                </h3>
+                <h3>
+                    C
+                </h3>
+            </div>
+            <table class="unit_shelf_detail">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="bottom">
+            <h3>101</h3>
+            <h3>102</h3>
+            <h3>103</h3>
+            <h3>104</h3>
+            <h3>105</h3>
+            <h3>106</h3>
+            <h3>107</h3>
+            <h3>108</h3>
+            <h3>109</h3>
+        </div>
+    </div>
+    
+    <body>
+
+</body>
+<script>
+    const area_main = document.getElementsByClassName("unit_area");
+    var area_name = "A";
+    for (let i = 0; i < area_main.length; i++) {
+        const element = area_main[i];
+        var unit_shelf_name = 0;
+        for (var x = 0; x < 4; x++) {  
+            const shelf = document.createElement("div");
+            shelf.classList.add("shelf");
+            const content_shelf = `
+                        <div class="unit_shelf">
+                        <p class="unit_shelf_name">${area_name}0${unit_shelf_name+1}</p>
+                        <div style="display: flex; max-height: 65px;">
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                        </div>
+                    </div>
+                    <div class="unit_shelf">
+                        <div style="display: flex; max-height: 65px;">
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                            <div class="bin"></div>
+                        </div>
+                        <p class="unit_shelf_name">${area_name}0${unit_shelf_name+2}</p>
+                    </div>`
+            shelf.innerHTML = content_shelf;
+            element.append(shelf);
+            unit_shelf_name = unit_shelf_name+2;
+        }
+        area_name ="B";
+    }
+    
+    const tbody = document.querySelector(".unit_shelf_detail tbody");
+    for (let i = 0; i < 3; i++) {
+        // var rowIndex = 0;
+        // var colIndex = 0
+        var new_tr = document.createElement("tr"); 
+        var content_tr = `
+                    <td >
+                        <div class="bin_detail"></div>
+                    </td>
+                    <td>
+                        <div class="bin_detail"></div>
+                    </td>
+                    <td>
+                        <div class="bin_detail"></div>
+                    </td>
+                    <td>
+                        <div class="bin_detail"></div>
+                    </td>
+                    <td>
+                        <div class="bin_detail"></div>
+                    </td>
+                    <td>
+                        <div class="bin_detail"></div>
+                    </td>
+                    <td>
+                        <div class="bin_detail"></div>
+                    </td>
+                    <td>
+                        <div class="bin_detail"></div>
+                    </td>
+                    <td>
+                        <div class="bin_detail"></div>
+                    </td>`
+        new_tr.innerHTML=content_tr;
+        tbody.append(new_tr);
+    }
+
+    const bin = document.getElementsByClassName("bin_detail");
+    for (let t = 0; t < bin.length; t++) {
+        const element = bin[t];
+        element.addEventListener("click", function(){
+            var td = element.parentElement; 
+            var count_td = td.querySelectorAll("td");
+            console.log(count_td.length);
+        });
+    }
+</script>
+</html>

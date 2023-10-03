@@ -94,8 +94,8 @@
                             <input style="font-weight: 200; font-style: italic; max-width: 150px; margin-left: 10px;" type="text" class="suppl"></input>
                         </li>
                         <li>
-                            <input style="width: 100%;" type="file" name="" id="">
-                            <img src="assets/img/1.png" class="img_product" style="max-height: 200px;" class="img-product" alt="">
+                            <input style="width: 100%;" type="file" name="" id="input__img" class="img_product">
+                            <img src="" class="img_product" style="max-height: 200px;" class="img-product" alt="">
                             
                         </li>
 
@@ -111,4 +111,17 @@
 <!-- </div> -->
 </body>
 <script src="assets/js/main.js"></script>
+<script>
+    // Xu li input type = 'file'
+        var input_imgProduct = document.getElementById("input__img");
+        if (input_imgProduct) {
+            input_imgProduct.addEventListener("change", function () {
+                var preView_img = document.getElementsByClassName("img_product")[0];
+                var input_value = input_imgProduct.value;
+                var fileName = input_value.substring(input_value.lastIndexOf("\\") + 1);
+                preView_img.src = "assets/img/product/" + fileName;
+                console.log(preView_img.src);
+            });
+        }
+</script>
 </html>

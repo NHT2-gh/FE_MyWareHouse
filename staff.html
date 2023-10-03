@@ -100,6 +100,12 @@
                 </a>
             </li>
             <li>
+                <a href="export_request.html">
+                    <img src="assets/img/sneakers_sale.png" alt="">
+                    <span class="text">Product</span>
+                </a>
+            </li>
+            <li>
                 <a href="orders.html">
                     <img src="assets/img/oders.png" alt="">
     
@@ -174,14 +180,14 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>No.</th>
                                 <th>Full Name</th>
                                 <th>Gender</th>
                                 <th>Brith</th>
                                 <th>Address</th>
                                 <th>Phone</th>
                                 <th>UserID</th>
-                                <th></th>
+                                <th></th>   
                                 <th>View</th>
                             </tr>
                         </thead>
@@ -195,7 +201,7 @@
                                     <td class="td__address" ><p>Phước Long B 11</p></td>
                                     <td><p>0845002405</p></td>
                                     <td><p>SF01</p></td>
-                                    <td><input type="hidden" value="1"></td>
+                                    <td><input type="hidden" value="0"></td>
                                     <td class="btn">
                                         <!-- <a class ="btn__chitiet" href="#detail"><i class='bx bx-detail' ></i></a> -->
                                         <a class ="btn__detail" href="#change" onclick="getDetailInfoAcc()"><i class='bx bx-detail' ></i></a>
@@ -205,14 +211,14 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p>1</p></td>
+                                        <p>2</p></td>
                                         <td>Nguyễn Thanh</td>
                                         <td><p>Nữ</p></t>
                                         <td><p>2002-05-01</p></td>
                                         <td><p>Phước Long B</p></t>
                                         <td><p>0845002405</p></td>
                                         <td><p>NV1</p></td>
-                                        <td><input type="hidden" value="2"></td>
+                                        <td><input type="hidden" value="1"></td>
                                         <td class="btn">
                                             <!-- <a class ="btn__chitiet" href="#detail"><i class='bx bx-detail' ></i></a> -->
                                             <a class ="btn__detail" href="#change" onclick="getDetailInfoAcc()"><i class='bx bx-detail' ></i></a>
@@ -243,15 +249,15 @@
                             </li>
                             <li>
                                 <select type="text" id="input__status"  class="field-style field-split align-left" name="status">
-                                    <option value="0">Status</option>
-                                    <option value="1">Active</option>
-                                    <option value="2">Inactive</option>
+                                    <option value="-1">Status</option>
+                                    <option value="0">Active</option>
+                                    <option value="1">Inactive</option>
                                 </select>
                                 <select type="text" id="input__roleID"  class="field-style field-split align-right" name="role_id">
-                                    <option value="0">Position</option>
-                                    <option value="1">Stock taking</option>
-                                    <option value="2">Inspector</option>
-                                    <option value="3">Accountting</option>
+                                    <option value="-1">Position</option>
+                                    <option value="0">Warehouse Staff</option>
+                                    <option value="1">Inspector</option>
+                                    <option value="2">Accountting</option>
                                 </select>
                             </li>
                             <li>
