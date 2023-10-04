@@ -127,6 +127,9 @@
         .map_detail .bin_detail:hover{
             background-color: #FCC686;
         }
+        .map_detail .bin_detail:focus{
+            background-color: #FCC686;
+        }
         .map_detail table{
             /* border: 1px solid black; */
             
@@ -200,6 +203,7 @@
             <h3>108</h3>
             <h3>109</h3>
         </div>
+        <span class="position">A-105</span>
     </div>
     
     <body>
@@ -251,50 +255,92 @@
     }
     
     const tbody = document.querySelector(".unit_shelf_detail tbody");
+    var rowIndex = 0;
     for (let i = 0; i < 3; i++) {
-        // var rowIndex = 0;
-        // var colIndex = 0
+        
         var new_tr = document.createElement("tr"); 
+        new_tr.classList.add(rowIndex);
         var content_tr = `
-                    <td >
+                    <td class ="0">
                         <div class="bin_detail"></div>
                     </td>
-                    <td>
+                    <td class ="1">
                         <div class="bin_detail"></div>
                     </td>
-                    <td>
+                    <td class ="2">
                         <div class="bin_detail"></div>
                     </td>
-                    <td>
+                    <td class ="3">
                         <div class="bin_detail"></div>
                     </td>
-                    <td>
+                    <td class ="4">
                         <div class="bin_detail"></div>
                     </td>
-                    <td>
+                    <td class ="5">
                         <div class="bin_detail"></div>
                     </td>
-                    <td>
+                    <td class ="6">
                         <div class="bin_detail"></div>
                     </td>
-                    <td>
+                    <td class ="7">
                         <div class="bin_detail"></div>
                     </td>
-                    <td>
+                    <td class ="8">
                         <div class="bin_detail"></div>
                     </td>`
         new_tr.innerHTML=content_tr;
         tbody.append(new_tr);
+        rowIndex = rowIndex + 1;
     }
 
+    // const bin = document.getElementsByClassName("bin_detail");
+    // for (let t = 0; t < bin.length; t++) {
+    //     const element = bin[t];
+    //     element.addEventListener("click", function(){
+    //         var td = element.parentNode; 
+    //         var col = td.className;
+    //         var tr = element.parentNode.parentNode;
+    //         var row = tr.className;
+    //         var name_row = document.querySelectorAll(".map_detail .main div h3")[row].innerText;
+    //         var name_col = document.querySelectorAll(".map_detail .bottom h3")[col].innerText;
+    //         console.log(name_row, name_col);
+    //     });
+    // }
+    // const position = document.getElementsByClassName("position")[0].innerText;
+    // for (let v = 0; v < position.length; v++) {
+    //     const row_position = position[1];
+        
+    // }
+
+
+
     const bin = document.getElementsByClassName("bin_detail");
-    for (let t = 0; t < bin.length; t++) {
-        const element = bin[t];
-        element.addEventListener("click", function(){
-            var td = element.parentElement; 
-            var count_td = td.querySelectorAll("td");
-            console.log(count_td.length);
-        });
-    }
+    const positionElement = document.getElementsByClassName("position")[0];
+    const position = positionElement.innerText;
+    const positionWithoutHyphens = position.replace(/-/g, ' ');
+        for (let t = 0; t < bin.length; t++) {
+            const element = bin[t];
+                var td = element.parentNode;
+                var col = td.className;
+                var tr = element.parentNode.parentNode;
+                var row = tr.className;
+                var name_row = document.querySelectorAll(".map_detail .main div h3")[row].innerText;
+                var name_col = document.querySelectorAll(".map_detail .bottom h3")[col].innerText;
+                element.classList.add(name_row, name_col);
+                const classListArray = Array.from(element.classList);
+
+                // Lấy độ dài của mảng
+                const length = classListArray.length;
+
+                // Lấy hai lớp cuối cùng
+                if (length >= 2) {
+                    const className =classListArray[length - 2]  + " " + classListArray[length - 1];
+                    console.log(className);
+                    if (positionWithoutHyphens === className) {
+                        element.style.backgroundColor = "#FCC686";
+                    }   
+                }
+                
+        }
 </script>
 </html>
