@@ -288,6 +288,7 @@ function request_addProduct(event) {
 
   // Thêm hàng mới vào bảng
   tbody.appendChild(newRow);
+  updateNo();
   // delete
   const removeButton = newRow.querySelector(".bx-trash");
   removeButton.addEventListener("click", function () {
@@ -349,4 +350,19 @@ function openIframe(event) {
   window.location.href = matchingFile;
 }
 
-//PRODUCT
+//PRODUCT -TABLE
+// set No. for table product
+var table_product = document.getElementById("product-table");
+function updateNo() {
+  var row = table_product.querySelectorAll("tbody tr");
+  for (let r = 0; r < row.length; r++) {
+    var thisRow = row[r];
+    var colFirst = thisRow.querySelector("td");
+    if (r < 2) {
+      colFirst.innerText = r + 1;
+    } else if (r > 2) {
+      colFirst.innerText = r;
+    }
+  }
+}
+updateNo();

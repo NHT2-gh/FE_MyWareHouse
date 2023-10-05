@@ -3,150 +3,78 @@
 
 <head>
     <title>Map</title>
-    <style>
-        *{
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        h2, h3{
-            line-height: 120px;
-            margin: 0;
-        }
-        p{
-            margin:0;
-        }
-        .title{
-            margin-bottom: 40px;
-            width: 50%;
-            margin: 20px 25%;
-        }
-        .title div{
-            width: 100%;
-            margin: auto 25%;
-            font-weight: bold;
-        }
-        .title div input{
-            font-size: 18px;
-            border-radius: 10px;
-            padding: 4px;
-        }
-        .warehouse_map{
-            width: 100%;
-            margin: 0;
-            display: flex;
-            justify-content: space-between;
-            border: 1px solid black;
-        }
-        .area{
-            margin: 40px;
-        }
-        .warehouse_map .middle_area{
-            height: 100%;
-            width: 220px;
-            text-align: center;
-            font-weight: bold;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .middle_area .door{
-            height: 50px;
-            background-color: #D9D9D9;
-        }
-        .middle_area .door h3{
-            line-height: 50px;
-        }
-        .middle_area div{
-            height: 100px;
-            width: 100%;
-            margin: 70px 0;
-        }
-        .area .unit_area{
-            width: 100%;
-            border-top: 2px dashed black;
-            padding-top:20px;
-        }
-        .area .area_name{
-            text-align: center;
-        }
-        .shelf{
-            width: fit-content;
-            border: 1px solid black;
-            margin-bottom: 20px;
-            padding: 3px 0;
-        }
-        .shelf .unit_shelf{
-            /* height: 62px; */
-            width: 100%;
-            padding: 0 10px;
-        }
-        .shelf .unit_shelf:hover .bin{
-            background-color: #FCC686;
-        }
-        .shelf .unit_shelf:hover .unit_shelf_name{
-            font-weight: bold;
-        }
-        .bin{
-            height: 30px;
-            width: 30px;
-            background-color: #D9D9D9;
-            margin: 5px;
-            border: 1px solid rgb(98, 97, 97);
-        }
-        .map_detail{
-            position: absolute;
-            border: 1px solid black;
-            width: 800px;
-            height: 400px;
-            margin: 10% auto;
-        }
-        .map_detail .main{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 90px;
-        }   
-        .map_detail .bottom{
-           display: flex; 
-           margin: 0 120px;
-            justify-content: center;
-            align-items: center;
-            width: 588px;
-        }
-         .map_detail .bottom h3{
-            /* margin: 0 30px 0 0; */
-            text-align: center;
-         }
-        .map_detail h3{
-            line-height: 60px;
-            width: 100%;
-        }
-        .map_detail .bin_detail{
-            height: 60px;
-            width: 60px;
-            border: 1px solid black;
-            background-color:#D9D9D9;
-        }
-        .map_detail .bin_detail:hover{
-            background-color: #FCC686;
-        }
-        .map_detail .bin_detail:focus{
-            background-color: #FCC686;
-        }
-        .map_detail table{
-            /* border: 1px solid black; */
-            
-            background-color: #5F5D5D;
-        }
-        .unit_shelf_detail{
-            margin-left: 20px;
-        }
-    </style>
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/manager.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/map.css">
 </head>
-    <div class="title">
-        <div>
-            <span>Find Product Here:</span>
-            <input type="search" name="" id="">
-        </div>
-    </div>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="" class="nav__logo">
+                <i class='bx bxl-medium-old'></i>MY WAREHOUSE
+            </a>
+    
+            <!-- <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#featured" class="nav__link">Featured</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#new" class="nav__link">New</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="user_product.html" class="nav__link">Products</a>
+                        </li>
+                    </ul>
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x' ></i>
+                    </div>
+                </div> -->
+    
+            <div class="nav__btns">
+                <!-- Theme change button -->
+                <form action="" id="search-bar" class="search">
+                    <input type="search" placeholder="Type something..." class="search__input">
+                    <a href="#"><i class='bx bx-search'></i></a>
+                </form>
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+                <!-- <div class="nav__shop" id="cart-shop">
+                        <i class='bx bx-shopping-bag' ></i>
+                    </div> -->
+    
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+    
+                <div class="nav__user" id="info-user">
+                    <a href="dashboard.html"><i class='bx bx-user'></i></a>
+                    <ul class="dropMenu">
+                        <li>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <img class="avt-dropMenu" src="assets/img/nike.png" alt="">
+                                <p>Thanh Nguyễn</p>
+                            </div>
+                            <p style="font-size: 14px;color: rgb(118, 113, 113);">Quản lí kho</p>
+                        </li>
+                        <li>
+                            <img src="assets/img/edit.png" alt="">
+                            <a href="profile.html">Edit Profile</a>
+                        </li>
+                        <li>
+                            <img src="assets/img/logout.png" alt="">
+                            <a style="color: rgb(242, 90, 90);" href="login.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="warehouse_map">
+        <p id="id_shelf">A05</p>
         <div class="area">
             <h3 class="area_name">A</h3>
             <div class="unit_area"></div>
@@ -155,14 +83,14 @@
                 <div style="margin-top:0" class="door">
                     <h3>OUT</h3>
                 </div>
-                <div class="packaging"  style="height: 120px; background-color: #F59A9A;">
-                    <h3>PACKAGING</h3>
+                <div class="packaging"  style="height: 120px; background-color: #f56d6dde; ">
+                    <h3 style="line-height: 120px;">PACKAGING</h3>
                 </div>
-                <div style="height: 250px;background-color: #FCC686;"class="work">
+                <div style="height: 250px;background-color: #feb760d6;"class="work">
                     <h2 style="line-height: 250px;">WORK AREA</h2>
                 </div>
-                <div class="receiving" style="height: 120px; background-color: #C7FACC;">
-                    <h3>RECEIVING</h3>
+                <div class="receiving" style="height: 120px; background-color: #92ff9dc5;">
+                    <h3 style="line-height: 120px;">RECEIVING</h3>
                 </div>
                 <div style="margin-bottom:0;" class="door">
                     <h3>IN</h3>
@@ -175,172 +103,56 @@
         </div>
     </div>
     <div class="map_detail">
-        <div class="main">
+        <div class="content_map_detail" style="display: flex; justify-content: center; align-items: center; gap: 50px">
             <div>
-                <h3>
-                    A
-                </h3>
-                <h3>
-                    B
-                </h3>
-                <h3>
-                    C
-                </h3>
-            </div>
-            <table class="unit_shelf_detail">
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div class="bottom">
-            <h3>101</h3>
-            <h3>102</h3>
-            <h3>103</h3>
-            <h3>104</h3>
-            <h3>105</h3>
-            <h3>106</h3>
-            <h3>107</h3>
-            <h3>108</h3>
-            <h3>109</h3>
-        </div>
-        <span class="position">A-105</span>
-    </div>
-    
-    <body>
-
-</body>
-<script>
-    const area_main = document.getElementsByClassName("unit_area");
-    var area_name = "A";
-    for (let i = 0; i < area_main.length; i++) {
-        const element = area_main[i];
-        var unit_shelf_name = 0;
-        for (var x = 0; x < 4; x++) {  
-            const shelf = document.createElement("div");
-            shelf.classList.add("shelf");
-            const content_shelf = `
-                        <div class="unit_shelf">
-                        <p class="unit_shelf_name">${area_name}0${unit_shelf_name+1}</p>
-                        <div style="display: flex; max-height: 65px;">
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                        </div>
+                <div class="main">
+                    <div>
+                        <h3>
+                            A
+                        </h3>
+                        <h3>
+                            B
+                        </h3>
+                        <h3>
+                            C
+                        </h3>
                     </div>
-                    <div class="unit_shelf">
-                        <div style="display: flex; max-height: 65px;">
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                            <div class="bin"></div>
-                        </div>
-                        <p class="unit_shelf_name">${area_name}0${unit_shelf_name+2}</p>
-                    </div>`
-            shelf.innerHTML = content_shelf;
-            element.append(shelf);
-            unit_shelf_name = unit_shelf_name+2;
-        }
-        area_name ="B";
-    }
-    
-    const tbody = document.querySelector(".unit_shelf_detail tbody");
-    var rowIndex = 0;
-    for (let i = 0; i < 3; i++) {
-        
-        var new_tr = document.createElement("tr"); 
-        new_tr.classList.add(rowIndex);
-        var content_tr = `
-                    <td class ="0">
-                        <div class="bin_detail"></div>
-                    </td>
-                    <td class ="1">
-                        <div class="bin_detail"></div>
-                    </td>
-                    <td class ="2">
-                        <div class="bin_detail"></div>
-                    </td>
-                    <td class ="3">
-                        <div class="bin_detail"></div>
-                    </td>
-                    <td class ="4">
-                        <div class="bin_detail"></div>
-                    </td>
-                    <td class ="5">
-                        <div class="bin_detail"></div>
-                    </td>
-                    <td class ="6">
-                        <div class="bin_detail"></div>
-                    </td>
-                    <td class ="7">
-                        <div class="bin_detail"></div>
-                    </td>
-                    <td class ="8">
-                        <div class="bin_detail"></div>
-                    </td>`
-        new_tr.innerHTML=content_tr;
-        tbody.append(new_tr);
-        rowIndex = rowIndex + 1;
-    }
+                    <table class="unit_shelf_detail">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bottom">
+                    <h3>101</h3>
+                    <h3>102</h3>
+                    <h3>103</h3>
+                    <h3>104</h3>
+                    <h3>105</h3>
+                    <h3>106</h3>
+                    <h3>107</h3>
+                    <h3>108</h3>
+                    <h3>109</h3>
+                </div>
+            </div>
+            <div style="color: var(--title-color);" class="info_bin">
+                <ul>
+                    <li><span>ID_Product: </span>
+                    <span>SI01</span></li>
+                    <li><span>Quantity_firt: </span>
+                    <span>30</span></li>
+                    <li><span>Quantity_last: </span>
+                    <span>100</span></li>
+                    <li><span>Date: </span>
+                    <span>05/10/2023</span></li>
+                </ul>
+            </div>
+        </div>
+        <span id="id_bin">A-105</span>
+    </div>
 
-    // const bin = document.getElementsByClassName("bin_detail");
-    // for (let t = 0; t < bin.length; t++) {
-    //     const element = bin[t];
-    //     element.addEventListener("click", function(){
-    //         var td = element.parentNode; 
-    //         var col = td.className;
-    //         var tr = element.parentNode.parentNode;
-    //         var row = tr.className;
-    //         var name_row = document.querySelectorAll(".map_detail .main div h3")[row].innerText;
-    //         var name_col = document.querySelectorAll(".map_detail .bottom h3")[col].innerText;
-    //         console.log(name_row, name_col);
-    //     });
-    // }
-    // const position = document.getElementsByClassName("position")[0].innerText;
-    // for (let v = 0; v < position.length; v++) {
-    //     const row_position = position[1];
-        
-    // }
-
-
-
-    const bin = document.getElementsByClassName("bin_detail");
-    const positionElement = document.getElementsByClassName("position")[0];
-    const position = positionElement.innerText;
-    const positionWithoutHyphens = position.replace(/-/g, ' ');
-        for (let t = 0; t < bin.length; t++) {
-            const element = bin[t];
-                var td = element.parentNode;
-                var col = td.className;
-                var tr = element.parentNode.parentNode;
-                var row = tr.className;
-                var name_row = document.querySelectorAll(".map_detail .main div h3")[row].innerText;
-                var name_col = document.querySelectorAll(".map_detail .bottom h3")[col].innerText;
-                element.classList.add(name_row, name_col);
-                const classListArray = Array.from(element.classList);
-
-                // Lấy độ dài của mảng
-                const length = classListArray.length;
-
-                // Lấy hai lớp cuối cùng
-                if (length >= 2) {
-                    const className =classListArray[length - 2]  + " " + classListArray[length - 1];
-                    console.log(className);
-                    if (positionWithoutHyphens === className) {
-                        element.style.backgroundColor = "#FCC686";
-                    }   
-                }
-                
-        }
-</script>
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/map.js"></script>
+</body>
 </html>

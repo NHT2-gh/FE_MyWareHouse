@@ -35,30 +35,21 @@
         a{
             text-decoration: none;
         }
-        a.btn{
-	        text-decoration: none;
-            padding: 3px 10px;
-	        border-radius: 5px;
-	        color: black;
-	        cursor: pointer;
-	        background-color: white;
-	        border: 2px solid black;
-            font-size: 20px;
-            font-weight: bold;
-            align-items: center;
+        .btn{
+            background-color: #94d88c;
+            border-color: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: rgb(121, 149, 112);
+            cursor: pointer;
         }
         input.btn{
-            padding: 3px 10px;
-	        border-radius: 5px;
-	        color: black;
-	        cursor: pointer;
-	        background-color: white;
-	        border: 2px solid black;
-            font-weight: bold;
-            width: 100px;
-        }
-        input.btn:hover, a.btn:hover{
-            box-shadow: 1px 2px gray;
+            border: none;
         }
         .oder-content {
             background-color: var(--body-color);
@@ -131,7 +122,7 @@
 
         .oder-content .sign_oder .sign-area {
             display: flex;
-            margin: 20px 0 0px 0;
+            margin: 20px 0 100px 0;
             justify-content: center;
             align-items: center;
             font-weight: bold;
@@ -246,12 +237,12 @@
                         <div>
                             <span>Stockkeeper</span>
                             <br>
-                            <img src="assets/img/approved.png" alt="">
+                            <!-- <img src="assets/img/approved.png" alt=""> -->
                         </div>
                         <div>
                             <span>Sales Department</span>
                             <br>
-                            <img src="assets/img/approved.png" alt="">
+                            <!-- <img src="assets/img/approved.png" alt=""> -->
                         </div>
                     </div>
                 </div>
@@ -259,7 +250,7 @@
         </div>
     </div>
     <div class="staff_inventory">
-        <a class="btn" href="inventory.html">Stock take</a>
+        <a style="background-color: rgb(243, 107, 107);" class="btn" href="inventory.html">Stock take</a>
     </div>
     <div class="sales_staff">
             <input style="float: right;" class="btn" type="submit" value="Save & Send" />

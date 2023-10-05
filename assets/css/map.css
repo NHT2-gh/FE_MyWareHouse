@@ -1,0 +1,160 @@
+h2,
+h3 {
+    line-height: 80px;
+    margin: 0;
+    color: var(--title-color);
+}
+
+p {
+    margin: 0;
+}
+
+.title {
+    margin-bottom: 40px;
+    width: 50%;
+    margin: 20px 25%;
+}
+
+.warehouse_map {
+    width: 98%;
+    margin: 80px auto;
+    display: flex;
+    justify-content: space-between;
+    border: 1px dashed var(--title-color);
+}
+
+.area {
+    margin: 40px;
+}
+
+.warehouse_map .middle_area {
+    height: 100%;
+    width: 220px;
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.middle_area .door {
+    height: 50px;
+    background-color: #8e8e8e;
+}
+
+.middle_area .door h3 {
+    line-height: 50px;
+}
+
+.middle_area div {
+    height: 100px;
+    width: 100%;
+    margin: 70px 0;
+}
+
+.area .unit_area {
+    width: 100%;
+    border-top: 2px dashed var(--title-color);
+    padding-top: 20px;
+}
+
+.area .area_name {
+    text-align: center;
+}
+
+.shelf {
+    width: fit-content;
+    border: 1px solid var(--title-color);
+    margin-bottom: 20px;
+    padding: 3px 0 5px;
+
+}
+
+.shelf .unit_shelf {
+    /* height: 62px; */
+    width: 100%;
+    padding: 0 10px;
+}
+
+.shelf .unit_shelf:hover .bin {
+    background-color: #FCC686;
+}
+
+.shelf .unit_shelf:hover .unit_shelf_name {
+    font-weight: bold;
+}
+
+.bin {
+    height: 30px;
+    width: 30px;
+    background-color: #D9D9D9;
+    margin: 5px;
+    border: 1px solid rgb(98, 97, 97);
+}
+
+.map_detail {
+    position: absolute;
+    width: 80%;
+    margin: 0 10%;
+    top: 30%;
+    background-color: #a59f9fa7;
+    display: none;
+    border-radius: 20px;
+}
+
+.map_detail h3 {
+    color: var(--title-color);
+}
+
+.map_detail .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+}
+
+.map_detail .bottom {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 740px;
+}
+
+.map_detail .bottom h3 {
+    /* margin: 0 0 0 20px; */
+    text-align: center;
+    padding-left: 30px;
+}
+
+.map_detail h3 {
+    line-height: 80px;
+    width: 100%;
+}
+
+.map_detail .bin_detail {
+    height: 80px;
+    width: 80px;
+    background-color: #D9D9D9;
+}
+
+.map_detail .bin_detail:hover {
+    background-color: #FCC686;
+}
+
+.map_detail .bin_detail:focus {
+    background-color: #FCC686;
+}
+
+.map_detail table {
+    /* border: 1px solid black; */
+    background-color: #5F5D5D;
+}
+
+.unit_shelf_detail {
+    margin-left: 20px;
+}
+
+#id_shelf,
+#id_bin {
+    display: none;
+}
+
