@@ -365,4 +365,4 @@ function updateNo() {
     }
   }
 }
-updateNo();
+// updateNo();

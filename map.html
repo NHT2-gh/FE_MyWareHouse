@@ -136,8 +136,9 @@
             </div>
             <div style="color: var(--title-color);" class="info_bin">
                 <ul>
-                    <li><span>ID_Product: </span>
-                    <span>SI01</span></li>
+                    <li><svg id="barcode"></svg></li>
+                    <li style="display: none;"><span>ID_Product: </span>
+                    <span id = "id_product">BS06-01</span></li>
                     <li><span>Quantity_firt: </span>
                     <span>30</span></li>
                     <li><span>Quantity_last: </span>
@@ -154,5 +155,14 @@
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/map.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.0/JsBarcode.all.min.js"></script>
+    <script>  
+            var val = document.getElementById("id_product").innerText;
+            JsBarcode("#barcode", val, {
+                background: "#161748",
+                lineColor: "#ffffff"
+            });
+    </script>
 </body>
 </html>

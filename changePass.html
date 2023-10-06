@@ -12,9 +12,7 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="assets/css/manager.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/new.css">
-
+    <link rel="stylesheet" href="assets/css/sendOTP.css">
     <title>User</title>
     <!-- JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
@@ -131,15 +129,18 @@
                     <form class="form-input">
                         <img src="assets/img/protect.png" alt="">
                         <h3>
-                            Để tăng cường bảo mật hãy xác minh tài khoản bằng Email
+                            For added security, verify by email                        
                         </h3>
                         <ul>
-                            <li>
+                            <!-- <li>
                                 <input type="email" id="input__email" name="email" class="field-style field-full align-none"
                                     placeholder="Nhập email để xác minh tài khoản">
-                            </li>
+                            </li> -->
                             <li style="margin-top:20px;">
-                                <input type="submit" value="Gửi mã xác nhận" />
+                                <div id = div_countdown>
+                                    <span>0 :</span><span id="countdowntimer"> 60</span>
+                                </div>
+                                <input id = btn_sendOTP type="submit" value="Send OTP" />
                             </li>
                         </ul>
                        
@@ -163,6 +164,18 @@
                                 <input type="submit" value="Xác nhận" />
                             </li>
                         </ul> -->
+                        <div class="input__OTP">
+                            <p>OTP sent on ....12@gmail.com</p>
+                            <h1>Enter OTP</h1>
+                            <div class="otp-field">
+                                <input type="text" maxlength="1" />
+                                <input type="text" maxlength="1" />
+                                <input class="space" type="text" maxlength="1" />
+                                <input type="text" maxlength="1" />
+                                <input type="text" maxlength="1" />
+                                <input type="text" maxlength="1" />
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -175,14 +188,9 @@
         <i class='bx bx-up-arrow-alt scrollup__icon'></i>
     </a>
 
-    <!--=============== SWIPER JS ===============-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
-    <!-- <script src="assets/js/lineChart.js"></script> -->
-    <script src="assets/js/mgr_script.js"></script>
-    <script src="assets/js/user_script.js"></script>
+    <script src="assets/js/sendOTP.js"></script>
 
 </body>
 

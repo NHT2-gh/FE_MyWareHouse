@@ -92,8 +92,8 @@ p {
 
 .map_detail {
     position: absolute;
-    width: 80%;
-    margin: 0 10%;
+    width: 90%;
+    margin: 0 5%;
     top: 30%;
     background-color: #a59f9fa7;
     display: none;
@@ -157,4 +157,15 @@ p {
 #id_bin {
     display: none;
 }
-
+.info_bin{
+    border: 1px solid var(--title-color);
+    padding: 20px;
+    background-color: var(--body-color);
+}
+.info_bin ul li span:first-child{
+    font-weight: bold;
+    margin-right: 5px;
+}
+#barcode{
+    height: 100px;
+}

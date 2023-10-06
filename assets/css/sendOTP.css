@@ -1,0 +1,44 @@
+
+.otp-field {
+    display: flex;
+    justify-content: center;
+}
+
+.otp-field input {
+    width: 40px;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 2px;
+    border: 2px solid #55525c;
+    background: #f8f8fa;
+    font-weight: bold;
+    color: #2f2e2e;
+    outline: none;
+    transition: all 0.1s;
+}
+
+.otp-field input:focus {
+    border: 2px solid #f4ac3a;
+    box-shadow: 0 0 2px 2px #7e7e7c6a;
+}
+
+.disabled {
+    opacity: 0.5;
+}
+.resend{
+    opacity: 0.5;
+    pointer-events: none;
+}
+.space {
+    margin-right: 1rem !important;
+}
+#div_countdown, .input__OTP{
+    display: none;
+}
+#div_countdown{
+    color: #e65555;
+    font-weight: bold;
+    
+}
