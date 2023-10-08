@@ -88,65 +88,77 @@
         </nav>
     </header>
     <!-- SIDEBAR -->
-    <section id="sidebar">
-        <ul class="side-menu top">
-            <li>
-                <a href="#" class="active">
-                    <img src="assets/img/dashboard.png" alt="">
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="product.html">
-                    <img src="assets/img/sneakers.png" alt="">
-                    <span class="text">Product</span>
-                </a>
-            </li>
-            <li>
-                <a href="orders.html">
-                    <img src="assets/img/oders.png" alt="">
-    
-                    <span class="text">Orders</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="g__receipt.html">
-                    <img src="assets/img/Delivery.png" alt="">
-                    <span class="text">Goods receipt</span>
-                </a>
-            </li>
-            <li>
-                <a href="g_issue.html">
-                    <img src="assets/img/transfer.png" alt="">
-                    <span class="text">Goods Issue</span>
-                </a>
-            </li>
-            <li>
-                <a href="inventory_report.html">
-                    <img src="assets/img/inventory.png" alt="">
-                    <span class="text">Inventory Report</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/invoice.png" alt="">
-                    <span class="text">Invoice</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/staff.png" alt="">
-                    <span class="text">Staff</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/nike.png" alt="">
-                    <span class="text">Supplier</span>
-                </a>
-            </li>
-        </ul>
-    </section>
+        <section id="sidebar">
+            <ul class="side-menu top">
+                <li>
+                    <a href="dashboard.html" class="active">
+                        <img src="assets/img/dashboard.png" alt="">
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="stockkeeper inspector">
+                    <a href="product.html">
+                        <img src="assets/img/sneakers.png" alt="">
+                        <span class="text">Product</span>
+                    </a>
+                </li>
+                <li class="sales_manager">
+                    <a href="ex_request.html">
+                        <img src="assets/img/sneakers_sale.png" alt="">
+                        <span class="text">Product for sale</span>
+                    </a>
+                </li>
+                <li class="stockkeeper inspector sales_manager">
+                    <a href="orders.html">
+                        <img src="assets/img/oders.png" alt="">
+        
+                        <span class="text">Orders</span>
+                    </a>
+                </li>
+                <li class="stockkeeper accountting active">
+                    <a href="g__receipt.html">
+                        <img src="assets/img/Delivery.png" alt="">
+                        <span class="text">Goods receipt</span>
+                    </a>
+                </li>
+                <li class="stockkeeper accountting">
+                    <a href="g__issue.html">
+                        <img src="assets/img/transfer.png" alt="">
+                        <span class="text">Goods Issue</span>
+                    </a>
+                </li>
+                <li class="stockkeeper inspector">
+                    <a href="inventory_report.html">
+                        <img src="assets/img/inventory.png" alt="">
+                        <span class="text">Inventory Report</span>
+                    </a>
+                </li>
+                <li class="stockkeeper accountting">
+                    <a href="invoice_report.html">
+                        <img src="assets/img/invoice.png" alt="">
+                        <span class="text">Invoice</span>
+                    </a>
+                </li>
+                <li class="stockkeeper">
+                    <a href="staff.html">
+                        <img src="assets/img/staff.png" alt="">
+                        <span class="text">Staff</span>
+                    </a>
+                </li>
+                <li class="sales_manager sales_staff">
+                    <a href="supplier.html">
+                        <img src="assets/img/nike.png" alt="">
+                        <span class="text">Supplier</span>
+                    </a>
+                </li>
+                <li class="sales_manager sales_staff">
+                    <a href="store.html">
+                        <img src="assets/img/store.png" alt="">
+                        <span class="text">Store</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
     <!-- SIDEBAR -->
 
     <!-- CONTENT -->
@@ -180,7 +192,7 @@
                     </div> -->
                     
                 </div>
-                <div class="dialog" id="confirmDialog_">
+                <!-- <div class="dialog" id="confirmDialog_">
                     <div class="dialog-content">
                         <h2>Xác nhận xóa</h2>
                         <p>Bạn có chắc chắn muốn xóa thông tin sản phẩm</p><output id="id_"></output>
@@ -189,7 +201,7 @@
                             <button id="cancelBtn">Hủy bỏ</button>
                         </div>
                 </div>
-                </div>
+                </div> -->
                 <div class="table-data">
                     <div class="order">
                         <div class="head" style="justify-content: space-between;">
@@ -246,57 +258,6 @@
                                     </td>
                                     <!-- <td><span class="status completed">Completed</span></td> -->
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <p>GR02</p>
-                                    </td>
-                                    <td>27/09/2023</td>
-                                    <td>
-                                        <p>Van Trung Tin</p>
-                                    </td>
-                                    <td>
-                                        <p>OI02</p>
-                                    </td>
-                                    <td class="btn">
-                                        <a class="btn__detail g_receipt" href="#change"><i class='bx bx-detail'></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
-                                    </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>GR03</p>
-                                    </td>
-                                    <td>29/09/2023</td>
-                                    <td>
-                                        <p>Van Trung Tin</p>
-                                    </td>
-                                    <td>
-                                        <p>OI03</p>
-                                    </td>
-                                    <td class="btn">
-                                        <a class="btn__detail g_receipt" href="#change"><i class='bx bx-detail'></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
-                                    </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>GR04</p>
-                                    </td>
-                                    <td>30/09/2023</td>
-                                    <td>
-                                        <p>Nguyen Huynh Truc Thanh</p>
-                                    </td>
-                                    <td>
-                                        <p>OI04</p>
-                                    </td>
-                                    <td class="btn">
-                                        <a class="btn__detail g_receipt" href="#change"><i class='bx bx-detail'></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
-                                    </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -308,10 +269,10 @@
             <div class="detail-content g_receipt" style="width: 60%; margin: 10% 20%;">
                 <!-- <span class="close_chitiet" onclick="closeDetail()">&times;</span> -->
                 <div class="info-product">
-                    <!-- <div class="head">
+                    <div class="head">
                         <span>ID Goods receipt: </span>
-                        <span>GR01</span>
-                    </div> -->
+                        <span id = "id_" style="font-weight: bold;"></span>
+                    </div>
                     <table>
                         <thead>
                             <tr>
@@ -331,27 +292,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            <tr>
-                                <td>
-                                    <p>SI01</p>
-                                </td>
-                                <td>
-                                    <p>Nike Air Max 1</p>
-                                </td>
-                                <td>
-                                    <p>150</p>
-                                </td>
-                                <td>
-                                    <p>150</p>
-                                </td>
-                                <td>
-                                    <p>95</p>
-                                </td>
-                                <td>
-                                    <p>Nothing</p>
-                                </td>  
-                            </tr>
                             <tr>
                                 <td>
                                     <p>SI05</p>
@@ -372,7 +312,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a href="inventory.html" class="btn_view">View Inventory</a>
+                    <a href="document/inventory.html" class="btn_view">View Inventory</a>
                 </div>
                 </div>  
             </div>

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
-    <title>Goods Issue</title>
+    <title>Invoice</title>
     <!-- JS -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -88,65 +88,77 @@
         </nav>
     </header>
     <!-- SIDEBAR -->
-    <section id="sidebar">
-        <ul class="side-menu top">
-            <li>
-                <a href="#" class="active">
-                    <img src="assets/img/dashboard.png" alt="">
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="product.html">
-                    <img src="assets/img/sneakers.png" alt="">
-                    <span class="text">Product</span>
-                </a>
-            </li>
-            <li>
-                <a href="orders.html">
-                    <img src="assets/img/oders.png" alt="">
+<section id="sidebar">
+    <ul class="side-menu top">
+        <li>
+            <a href="dashboard.html" class="active">
+                <img src="assets/img/dashboard.png" alt="">
+                <span class="text">Dashboard</span>
+            </a>
+        </li>
+        <li class="stockkeeper inspector">
+            <a href="product.html">
+                <img src="assets/img/sneakers.png" alt="">
+                <span class="text">Product</span>
+            </a>
+        </li>
+        <li class="sales_manager">
+            <a href="ex_request.html">
+                <img src="assets/img/sneakers_sale.png" alt="">
+                <span class="text">Product for sale</span>
+            </a>
+        </li>
+        <li class="stockkeeper inspector sales_manager">
+            <a href="orders.html">
+                <img src="assets/img/oders.png" alt="">
 
-                    <span class="text">Orders</span>
-                </a>
-            </li>
-            <li>
-                <a href="g__receipt.html">
-                    <img src="assets/img/Delivery.png" alt="">
-                    <span class="text">Goods receipt</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="#">
-                    <img src="assets/img/transfer.png" alt="">
-                    <span class="text">Goods Issue</span>
-                </a>
-            </li>
-            <li>
-                <a href="inventory_report.html">
-                    <img src="assets/img/inventory.png" alt="">
-                    <span class="text">Inventory Report</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/invoice.png" alt="">
-                    <span class="text">Invoice</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/staff.png" alt="">
-                    <span class="text">Staff</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="assets/img/nike.png" alt="">
-                    <span class="text">Supplier</span>
-                </a>
-            </li>
-        </ul>
-    </section>
+                <span class="text">Orders</span>
+            </a>
+        </li>
+        <li class="stockkeeper accountting">
+            <a href="g__receipt.html">
+                <img src="assets/img/Delivery.png" alt="">
+                <span class="text">Goods receipt</span>
+            </a>
+        </li>
+        <li class="stockkeeper accountting">
+            <a href="g__issue.html">
+                <img src="assets/img/transfer.png" alt="">
+                <span class="text">Goods Issue</span>
+            </a>
+        </li>
+        <li class="stockkeeper inspector">
+            <a href="inventory_report.html">
+                <img src="assets/img/inventory.png" alt="">
+                <span class="text">Inventory Report</span>
+            </a>
+        </li>
+        <li class="stockkeeper accountting active">
+            <a href="invoice_report.html">
+                <img src="assets/img/invoice.png" alt="">
+                <span class="text">Invoice</span>
+            </a>
+        </li>
+        <li class="stockkeeper">
+            <a href="staff.html">
+                <img src="assets/img/staff.png" alt="">
+                <span class="text">Staff</span>
+            </a>
+        </li>
+        <li class="sales_manager sales_staff">
+            <a href="supplier.html">
+                <img src="assets/img/nike.png" alt="">
+                <span class="text">Supplier</span>
+            </a>
+        </li>
+        <li class="sales_manager sales_staff">
+            <a href="store.html">
+                <img src="assets/img/store.png" alt="">
+                <span class="text">Store</span>
+            </a>
+        </li>
+    </ul>
+</section>
     <!-- SIDEBAR -->
 
     <!-- CONTENT -->
@@ -180,7 +192,7 @@
                     </div> -->
 
                 </div>
-                <div class="dialog" id="confirmDialog_">
+                <!-- <div class="dialog" id="confirmDialog_">
                     <div class="dialog-content">
                         <h2>Xác nhận xóa</h2>
                         <p>Bạn có chắc chắn muốn xóa thông tin sản phẩm</p><output id="id_"></output>
@@ -189,7 +201,7 @@
                             <button id="cancelBtn">Hủy bỏ</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="table-data">
                     <div class="order">
                         <div class="head" style="justify-content: space-between;">
@@ -217,37 +229,38 @@
                                     </button>
                                 </div>
                             </form>
-                            <a href="#"><i class="lni lni-circle-plus"></i></a>
+                            <!-- <a href="#"><i class="lni lni-circle-plus"></i></a> -->
                         </div>
                         <table>
-
                             <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Date</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th>ID Oder/Request</th>
                                     <th>Name Staff</th>
-                                    <th>ID Export Request</th>
-                                    <th>View</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <p>GR01</p>
+                                        <p>INV01</p>
                                     </td>
-                                    <td>26/09/2023</td>
                                     <td>
-                                        <p>Sơn Trịnh</p>
+                                        <p>21/08/2023</p>
                                     </td>
+                                    <td>
+                                        <p>185</p>
+                                    </td>
+                                    <td>7555</td>
                                     <td>
                                         <p>EXR01</p>
                                     </td>
-                                    <td class="btn">
-                                        <a class="btn__detail g_receipt" href="#change"><i class='bx bx-detail'></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
+                                    <td>
+                                        <p>Nguyen Anh Dao</p>
                                     </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
+                                </tr>                    
                             </tbody>
                         </table>
                     </div>
@@ -255,81 +268,6 @@
                 </div>
             </div>
         </main>
-        <div class="detail g_receipt" id="detail">
-            <div class="detail-content g_receipt" style="width: 60%; margin: 10% 20%;">
-                <!-- <span class="close_chitiet" onclick="closeDetail()">&times;</span> -->
-                <div class="info-product">
-                    <!-- <div class="head">
-                        <span>ID Goods receipt: </span>
-                        <span>GR01</span>
-                    </div> -->
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th colspan="2">Quantity</th>
-                                <th>Unit Price</th>
-                                <th>Note</th>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>According to document</th>
-                                <th>Actually imported</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>
-                                    <p>B6S01</p>
-                                </td>
-                                <td>
-                                    <p>Nike Air Force</p>
-                                </td>
-                                <td>
-                                    <p>100</p>
-                                </td>
-                                <td>
-                                    <p></p>
-                                </td>
-                                <td>
-                                    <p>200$</p>
-                                </td>
-                                <td>
-                                    <p>Nothing</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>B6S01</p>
-                                </td>
-                                <td>
-                                    <p>Nike Air Force</p>
-                                </td>
-                                <td>
-                                    <p>100</p>
-                                </td>
-                                <td>
-                                    <p></p>
-                                </td>
-                                <td>
-                                    <p>200$</p>
-                                </td>
-                                <td>
-                                    <p>Nothing</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <a class="btn_view">View Inventory</a>
-                </div>
-            </div>
-        </div>
-        </div>
     </section>
     <!--=============== SCROLL UP ===============-->
     <a href="#" class="scrollup" id="scroll-up">

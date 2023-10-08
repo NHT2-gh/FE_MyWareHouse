@@ -1157,6 +1157,7 @@ iframe {
 .detail-content table td {
 	border: 1px solid black;
 	text-align: center;
+	padding: 3px;
 }
 .detail-content .form-input{
 	box-shadow: none;

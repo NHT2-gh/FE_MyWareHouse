@@ -53,29 +53,18 @@ function submit() {
   console.log(otp);
   // 👉 Call API below
 }
-const div_countdownTime = document.getElementById("div_countdown");
-function countdown() {
-  div_countdownTime.style.display = "block";
+
+var downloadTimer = setInterval(function () {
   var timeleft = 60;
-  var downloadTimer = setInterval(function () {
-    timeleft--;
-    document.getElementById("countdowntimer").textContent = " " + timeleft;
-    if (timeleft <= 0) {
-      document.getElementById("countdowntimer").textContent = " 0" + 0;
-      clearInterval(downloadTimer);
-      btn_sendOTP.classList.remove("resend");
-    } else if (timeleft <= 9) {
-      document.getElementById("countdowntimer").textContent = " 0" + timeleft;
-    }
-  }, 1000);
-  btn_sendOTP.value = "Resend OTP";
-}
+  timeleft--;
+  document.getElementById("countdowntimer").textContent = timeleft;
+  if (timeleft <= 0) clearInterval(downloadTimer);
+}, 1000);
 
 const btn_sendOTP = document.getElementById("btn_sendOTP");
-const div_inputOTP = document.getElementsByClassName("input__OTP")[0];
+const div_inputOTP = document.getElementById("input__OTP");
 
 btn_sendOTP.addEventListener("click", function () {
-  btn_sendOTP.classList.add("resend");
-  div_inputOTP.style.display = "block";
-  countdown();
+  // btn_sendOTP.classList.add("resend");
+  // div_inputOTP.style.display = "block";
 });

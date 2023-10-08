@@ -9,6 +9,10 @@ function ready() {
   for (var i = 0; i < btn_dlPro.length; i++) {
     btn_dlPro[i].addEventListener("click", getInfoDetail);
   }
+  var btn_view_detail = document.getElementsByClassName("btn__detail");
+  for (var i = 0; i < btn_view_detail.length; i++) {
+    btn_view_detail[i].addEventListener("click", getID);
+  }
 
   //purchase_request
   const btnRequest_addProduct = document.getElementById(
@@ -74,6 +78,7 @@ const iframeShow = document.getElementsByClassName("showForm")[0];
 function openDetail() {
   div_detail.style.display = "block";
 }
+
 // close detail
 window.onclick = function (event) {
   if (event.target == div_detail) {
@@ -82,13 +87,16 @@ window.onclick = function (event) {
     iframeShow.style.display = "none";
   }
 };
+function closeDetail() {
+  div_detail.style.display = "none";
+}
 
 //close iframe
 function closeDetail() {
   iframeShow.style.display = "none";
 }
 
-// get info detail
+// get info detail product
 function getInfoDetail(event) {
   var btn_detail = event.currentTarget;
   // cell in table data
@@ -115,45 +123,7 @@ function getInfoDetail(event) {
   openDetail();
 }
 
-// js cũ
-function getDetailInfoAcc() {
-  var tableRows = document.querySelectorAll(".table-data tbody tr");
-  // Duyệt qua các thẻ tr và thiết lập sự kiện click cho nút "Xóa" của mỗi thẻ tr
-  for (var i = 0; i < tableRows.length; i++) {
-    var detail_btn = tableRows[i].querySelector(".btn__detail");
-    detail_btn.addEventListener("click", function () {
-      // Lấy dữ cliệu từ các ô td của thẻ tr được click
-      var cells = this.parentNode.parentNode.getElementsByTagName("td");
-      // Lấy id của phần tử con của ul
-      const liElements = document.querySelectorAll("#myList li");
-      var ids = [];
-      liElements.forEach((li) => {
-        const childElements = li.querySelectorAll("*");
-        childElements.forEach((child) => {
-          if (child.id) {
-            document.getElementById(child.id).readOnly = true;
-            console.log(child.id);
-          }
-        });
-      });
-      var length = cells.length;
-      console.log(length);
-      var id_user = cells[length - 2].innerText;
-      var name_user = cells[1].innerText;
-      var phone_user = cells[length - 3].innerText;
-      var status = cells[7].querySelector("input").value;
-      console.log(length, id_user, name_user, phone_user, status);
-      document.getElementById("input__status").value = status;
-      document.getElementById("input__staffID").value = id_user;
-      document.getElementById("input__loginName").value = name_user;
-      document.getElementById("input__phone").value = phone_user;
-      openDetail();
-    });
-  }
-}
-function closeDetail() {
-  div_detail.style.display = "none";
-}
+//reset detal when open form add
 function resetDetail() {
   const liElements = document.querySelectorAll("#myList li");
   if (liElements) {
@@ -175,8 +145,52 @@ function resetDetail() {
     });
   }
 }
+// get ID form table
+function getID(event) {
+  var row = event.currentTarget.closest("tr");
+  var id = row.querySelector("td p");
+  document.getElementById("id_").innerHTML = id.innerText;
+}
 
-// SHOW TINH TRANG STAFF
+//STAFF
+
+// js cũ - get info staff
+function getDetailInfoAcc() {
+  var tableRows = document.querySelectorAll(".table-data tbody tr");
+  // Duyệt qua các thẻ tr và thiết lập sự kiện click cho nút "Xóa" của mỗi thẻ tr
+  for (var i = 0; i < tableRows.length; i++) {
+    var detail_btn = tableRows[i].querySelector(".btn__detail");
+    detail_btn.addEventListener("click", function () {
+      // Lấy dữ cliệu từ các ô td của thẻ tr được click
+      var cells = this.parentNode.parentNode.getElementsByTagName("td");
+      // Lấy id của phần tử con của ul
+      const liElements = document.querySelectorAll("#myList li");
+      var ids = [];
+      liElements.forEach((li) => {
+        const childElements = li.querySelectorAll("*");
+        childElements.forEach((child) => {
+          if (child.id) {
+            document.getElementById(child.id).readOnly = true;
+          }
+        });
+      });
+      var length = cells.length;
+      console.log(length);
+      var id_user = cells[length - 2].innerText;
+      var name_user = cells[1].innerText;
+      var phone_user = cells[length - 3].innerText;
+      var status = cells[7].querySelector("input").value;
+      console.log(length, id_user, name_user, phone_user, status);
+      document.getElementById("input__status").value = status;
+      document.getElementById("input__staffID").value = id_user;
+      document.getElementById("input__loginName").value = name_user;
+      document.getElementById("input__phone").value = phone_user;
+      openDetail();
+    });
+  }
+}
+
+// get status staff
 const table_Staff = document.querySelectorAll("#tbl-staff tbody tr");
 for (var i = 0; i < table_Staff.length; i++) {
   var td = table_Staff[i].getElementsByTagName("td")[7];
@@ -217,12 +231,16 @@ for (var i = 0; i < table_Staff.length; i++) {
 //   }
 //   openDetail();
 // }
+
+//END DETAIL
+
+//PRODUCT
+
+//open form addProduct
 function addProduct() {
   const iframe_addProduct = document.getElementById("iframeAdd");
   iframe_addProduct.style.display = "block";
 }
-
-//END DETAIL
 
 //Hidden cell table product
 const rows = document.querySelectorAll("#main__product .table-data table tr");
@@ -239,7 +257,6 @@ for (let i = 0; i < rows.length; i++) {
   }
 }
 
-//
 // function exportToExcel() {
 //   // Lấy đối tượng bảng cần xuất
 //   var table2excel = new Table2Excel();
@@ -295,6 +312,8 @@ function request_addProduct(event) {
     tbody.removeChild(newRow); // Xóa hàng khi nhấn nút "Xóa"
   });
 }
+
+//INVENTORY
 // add inventory member
 function addMember(event) {
   const Table = document.getElementById("listMember");
@@ -312,7 +331,6 @@ function addMember(event) {
   });
 }
 
-//
 // function secletProduct(event) {
 //   var btn = event.currentTarget;
 //   if (btn.checked) {
@@ -339,8 +357,9 @@ function addMember(event) {
 //   //   tbody.removeChild(newRow); // Xóa hàng khi nhấn nút "Xóa"
 //   // });
 // }
-// DASHBOARD
 
+// DASHBOARD
+// open iframe
 function openIframe(event) {
   var liElement = event.currentTarget.closest("li");
   var classLiElement = liElement.className;
@@ -350,19 +369,21 @@ function openIframe(event) {
   window.location.href = matchingFile;
 }
 
-//PRODUCT -TABLE
+//PRODUCT - TABLE IN DOCUMENT
 // set No. for table product
 var table_product = document.getElementById("product-table");
 function updateNo() {
-  var row = table_product.querySelectorAll("tbody tr");
-  for (let r = 0; r < row.length; r++) {
-    var thisRow = row[r];
-    var colFirst = thisRow.querySelector("td");
-    if (r < 2) {
-      colFirst.innerText = r + 1;
-    } else if (r > 2) {
-      colFirst.innerText = r;
+  if (table_product) {
+    var row = table_product.querySelectorAll("tbody tr");
+    for (let r = 0; r < row.length; r++) {
+      var thisRow = row[r];
+      var colFirst = thisRow.querySelector("td");
+      if (r < 2) {
+        colFirst.innerText = r + 1;
+      } else if (r > 2) {
+        colFirst.innerText = r;
+      }
     }
   }
 }
-// updateNo();
+updateNo();
