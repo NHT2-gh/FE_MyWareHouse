@@ -32,7 +32,7 @@ li {
 	--dark: #342E37;
 	--red: #DB504A;
 	--red-btnh: rgb(238, 128, 128);
-	--yellow: #ffd95e;
+	--yellow: #f8d04f;
 	--light-yellow: #FFF2C6;
 	--yellow-btndg: #ffecad;
 	--orange: #FD7238;
@@ -486,6 +486,12 @@ a.btn {
 }
 .dashboard_top{
 	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-around;
+}
+.dashboard_bottom{
+	display: flex;
+	width: 100%;
 }
 .chart{
 	margin:0 20px;
@@ -543,8 +549,8 @@ div #myChart, .recent_order, .notification{
 	height: 30px;
 	background-color: rgb(85, 83, 83);
 	width: 100%;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 	padding: 0 10px;
 }
 
@@ -555,7 +561,10 @@ div #myChart, .recent_order, .notification{
 
 .info-product {
 	background-color: var(--body-color);
-	border-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	/* border-top: 1px solid black; */
+
 }
 
 .info-product ul {
@@ -1025,6 +1034,10 @@ iframe {
 	cursor: pointer;
 	background-color: var(--dark-grey);
 }
+.btn_view_inventory{
+	width: 100%;
+	margin-top: 10px;
+}
 .detail-content.g_receipt .info-product a.btn_view:hover{
 	box-shadow: 1.5px 3px rgb(83, 81, 81);
 	color: #fff;
@@ -1133,34 +1146,37 @@ iframe {
 	overflow-y: auto;
 	background-color: transparent;
 	position: absolute;
-	padding-bottom: 40px;
+	/* padding-bottom: 40px; */
 }
 .detail-content {
 	background-color: var(--body-color-mgr);
 	margin: 8% 27% 0; 
 	padding-top:0;
-	padding: 10px;
-	border: 1px solid #888;
+	/* padding: 10px 0 0 0; */
+	border: 2px solid #565656;
 	width: 46%; 
 	position: relative;
-	border-radius: 10px;
+	border-radius: 10px;	
 	transition: 0.3s;
 	height: 80%;
-	/* transition-delay: 1s; */
+	transition-delay: 1s;
 }
 .detail-content table{
 	width: 100%;
 	border-collapse: collapse;
-	margin-bottom: 20px;
 }
 .detail-content table th,
 .detail-content table td {
-	border: 1px solid black;
+	border: 1px solid var(--title-color);
 	text-align: center;
 	padding: 3px;
 }
 .detail-content .form-input{
 	box-shadow: none;
+}
+.detail .head{
+	margin:5px;
+	font-weight: bold;
 }
 .close_chitiet{
 	/* color: var(--title-color); */
@@ -1193,7 +1209,7 @@ iframe {
 	display: flex;
 	align-items: center;
 	grid-gap: 10px;
-
+	
 }
 #content .detail .table-data .head h3, #content .detail div .head h3{
 	font-size: medium;
@@ -1246,21 +1262,22 @@ iframe {
 #content .detail .table-data .order table tbody tr:hover {
 	background: var(--grey);
 }
-#content .detail .table-data .order table tr td .status {
+#content .table-data .order table tr td .status {
 	font-size: 10px;
-	padding: 6px 16px;
-	color: var(--light);
+	padding: 6px 10px;
+	color: var(--title-color);
 	border-radius: 20px;
 	font-weight: 700;
+	width: fit-content;
 }
-#content .detail .table-data .order table tr td .status.completed {
-	background: var(--first-color);
+#content .table-data .order table tr td .status.completed {
+	background: var(--green);
 }
-#content .detail .table-data .order table tr td .status.process {
+#content .table-data .order table tr td .status.process {
 	background: var(--yellow);
 }
-#content .detail .table-data .order table tr td .status.pending {
-	background: var(--orange);
+#content .table-data .order table tr td .status.awaiting {
+	background: var(--yellow);
 }
 
 /* TABLE-DETAIL-ODER */
@@ -1324,16 +1341,26 @@ iframe {
 /* ================== */
 @media screen and (max-width: 768px) {
 	#sidebar {
-		width: 200px;
+		width: 60px;
 	}
 
 	#content {
 		width: calc(100% - 60px);
-		left: 200px;
+		left: 60px;
 	}
 
 	#content nav .nav-link {
 		display: none;
+	}
+	.dashboard_bottom{
+		display: block;
+		
+	}
+	.dashboard_top{
+		display: block;
+	}
+	#content main .box-info{
+		margin-bottom: 20px;
 	}
 }
 

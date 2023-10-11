@@ -155,7 +155,7 @@
 
 		<!-- MAIN -->
 		<main>
-            <div id ="main__product">
+            <div id ="main__productForSale">
                 <div class="head-title">
                 </div>
                 <!-- <div class="dialog" id="confirmDialog_">
@@ -172,7 +172,6 @@
                     <div class="order">
                         <!-- <h1 class ="choose_product">Chọn sản phẩm</h1> -->
                         <div class="head">
-                                <div>Choose</div>
                                 <div>
                                     <form action="" id="search-bar" class="search">
                                         <input type="search" placeholder="Type something..." class="search__input">
@@ -181,9 +180,11 @@
                                 </div> 
                             <!-- <a href="#" onclick="openDetail_ad()"><i class="lni lni-circle-plus"></i></a> -->
                         </div>
-                    <table>
+                    <table id = "table_select">
                         <thead>
                             <tr>
+                                <!-- <th><input class='' type="checkbox"></th> -->
+                                <th></th>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Image</th>
@@ -193,12 +194,12 @@
                                 <th>Size</th>
                                 <th>Price</th>
                                 <th>Mfg</th> 
-                                <th class="">Quantity</th>
-                                <th class="">Select</th>
+                                <th id="th_quantity">Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
                                 <tr class="productRequest">
+                                    <td class=""><input class='select-product' type="checkbox"></td>
                                     <td><p class="code">SI01</p></td>
                                     <td class="name">Nike Air Max 1</td>
                                     <td><img class="img_product" src="https://th.bing.com/th/id/OIP.3TGtevMDoAFb3MdQ1ovxQAHaFM?pid=ImgDet&rs=1"></td>
@@ -211,100 +212,30 @@
                                     </td>
                                     <td><p>120</p></td>
                                     <td><p>2023</p></t>
-                                    <td class=""><input class='quantityRe' type="number" min="0" value="1"></td>
-                                    <td class=""><input class='select-product' type="checkbox"></td>
-                        
-                                    
+                                    <td class="quantity_request"><input class='quantityRe' type="number" min="0" value="1"></td>
                                     <!-- <td><span class="status completed">Completed</span></td> -->
                                 </tr>
                                 <tr class="productRequest">
-                                    <td><p class="code">SI02</p></td>
-                                    <td class="name">Nike Air Force 1</td>
-                                    <td><img class="img_product" src="assets/img/1.png"></td>
-                                        <!-- <td><p>Life Style</p></td> -->
-                                    <td><p>White</p></td>
-                                    <td><p>US 8</p></td>
-                                    <td><p>90</p></td>
-                                    <td><p>2023</p></td>
-                                    <td class=""><input class='quantityRe' type="number" min="0" value="1"></td>
                                     <td class=""><input class='select-product' type="checkbox"></td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                <tr class="productRequest">
                                     <td>
-                                        <p class="code">SI03</p>
+                                        <p class="code">SI01</p>
                                     </td>
-                                    <td class="name">Nike React Element 55</td>
-                                    <td><img class="img_product"
-                                            src="https://th.bing.com/th/id/R.269446a6739ac846e0a554ade3832587?rik=78ZPwjRsdwPA4w&riu=http%3a%2f%2fimages.complex.com%2fcomplex%2fimages%2ffl_lossy%2cq_auto%2fv1%2ftbvc6mijpy1iamd4d8s2%2fnike-air-max-1&ehk=WcE470Ixuv8L0hbG4OdCXF0qpU6MK8jMbt762FvSaOg%3d&risl=&pid=ImgRaw&r=0assets/img/1.png">
-                                    </td>
+                                    <td class="name">Nike Air Max 1</td>
+                                    <td><img class="img_product" src="https://th.bing.com/th/id/OIP.3TGtevMDoAFb3MdQ1ovxQAHaFM?pid=ImgDet&rs=1"></td>
                                     <!-- <td><p>Life Style</p></td> -->
                                     <td>
-                                        <p>Gray</p>
+                                        <p>Back</p>
                                     </td>
                                     <td>
-                                        <p>US 8</p>
+                                        <p>US 9</p>
                                     </td>
                                     <td>
-                                        <p>100</p>
+                                        <p>120</p>
                                     </td>
                                     <td>
                                         <p>2023</p>
-                                        </td>
-                                    <td class=""><input class='quantityRe' type="number" min="0" value="1"></td>
-                                    <td class=""><input class='select-product' type="checkbox"></td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                <tr class="productRequest">
-                                    <td>
-                                        <p class="code">SI04</p>
-                                    </td>
-                                    <td class="name">Nike Zoom Pegasus 37</td>
-                                    <td><img class="img_product"
-                                            src="https://www.theairmax270.com/wp-content/uploads/2018/11/Nike-Air-Force-1-Low-UNC-Blue-Gale-White-2.jpeg">
-                                    </td>
-                                    </td>
-                                    <!-- <td><p>Life Style</p></td> -->
-                                    <td>
-                                        <p>Blue</p>
-                                    </td>
-                                    <td>
-                                        <p>US 10</p>
-                                    </td>
-                                    <td>
-                                        <p>110</p>
-                                    </td>
-                                    <td>
-                                        <p>2023</p>
-                                        </td>
-                                    <td class=""><input class='quantityRe' type="number" min="0" value="1"></td>
-                                    <td class=""><input class='select-product' type="checkbox"></td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                <tr class="productRequest">
-                                    <td>
-                                        <p class="code">SI05</p>
-                                    </td>
-                                    <td class="name">Nike Free RN 5.0</td>
-                                    <td><img class="img_product" src="https://cdn.runningshoesguru.com/wp-content/uploads/2020/04/Nike-Zoom-Pegasus-37.jpg">
-                                    </td>
-                                    </td>
-                                    </td>
-                                    <!-- <td><p>Life Style</p></td> -->
-                                    <td>
-                                        <p>White</p>
-                                    </td>
-                                    <td>
-                                        <p>US 8</p>
-                                    </td>
-                                    <td>
-                                        <p>95</p>
-                                    </td>
-                                    <td>
-                                        <p>2023</p>
-                                    </td>
-                                    <td class=""><input class='quantityRe' type="number" min="0" value="1"></td>
-                                    <td class=""><input class='select-product' type="checkbox"></td>
+                                        </t>
+                                    <td class="quantity_request"><input class='quantityRe' type="number" min="0" value="1"></td>
                                     <!-- <td><span class="status completed">Completed</span></td> -->
                                 </tr>
                         </tbody>
@@ -400,6 +331,7 @@
     <!--=============== MAIN JS ===============-->
     <!-- <script src="assets/js/main.js"></script> -->
 	<script src="assets/js/theme.js"></script>
+    <script src="assets/js/main.js"></script>
     <script>
         const dialogRequest = document.getElementById('dia-request');
         const openDialog = document.getElementById('open-dia');
@@ -490,5 +422,7 @@
             productList.innerHTML = productHTML;
         });   
     </script>
+
+    
 </body>
 </html>

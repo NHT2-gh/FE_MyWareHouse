@@ -7,25 +7,12 @@
 .choose_product{
     font-weight: 600;
 }
-.order .head div:first-child{
-    background-color: gray;
-    padding: 5px 10px;
-    border-radius: 15px;
-    color: white;
-}
-.order .head div:first-child:hover{
-    background-color: grey;
-    color: black;
-    cursor: pointer;
-}
 .hidden{
     display: none;
 }
-.order .head div:first-child:focus .hidden{
-    display: block;
-}
+
 table .quantityRe {
-    max-width: 45px;
+    max-width: 80px;
     text-align: center;
 }
 
@@ -109,6 +96,7 @@ table .quantityRe {
     margin-left: 10px;
     font-style: italic;
 }
-
-
+.quantity_request, #th_quantity{
+    display: none;
+}
 

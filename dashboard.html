@@ -28,11 +28,7 @@
                     <input type="search" placeholder="Type something..." class="search__input">
                     <a href="#"><i class='bx bx-search' ></i></a>
                 </form>
-                <i class='bx bx-moon change-theme' id="theme-button"></i>
-                <!-- <div class="nav__shop" id="cart-shop">
-                    <i class='bx bx-shopping-bag' ></i>
-                </div> -->
-    
+                <i class='bx bx-moon change-theme' id="theme-button"></i>     
                 <div class="nav__toggle" id="nav-toggle">
                     <i class='bx bx-grid-alt' ></i>
                 </div>
@@ -173,7 +169,7 @@
 					</ul> -->
 				</div>
 			</div>
-			<div style="display: flex; justify-content: space-around;" class="dashboard_top">
+			<div class="dashboard_top">
 				
 				<ul style="flex:4" class="box-info">
 					<li>
@@ -214,7 +210,7 @@
 			</div>
 
 			
-			<div style="display: flex; width: 100%;" class="dashboard_bottom">
+			<div class="dashboard_bottom">
 				<div style="flex:4;" class="topProduct">
 					<div class="recent_order">
 						<div class="head">
@@ -245,14 +241,14 @@
 						</div>
 						<div>
 							<ul>
-								<li class="document/request">
+								<li class="document/import_request">
 									<img src="assets/img/warning.png" alt="">
 									<span>Có vài sản phẩm đang trong tình trạng không đủ cung ứng </span>
 									<a class="btn__detail dashboard"><img src="assets/img/info.png" alt=""></a>
 								</li>
-								<li class="document/request">
+								<li class="document/import_request">
 									<img src="assets/img/sucess.png" alt="">
-									<span>Phiếu đề nghị nhập hàng DNNH01 của bạn đã được duyệt</span>
+									<span>Phiếu đề nghị nhập hàng <span id = "id_request">DNNH01</span> của bạn đã được duyệt</span>
 									<a class="btn__detail dashboard"><img src="assets/img/info.png" alt=""></a>
 								</li>
 								<li class="document/export_request">
@@ -269,20 +265,10 @@
 						</div>
 					</div>
 				</div>
-				<!-- <a id="request" href="request.html"></a> -->
-				<!-- <iframe id="request" src="request.html" frameborder="0"></iframe> -->
-				<!-- <iframe src="listItem.html" frameborder="0"></iframe> -->
 			</div>
 		</div>
 			<!-- END STATISTICS-->
 	</main>
-			<!-- <iframe style="display: block; height: 100%;width: 100%; padding: 0; background-color: white; margin-bottom: 100px;"
-			src="request.html"> </iframe> -->
-
-		
-				
-			<!-- END PRODUCT-->
-			<!-- </div> -->
 	</section>
 	<!-- CONTENT -->
 	
@@ -298,5 +284,12 @@
     <script src="assets/js/main.js"></script>
 	<script src="assets/js/lineChart.js"></script>
 	<script src="assets/js/theme.js"></script>
+
+
+	<script>
+		var id = document.getElementById("id_request").innerText;
+		localStorage.setItem('data', id);
+	</script>
+
 </body>
 </html>

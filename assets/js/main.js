@@ -9,10 +9,10 @@ function ready() {
   for (var i = 0; i < btn_dlPro.length; i++) {
     btn_dlPro[i].addEventListener("click", getInfoDetail);
   }
-  var btn_view_detail = document.getElementsByClassName("btn__detail");
-  for (var i = 0; i < btn_view_detail.length; i++) {
-    btn_view_detail[i].addEventListener("click", getID);
-  }
+  // var btn_view_detail = document.getElementsByClassName("btn__detail");
+  // for (var i = 0; i < btn_view_detail.length; i++) {
+  //   btn_view_detail[i].addEventListener("click", getID);
+  // }
 
   //purchase_request
   const btnRequest_addProduct = document.getElementById(
@@ -22,16 +22,16 @@ function ready() {
     btnRequest_addProduct.addEventListener("click", request_addProduct);
   }
 
-  // export_request
-  const checkBoxRequest_seclect =
-    document.getElementsByClassName("select-product");
-  for (let i = 0; i < checkBoxRequest_seclect.length; i++) {
-    const checkBox = checkBoxRequest_seclect[i];
-    checkBox.addEventListener("click", secletProduct);
-  }
+  // // export_request
+  // const checkBoxRequest_seclect =
+  //   document.getElementsByClassName("select-product");
+  // for (let i = 0; i < checkBoxRequest_seclect.length; i++) {
+  //   const checkBox = checkBoxRequest_seclect[i];
+  //   checkBox.addEventListener("click", secletProduct);
+  // }
 
   //receipt
-  const btn_dlGre = document.getElementsByClassName("btn__detail g_receipt");
+  const btn_dlGre = document.getElementsByClassName("btn__detail product");
   for (var i = 0; i < btn_dlGre.length; i++) {
     btn_dlGre[i].addEventListener("click", openDetail);
   }
@@ -46,6 +46,13 @@ function ready() {
   );
   if (btnInventory_addMember) {
     btnInventory_addMember.addEventListener("click", addMember);
+  }
+
+  //select product in request
+
+  const checkbox_select = document.getElementsByClassName("select-product");
+  for (let i = 0; i < checkbox_select.length; i++) {
+    checkbox_select[i].addEventListener("click", showInput);
   }
 }
 
@@ -145,12 +152,14 @@ function resetDetail() {
     });
   }
 }
-// get ID form table
-function getID(event) {
-  var row = event.currentTarget.closest("tr");
-  var id = row.querySelector("td p");
-  document.getElementById("id_").innerHTML = id.innerText;
-}
+// // get ID form table
+// function getID(event) {
+//   if (document.getElementsByClassName("detail")) {
+//     var row = event.currentTarget.closest("tr");
+//     var id = row.querySelector("td p");
+//     document.getElementById("id_").innerHTML = id.innerText;
+//   }
+// }
 
 //STAFF
 
@@ -371,19 +380,47 @@ function openIframe(event) {
 
 //PRODUCT - TABLE IN DOCUMENT
 // set No. for table product
+
 var table_product = document.getElementById("product-table");
+let row_limit;
 function updateNo() {
   if (table_product) {
     var row = table_product.querySelectorAll("tbody tr");
+    if (row_limit === undefined) {
+      for (let x = 0; x < row.length; x++) {
+        if (row[x].style.display === "none") {
+          row_limit = x;
+          // console.log(row_limit);
+        }
+      }
+    }
     for (let r = 0; r < row.length; r++) {
       var thisRow = row[r];
       var colFirst = thisRow.querySelector("td");
-      if (r < 2) {
+      if (r < row_limit) {
         colFirst.innerText = r + 1;
-      } else if (r > 2) {
+      } else if (r > row_limit) {
         colFirst.innerText = r;
       }
     }
   }
 }
 updateNo();
+
+let count = 0;
+function showInput(event) {
+  var checkBox = event.currentTarget;
+  var tr = checkBox.closest("tr");
+  const th = document.getElementById("th_quantity");
+  if (checkBox.checked) {
+    th.style.display = "block";
+    tr.getElementsByClassName("quantity_request")[0].style.display = "block";
+    count = count + 1;
+  } else {
+    tr.getElementsByClassName("quantity_request")[0].style.display = "none";
+    count = count - 1;
+  }
+  if (count === 0) {
+    th.style.display = "none";
+  }
+}

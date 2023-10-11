@@ -138,7 +138,7 @@
             <div>
                     <h4><i class='bx bxl-medium-old hidden_icon'></i>  MY WAREHOUSE</h4>
                     <h5>Address: ABC, DEF, HG</h5>
-                    <h5>001/DNNH</h5>
+                    <h5 id = id_request>001/DNNH</h5>
                 </div>
                 <div>
                     <h5>SOCIALIST REPUBLIC OF VIETNAM</h5>
@@ -147,13 +147,15 @@
             </div>
             <h3 class="title">REQUEST FOR GOODS RECEIPT</h3>
             <div class="info_request">
-                <span>Dear: </span> <span>Sales Manager</span>
-                <br>
-                <span>Requester: </span><span>Ha Xuan Thanh</span>
-                <br>
-                <span>Position: </span><span>Stockkeeper</span>
-                <br>
-                <span>Intended Use: </span> <span>As user demands are increasing, we need to add more inventory.</span>
+                <div>
+                    <span>Dear: </span> <span>Sales Manager</span>
+                    <br>
+                    <span>Requester: </span><span>Ha Xuan Thanh</span>
+                    <br>
+                    <span>Position: </span><span>Stockkeeper</span>
+                    <br>
+                    <span>Intended Use: </span> <span>As user demands are increasing, we need to add more inventory.</span>
+                </div>
             </div>
             <div class="info_product">
                 <table id="product-table">
@@ -233,23 +235,26 @@
                 </div>
             </div>
         </div>
-        <div class="stockkeeper hidden">
-            <input style="float: right;" class="btn" type="submit" value="Save & Send"/>
+        <div class="group-btn">
+            <div class="stockkeeper hidden">
+                <input style="float: right;" class="btn" type="submit" value="Save & Send" />
+            </div>
+            <div class="sales_staff hidden">
+                <a style="background-color: rgb(209, 109, 72);" href="purchase_order.html" class="btn">Create purchase order</a>
+            </div>
+            <div class="sales_manager">
+                <input style="float: right;" class="btn" type="submit" value="Accept" />
+            </div>
         </div>
-        <div class ="sales_staff hidden">
-            <a style="background-color: rgb(209, 109, 72);" href="purchase_order.html" class="btn">Create purchase order</a>
-        </div>
-        <div class = "sales_manager">
-            <input style="float: right;" class="btn" type="submit" value="Accept" />
-        </div>
-<input style="background-color: rgb(87, 173, 47); width: 100px;" class="btn" id="exportExcel" type="" value="Export Excel">
-<input style="background-color: rgb(248, 177, 85); width: 100px;" class="btn" id="export-pdf" type="" value="Export PDF">
+        
+<input style="background-color: rgb(87, 173, 47); width: 100px;" class="btn" id="exportExcel" type="submit" value="Export Excel">
+<input style="background-color: rgb(248, 177, 85); width: 100px;" class="btn" id="export-pdf" type="submit" value="Export PDF">
 <!--=============== MAIN JS ===============-->
 
-<script src="assets/js/main.js"></script>
-<script src="assets/js/table2excel.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/table2excel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="assets/dist/jspdf.umd.js"></script>
+<script src="../assets/dist/jspdf.umd.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
 
 <!-- Export to Excel -->
@@ -285,8 +290,45 @@
                 width: 190,
                 windowWidth: 1200
             });
-        
-    });
+            // Lấy toàn bộ thẻ trong thẻ <body>
+        //     var content = document.getElementsByClassName("request-content")[0];
+        //     var icon = document.getElementsByClassName("hidden_icon");
+        //     for (let i = 0; i < icon.length; i++) {
+        //         var element = icon[i];
+        //         element.style.display = "none";
+        //     }
+        //     // Sử dụng html2canvas để chuyển đổi nội dung HTML thành hình ảnh
+        //     html2canvas(content).then(function (canvas) {
+        //         // Tạo đối tượng jsPDF để tạo tài liệu PDF
+        //         var doc = new jsPDF({
+        //             orientation: 'portrait', // hoặc 'landscape' nếu bạn muốn làm ngang
+        //             unit: 'mm',
+        //             format: 'a4',
+        //         });
 
+        //         // Chuyển đổi hình ảnh thành dạng dữ liệu URL
+        //         var imgData = canvas.toDataURL('image/jpeg');
+
+        //         // Thêm hình ảnh vào tài liệu PDF
+        //         doc.addImage(imgData, 'JPEG', 0, 0, 210, 297); // 210x297mm là kích thước A4
+
+        //          doc.setProperties({
+        //             x: 0,           // Đặt x
+        //             y: 0,           // Đặt y
+        //             width: 210,      // Đặt width
+        //             windowWidth: 1200 // Đặt windowWidth
+        //         });
+
+        //         // Lưu tệp PDF
+        //         doc.save('my-pdf.pdf');
+        //     });
+        });
+    
 </script>
+<script>
+    var data = localStorage.getItem('data');
+    // console.log(data); 
+    document.getElementById("id_request").innerText = data;
+</script>
+
 </body>

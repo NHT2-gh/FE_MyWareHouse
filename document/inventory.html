@@ -155,10 +155,10 @@
                     <h5>Address: ABC, DEF, HG</h5>
                     <h5>001/BCKK</h5>
                 </div>
-                <!-- <div>
-                    <h5>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h5>
-                    <h5>ĐỘC LẬP - TỰ DO - HẠNH PHÚC</h5>    
-                </div> -->
+                <div>
+                    <h5>SOCIALIST REPUBLIC OF VIETNAM</h5>
+                    <h5>Independence - Freedom - Happiness</h5>
+                </div>
             </div>
             <h3 class="title">INVENTORY INSPECTION REPORT FOR PRODUCT</h3>
             <div class="info_inventory">
@@ -192,7 +192,7 @@
                                 <td><i class='bx bx-trash'></i></td>
                             </tr>
                         </tbody>
-                        <!-- <a href="#" class="staff_inventory" id="btnInventory__addMember"><i class="lni lni-circle-plus"></i></a> -->
+                        <a href="#" class="staff_inventory" id="btnInventory__addMember"><i class="lni lni-circle-plus"></i></a>
                     </table>
 
                 </div>
@@ -237,7 +237,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
+                            <td></td>
                             <td>
                                 <p>SI01</p>
                             </td>
@@ -265,42 +265,11 @@
                             <td><input type="checkbox" name="" id=""></td>
                             <td><input type="checkbox" name="" id=""></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>
-                                <p>SI02</p>
-                            </td>
-                            <td>
-                                <p>Nike Air Force 1</p>
-                            </td>
-                            <td>
-                                <p>130</p>
-                            </td>
-                            <td>
-                                <p>100</p>
-                            </td>
-                            <td>
-                                <p>1300</p>
-                            </td>
-                            <td>
-                                <input type="number" name="" id="" min="0" value="100">
-                            </td>
-                            <td>
-                                <input type="number" name="" id="" min="0" value="13000">
-                            </td>
-                            <td>
-                                <p>0</p>
-                            </td>
-                            <td>
-                                <p>0</p>
-                            </td>
-                            <td><input type="checkbox" name="" id=""></td>
-                            <td><input type="checkbox" name="" id=""></td>
-                            <td><input type="checkbox" name="" id=""></td>
+                        <tr id="row-tmp" style="display: none;">
                         </tr>
                     </tbody>
                 </table>
-                <!-- <a href="#" id="btnRequest__addProduct"><i class="lni lni-circle-plus"></i></a> -->
+
             </div>
             <div class="sign_request">
                 <div class="sign-area">
@@ -319,18 +288,23 @@
         </div>
     </div>
     </div>
-    <div class="staff_inventory">
+    <div class="group-btn">
+        <div class="staff_inventory">
             <input style="float: right;" class="btn" type="submit" value="Save & Send" />
+        </div>
+        <div class="stockkeeper">
+            <input style="float: right;" class="btn" type="submit" value="Accept" />
+        </div>
+        <input style="background-color: rgb(87, 173, 47); width: 100px;" class="btn" id="exportExcel" type="submit"
+            value="Export Excel">
+        <input style="background-color: rgb(248, 177, 85);" class="btn" id="export-pdf" type="submit" value="Export PDF" />
     </div>
-    <div class="stockkeeper">
-        <input style="float: right;" class="btn" type="submit" value="Accept" />
-    </div>
-    <input style="background-color: rgb(87, 173, 47); width: 100px;" class="btn" id="exportExcel" type="submit"
-        value="Export Excel">
-    <input style="background-color: rgb(248, 177, 85);" class="btn" id="export-pdf" type="submit" value="Export PDF" />
+    
     <!--=============== MAIN JS ===============-->
-
-    <script src="assets/js/main.js"></script>
+        <script src="../assets/js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="../assets/dist/jspdf.umd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
 
     <!-- Export to Excel -->
     <script>
@@ -338,18 +312,14 @@
         var table2excel = new Table2Excel();
         table2excel.export(document.querySelectorAll("#table-to-export"));
     })
-
-</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="assets/dist/jspdf.umd.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    </script>
     <script>
         window.jsPDF = window.jspdf.jsPDF
         document.getElementById('export-pdf').addEventListener('click', function () {
 
             var doc = new jsPDF({
-                format: 'a4'
-
+                format: 'a4',
+                orientation: 'landscape'// hoặc 'landscape' nếu bạn muốn làm ngang
             });
             // Lấy toàn bộ thẻ trong thẻ <body>
             var content = document.querySelector(".inventory");
@@ -361,7 +331,7 @@
                 autoPaging: 'text',
                 x: 0,
                 y: 0,
-                width: 190,
+                width: 270,
                 windowWidth: 1024
             });
 
