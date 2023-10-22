@@ -34,11 +34,13 @@
 .space {
     margin-right: 1rem !important;
 }
-#div_countdown, #input__OTP{
-    display: block;
+#div_countdown,
+.input__OTP {
+    display: none;
 }
-#div_countdown{
+
+#div_countdown {
     color: #e65555;
     font-weight: bold;
-    
+
 }

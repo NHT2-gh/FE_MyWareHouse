@@ -138,6 +138,20 @@
             flex: 5;
             text-align: center;
         }
+         .state{
+        font-size: 12px;
+        padding: 2% 3%;
+        color: var(--title-color);
+        border-radius: 20px;
+        font-weight: 700;
+        width: max-content;
+        }
+        .state.pending{
+            background: rgb(243, 223, 0);
+        }
+        .state.complete{
+            background: rgb(132, 245, 62);
+        }
     </style>
 
 </head>
@@ -149,19 +163,21 @@
             <div>
                 <h4><i class='bx bxl-medium-old'></i> MY WAREHOUSE</h4>
                 <h5>Address: ABC, DEF, HG</h5>
+                <div class="state pending">Pending</div>
+                <div class="state complete">Complete</div>
             </div>
             <div>
                 <h5>SOCIALIST REPUBLIC OF VIETNAM</h5>
-                <h5>Independence - Freedom - Happiness</h5>
+                <h5>Independence - Freedom - Happiness</h5>      
             </div>
         </div>
         <h3 class="title">GOOD DELIVERY NOTE</h3>
         <div class="info_request">
                 <span>Dear: Stockkeeper</span><span></span>
                 <br>
-                <span>From: Sales Department</span><span></span>
-                <br>
                 <span>Position: Sales manager</span><span></span>
+                <br>
+                <span>Name Staff: Sales manager</span><span></span>
                 <br>
                 <span>Reason: There are orders from stores</span><span></span>
         </div>

@@ -21,7 +21,7 @@ li {
 	--lato: 'Lato', sans-serif;
 	--body-font: 'Roboto', sans-serif;
 	--light: #ffffff;
-	--first-color: hsl(59, 77%, 70%);
+	--first-color: hsl(31, 76%, 74%);
 	--blue: #78bdfd;
 	--light-blue: #b4d7f8;
 	--green: rgb(115, 219, 115);
@@ -570,13 +570,15 @@ div #myChart, .recent_order, .notification{
 .info-product ul {
 	height: 100%;
 }
-
+.info-product ul.img{
+	padding-right: 20px;
+}
 .info-product ul.img li {
 	margin: 3px;
 }
 
 .info-product ul.info {
-	padding: 0 0 0 30px;
+	padding: 0 0 0 20px;
 }
 
 .info-product ul.info li {
@@ -728,16 +730,15 @@ main #main_infoUser {
 	text-align: center;
 }
 
-.request-content button[type="submit"] {
-}
 
 iframe {
 	width: 100%;
-	height: 60%;
-	padding: 8% 27% 0;
+	height: 100%;
+	padding: 8% 8%;
 	position: absolute;
 	display: none;
 	align-items: center;
+	margin: 20px;
 }
 /* END REQUEST */
 
@@ -930,15 +931,15 @@ iframe {
 }
 .table-data tbody tr .btn {
 	margin: 0;
-	display: grid;
 	/* grid-template-columns: repeat(auto-fit, minmax(3px, 30px));
 	grid-gap: 5px; */
+	
 }
 .table-data tbody tr .btn a{	
 	background-color:var(--light-first-color);
-	border:1px solid black;
+	/* border:1px solid black; */
 	border-radius: 7px;
-	padding: 3px;
+	padding: 7px 10px;
 	text-align: center;
 	max-height: 36px;
 	max-width: 36px;
@@ -1280,64 +1281,6 @@ iframe {
 	background: var(--yellow);
 }
 
-/* TABLE-DETAIL-ODER */
-.listOrder .OrderOfList{
-	width: 100%;
-}
-.listOrder .OrderOfList .oderDetail{
-	padding: 4px 20px;
-	border-bottom: 1px solid rgb(182, 179, 179);
-}
-.oderDetail .productOfOder{
-	display: flex; 
-	align-items: center; 
-	gap:80px; 
-	justify-content: space-between; 
-	width: 100%;
-}
-.oderDetail .productOfOder img{
-	max-width: 50px; max-height: 50px; align-items: center; justify-content: center;
-}
-.oderDetail .productOfOder div{
-	width: 500px;
-}
-.oderDetail a{
-	text-align: end;
-}
-/* //TABLE-DATA// */
-.table-data tbody tr .btn {
-	margin: 2px;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(10px, 35px));
-	grid-gap: 10px;
-}
-.table-data tbody tr .btn a{	
-	background-color:var(--body-color);
-	border:2px solid var(--title-color);
-	border-radius: 7px;
-	padding: 5px;
-	text-align: center;
-	max-height: 37px;
-	max-width: 37px;
-	align-items: center;
-}
-.btn__xoa{
-	color: var(--red);
-	
-}
-.btn__chitiet{
-	color: var(--title-color);
-	
-}
-.table-data tbody tr .btn a:hover{
-	box-shadow:2px 2px grey;
-}
-.input_idDDH{
-	border: none;
-	text-align: center;
-	pointer-events: none;
-	
-}
 /* ================== */
 @media screen and (max-width: 768px) {
 	#sidebar {

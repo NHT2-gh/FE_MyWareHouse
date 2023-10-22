@@ -14,19 +14,21 @@
 table .quantityRe {
     max-width: 80px;
     text-align: center;
+    
 }
 
-.create-btn {
+.cr-btn {
     float: right;
     margin-top: 20px;
+    
 }
 
-.create-btn button{
-    background-color: #6bba62;
+.cr-btn button{
+    background-color: #9ed446;
     border-color: none;
     border-radius: 20px;
     padding: 10px 15px;
-    color: #fff;
+    color: var(--title-color);
 }
 
 .create-btn button:hover {
@@ -99,4 +101,3 @@ table .quantityRe {
 .quantity_request, #th_quantity{
     display: none;
 }
-

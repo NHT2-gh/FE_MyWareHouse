@@ -47,13 +47,6 @@ function ready() {
   if (btnInventory_addMember) {
     btnInventory_addMember.addEventListener("click", addMember);
   }
-
-  //select product in request
-
-  const checkbox_select = document.getElementsByClassName("select-product");
-  for (let i = 0; i < checkbox_select.length; i++) {
-    checkbox_select[i].addEventListener("click", showInput);
-  }
 }
 
 // ACTIVE SIDEBAR
@@ -260,7 +253,7 @@ for (let i = 0; i < rows.length; i++) {
   } else {
     var cellHidden = element.querySelectorAll("td");
   }
-  for (let index = 5; index < cellHidden.length - 1; index++) {
+  for (let index = 7; index < cellHidden.length - 2; index++) {
     var chidl = cellHidden[index];
     chidl.style.display = "none";
   }
@@ -406,21 +399,3 @@ function updateNo() {
   }
 }
 updateNo();
-
-let count = 0;
-function showInput(event) {
-  var checkBox = event.currentTarget;
-  var tr = checkBox.closest("tr");
-  const th = document.getElementById("th_quantity");
-  if (checkBox.checked) {
-    th.style.display = "block";
-    tr.getElementsByClassName("quantity_request")[0].style.display = "block";
-    count = count + 1;
-  } else {
-    tr.getElementsByClassName("quantity_request")[0].style.display = "none";
-    count = count - 1;
-  }
-  if (count === 0) {
-    th.style.display = "none";
-  }
-}

@@ -9,7 +9,7 @@
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
 	<!-- My CSS -->
-    <!-- <link rel="stylesheet" href="assets/css/new.css"> -->
+    <link rel="stylesheet" href="assets/css/export_request.css">
 	<link rel="stylesheet" href="assets/css/manager.css">
 	<link rel="stylesheet" href="assets/css/styles.css">  
 
@@ -208,7 +208,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <!-- <th><input type="checkbox" name="" id=""></th> -->
+                                <th><input type="checkbox" name="" id="checkedAll"></th>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Image</th>
@@ -221,131 +221,68 @@
                                 <th>Price</th>
                                 <th>Supplier</th>
                                 <th>Mfg</th>
-                                <th>Action</th>
+                                
+                                <th>View</th>
+                                <th id="th_quantity">Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>    
-                                    <!-- <td><input type="checkbox" name="" id=""></td> -->
-                                    <td><p class="id">SI01</p></td>
-                                    <td><p class="name">Nike Air Max 1</p></td>
-                                    <td><img class="img_product" src="https://th.bing.com/th/id/OIP.3TGtevMDoAFb3MdQ1ovxQAHaFM?pid=ImgDet&rs=1"></td>
-                                    <td><p class="inventory">100</p></t>
-                                    <td><p class="obj">Men's Shose</p></td>
-                                    <td><p class="category">Sneakers</p></td>
+                                <tr class="productRequest">
+                                    <td><input type="checkbox" name="" class="select-product"></td>
                                     <td>
-                                        <p class="mal">Leather</p>
-                                    </td>
-                                    <td>
-                                        <p class="clr">Black</p>
-                                    </td>
-                                    <td>
-                                        <p class="size">US 9</p>
-                                    </td>
-                                    <td><p class="prc">120</p></td>
-                                    
-                                    <td><p class="suppl">Nike</p></td>
-                                    <td><p class="mfg">2023</p></td>
-                                    <td class="btn">
-                                        <a class ="btn__detail product" href="#detail"  data-image="https://th.bing.com/th/id/OIP.3TGtevMDoAFb3MdQ1ovxQAHaFM?pid=ImgDet&rs=1"><i class='bx bx-detail'></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!-- <td><input type="checkbox" name="" id=""></td> -->
-                                    <td>
-                                        <p class="id">SI02</p>
-                                    </td>
-                                    <td>
-                                        <p class="name">Nike Air Force 1</p>
-                                    </td>
-                                    <td><img class="img_product" src="assets/img/1.png"></td>
-                                    <td>
-                                        <p class="inventory">90</p>
-                                        </t>
-                                    <td>
-                                        <p class="obj">Men's Shose</p>
-                                    </td>
-                                    <td>
-                                        <p class="category">Sneakers</p>
-                                    </td>
-                                    <td>
-                                        <p class="mal">Leather</p>
-                                    </td>
-                                    <td>
-                                        <p class="clr">White</p>
-                                    </td>
-                                    <td>
-                                        <p class="size">US 8</p>
-                                    </td>
-                                    <td>
-                                        <p class="prc">90</p>
-                                    </td>
-                                   
-                                    <td>
-                                        <p class="suppl">Nike</p>
-                                    </td>
-                                    <td>
-                                        <p class="mfg">2023</p>
-                                    </td>
-                                    <td class="btn">
-                                        <a class="btn__detail product" href="#detail" data-image="assets/img/1.png"><i class='bx bx-detail' ></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
-                                    </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                
-                                <tr>
-                                    <!-- <td><input type="checkbox" name="" id=""></td> -->
-                                    <td>
-                                        <p class="id">SI03</p>
-                                    </td>
-                                    <td>
-                                        <p class="name">Nike React Element 55</p>
-                                    </td>
-                                    <td><img class="img_product" src="https://th.bing.com/th/id/R.269446a6739ac846e0a554ade3832587?rik=78ZPwjRsdwPA4w&riu=http%3a%2f%2fimages.complex.com%2fcomplex%2fimages%2ffl_lossy%2cq_auto%2fv1%2ftbvc6mijpy1iamd4d8s2%2fnike-air-max-1&ehk=WcE470Ixuv8L0hbG4OdCXF0qpU6MK8jMbt762FvSaOg%3d&risl=&pid=ImgRaw&r=0assets/img/1.png"></td>
-                                    <td>
-                                        <p class="inventory">80</p>
-                                        </t>
-                                    <td>
-                                        <p class="obj"> Women's Shose</p>
-                                    </td>
-                                    <td>
-                                        <p class="category">Sneakers</p>
-                                    </td>
-                                    <td>
-                                        <p class="mal">Mesh</p>
-                                    </td>
-                                    <td>
-                                        <p class="clr">Gray</p>
-                                    </td>
-                                    <td>
-                                        <p class="size">US 7</p>
-                                    </td>
-                                    <td>
-                                        <p class="prc">100</p>
-                                    </td>
-                                
-                                    <td>
-                                        <p class="suppl">Nike</p>
-                                    </td>
-                                    <td>
-                                        <p class="mfg">2023</p>
-                                    </td>
-                                    <td class="btn">
-                                        <a class="btn__detail product" href="#detail" data-image="https://th.bing.com/th/id/R.269446a6739ac846e0a554ade3832587?rik=78ZPwjRsdwPA4w&riu=http%3a%2f%2fimages.complex.com%2fcomplex%2fimages%2ffl_lossy%2cq_auto%2fv1%2ftbvc6mijpy1iamd4d8s2%2fnike-air-max-1&ehk=WcE470Ixuv8L0hbG4OdCXF0qpU6MK8jMbt762FvSaOg%3d&risl=&pid=ImgRaw&r=0"><i class='bx bx-detail'></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
-                                    </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                <tr>
-                                    <!-- <td><input type="checkbox" name="" id=""></td> -->
-                                    <td>
-                                        <p class="id">SI04</p>
+                                        <p class="code">SI04</p>
                                     </td>
                                     <td>
                                         <p class="name">Nike Zoom Pegasus 37</p>
                                     </td>
                                     <td><img class="img_product" src="https://www.theairmax270.com/wp-content/uploads/2018/11/Nike-Air-Force-1-Low-UNC-Blue-Gale-White-2.jpeg"></td>
+                                    <td>
+                                        <p class="inventory">120</p>
+                                    </td>
+                                    <td>
+                                        <p class="obj">Men's Shose</p>
+                                    </td>
+                                    <td>
+                                        <p class="category">Running Shoes</p>
+                                    </td>
+                                    <td>
+                                        <p class="mal">Synthetic</p>
+                                    </td>
+                                    <td>
+                                        <p class="clr">Blue</p>
+                                    </td>
+                                    <td>
+                                        <p class="size">US 10</p>
+                                    </td>
+                                    <td>
+                                        <p class="prc">110</p>
+                                    </td>
+                                
+                                    <td>
+                                        <p class="suppl">Nike</p>
+                                    </td>
+                                    <td>
+                                        <p class="mfg">2023</p>
+                                    </td>
+                                    
+                                    <td class="btn">
+                                        <a class="btn__detail product" href="#detail" data-image="https://www.theairmax270.com/wp-content/uploads/2018/11/Nike-Air-Force-1-Low-UNC-Blue-Gale-White-2.jpeg"><i class='bx bx-detail'></i></a>
+                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
+                                    </td>
+                                    <td class="quantity_request"><input class='quantityRe' type="number" min="0" value="1"></td>
+                                    <!-- <td><span class="status completed">Completed</span></td> -->
+                                </tr>
+                                <tr class="productRequest">
+                                    <td><input type="checkbox" name="" class="select-product"></td>
+                                    <td>
+                                        <p class="code">SI05</p>
+                                    </td>   
+                                    <td>
+                                        <p class="name">Nike Zoom Pegasus 37</p>
+                                    </td>
+                                    <td><img class="img_product"
+                                            src="https://www.theairmax270.com/wp-content/uploads/2018/11/Nike-Air-Force-1-Low-UNC-Blue-Gale-White-2.jpeg">
+                                    </td>
                                     <td>
                                         <p class="inventory">120</p>
                                         </t>
@@ -374,100 +311,21 @@
                                     <td>
                                         <p class="mfg">2023</p>
                                     </td>
+                                    
                                     <td class="btn">
-                                        <a class="btn__detail product" href="#detail" data-image="https://www.theairmax270.com/wp-content/uploads/2018/11/Nike-Air-Force-1-Low-UNC-Blue-Gale-White-2.jpeg"><i class='bx bx-detail'></i></a>
+                                        <a class="btn__detail product" href="#detail"
+                                            data-image="https://www.theairmax270.com/wp-content/uploads/2018/11/Nike-Air-Force-1-Low-UNC-Blue-Gale-White-2.jpeg"><i
+                                                class='bx bx-detail'></i></a>
                                         <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
                                     </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                <tr>
-                                    <!-- <td><input type="checkbox" name="" id=""></td> -->
-                                    <td>
-                                        <p class="id">SI05</p>
-                                    </td>
-                                    <td>
-                                        <p class="name">Nike Free RN 5.0</p>
-                                    </td>
-                                    <td><img class="img_product" src="https://cdn.runningshoesguru.com/wp-content/uploads/2020/04/Nike-Zoom-Pegasus-37.jpg"></td>
-                                    <td>
-                                        <p class="inventory">90</p>
-                                        </t>
-                                    <td>
-                                        <p class="obj">Women's Shose</p>
-                                    </td>
-                                    <td>
-                                        <p class="category">Running Shoes</p>
-                                    </td>
-                                    <td>
-                                        <p class="mal">Mesh</p>
-                                    </td>
-                                    <td>
-                                        <p class="clr">White</p>
-                                    </td>
-                                    <td>
-                                        <p class="size">US 8</p>
-                                    </td>
-                                    <td>
-                                        <p class="prc">95</p>
-                                    </td>
-                                
-                                    <td>
-                                        <p class="suppl">Nike</p>
-                                    </td>
-                                    <td>
-                                        <p class="mfg">2023</p>
-                                    </td>
-                                    <td class="btn">
-                                        <a class="btn__detail product" href="#detail" data-image="https://cdn.runningshoesguru.com/wp-content/uploads/2020/04/Nike-Zoom-Pegasus-37.jpg"><i class='bx bx-detail'></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
-                                    </td>
-                                    <!-- <td><span class="status completed">Completed</span></td> -->
-                                </tr>
-                                <tr>
-                                    <!-- <td><input type="checkbox" name="" id=""></td> -->
-                                    <td>
-                                        <p class="id">SI06</p>
-                                    </td>
-                                    <td>
-                                        <p class="name">Nike SB Blazer Low</p>
-                                    </td>
-                                    <td><img class="img_product" src="https://th.bing.com/th/id/R.1c0d1d12a8523e8af8c51b979db22bc1?rik=0ABbZt1QvFGcRw&pid=ImgRaw&r=0"></td>
-                                    <td>
-                                        <p class="inventory">75</p>
-                                        </t>
-                                    <td>
-                                        <p class="obj">Mem's Shose</p>
-                                    </td>
-                                    <td>
-                                        <p class="category">Skate Shoes</p>
-                                    </td>
-                                    <td>
-                                        <p class="mal">Suede</p>
-                                    </td>
-                                    <td>
-                                        <p class="clr">Blue</p>
-                                    </td>
-                                    <td>
-                                        <p class="size">US 9</p>
-                                    </td>
-                                    <td>
-                                        <p class="prc">80</p>
-                                    </td>
-                                
-                                    <td>
-                                        <p class="suppl">Nike</p>
-                                    </td>
-                                    <td>
-                                        <p class="mfg">2023</p>
-                                    </td>
-                                    <td class="btn">
-                                        <a class="btn__detail product" href="#detail" data-image="https://th.bing.com/th/id/R.1c0d1d12a8523e8af8c51b979db22bc1?rik=0ABbZt1QvFGcRw&pid=ImgRaw&r=0"><i class='bx bx-detail'></i></a>
-                                        <!-- <a class ="btn__xoa"href="#delete"><i class='bx bxs-trash' ></i></a> -->
-                                    </td>
+                                    <td class="quantity_request"><input class='quantityRe' type="number" min="0" value="1"></td>
                                     <!-- <td><span class="status completed">Completed</span></td> -->
                                 </tr>
                         </tbody>
                     </table>
+                    <div class="cr-btn" id="open-dia">
+                        <button>Create request</button>
+                    </div>
                 </div>
 
             </div>
@@ -490,7 +348,7 @@
                     <div class="info-product">
                         <div class="header-detail">
                             <!-- <input style="height: 100%; font-size: large;" type="text" name=""class="id" id="" placeholder="...ID..."> -->
-                            <h3 class="id"></h3>
+                            <h3 class="code"></h3>
                             <!-- <input style="float: right;" type="submit" value="Save"> -->
                         </div>
                         <form style="display: flex; max-width: 100%;">
@@ -540,10 +398,78 @@
                         </form>
                         
                     </div>
-                    
-
             </div>
         </div>
+        <dialog id="dia-request">
+            <div style="display: block;" class="request-content">
+                <div class="head_request">
+                    <div>
+                        <h4><i class='bx bxl-medium-old'></i> MY WAREHOUSE</h4>
+                        <h5>Address: ABC, DEF, HG</h5>
+                    </div>
+                    <div>
+                        <h5>SOCIALIST REPUBLIC OF VIETNAM</h5>
+                        <h5>Independence - Freedom - Happiness</h5>
+                    </div>
+                </div>
+                <h3 class="title">GOOD DELIVERY NOTE</h3>
+                <div class="info_request">
+                    <div class="detail_info">
+                        <p>Dear: </p>
+                        <input>
+                    </div>
+                    <div class="detail_info">
+                        <p>From: </p>
+                        <input>
+                    </div>
+                    <div class="detail_info">
+                        <p>Position: </p>
+                        <input>
+                    </div>
+                    <div class="detail_info">
+                        <p>From Department: </p>
+                        <input>
+                    </div>
+                    <div class="detail_info">
+                        <p>Reason: </p>
+                        <input>
+                    </div>
+                </div>
+                <div class="info_product">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Note</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listProductReq">
+        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="sign_request">
+                    <i><input class="dated" type="text" placeholder="Dated"></i>
+                    <br>
+                    <div class="sign-area">
+                        <div>
+                            <span>Stock keeper</span>
+                        </div>
+                        <div>
+                            <span>Sales manager</span>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+            <div class="group-btn">
+                <button class="submit">Send request</button>
+                <button id="close-dia" value="cancel">Close</button>
+        
+            </div>
+        </dialog>
         <iframe id="iframeAdd" class="showForm" src="addProduct.html" frameborder="0">
         </iframe>
         
@@ -559,6 +485,7 @@
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
 	<script src="assets/js/theme.js"></script>
+    <script src="assets/js/dialog.js"></script>
     
 
     <!-- <script>

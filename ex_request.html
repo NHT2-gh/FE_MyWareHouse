@@ -183,8 +183,7 @@
                     <table id = "table_select">
                         <thead>
                             <tr>
-                                <!-- <th><input class='' type="checkbox"></th> -->
-                                <th></th>
+                                <th><input class='' id ="checkedAll" type="checkbox"></th>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Image</th>
@@ -218,7 +217,7 @@
                                 <tr class="productRequest">
                                     <td class=""><input class='select-product' type="checkbox"></td>
                                     <td>
-                                        <p class="code">SI01</p>
+                                        <p class="code">SI02</p>
                                     </td>
                                     <td class="name">Nike Air Max 1</td>
                                     <td><img class="img_product" src="https://th.bing.com/th/id/OIP.3TGtevMDoAFb3MdQ1ovxQAHaFM?pid=ImgDet&rs=1"></td>
@@ -234,13 +233,13 @@
                                     </td>
                                     <td>
                                         <p>2023</p>
-                                        </t>
+                                    </td>
                                     <td class="quantity_request"><input class='quantityRe' type="number" min="0" value="1"></td>
                                     <!-- <td><span class="status completed">Completed</span></td> -->
                                 </tr>
                         </tbody>
                     </table>
-                    <div class="create-btn" id="open-dia">
+                    <div class="cr-btn" id="open-dia">
                         <button>Create request</button>
                     </div>
                 </div>
@@ -332,97 +331,6 @@
     <!-- <script src="assets/js/main.js"></script> -->
 	<script src="assets/js/theme.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-        const dialogRequest = document.getElementById('dia-request');
-        const openDialog = document.getElementById('open-dia');
-        const closeDialog = document.getElementById('close-dia');
-
-
-        closeDialog.addEventListener("click", () => {
-            dialogRequest.close();
-        });
-
-        const listProduct = document.getElementsByClassName('select-product');
-        let selectedProducts = []; 
-        let productHTML = '';
-
-        for (const i of listProduct) {
-            const iParent = i.closest('.productRequest');
-            const nameElement = iParent.querySelector('.name');
-            const codeElement = iParent.querySelector('.code');
-            const quantityElement = iParent.querySelector('.quantityRe');
-            const code = codeElement.textContent.trim(); 
-            const name = nameElement.textContent.trim(); 
-            let quantity = quantityElement.value;
-
-
-            quantityElement.addEventListener('input',() =>{
-                if(i.checked) {
-                    quantity = quantityElement.value;
-                    selectedProducts = selectedProducts.filter((product) => product.code !== code);
-                    selectedProducts.push({ code, name, quantity });
-                    productHTML = selectedProducts
-                        .map((product) => `
-                            <tr>
-                            <td>
-                                <p>${product.code}</p>
-                            </td>
-                            <td>
-                                <p>${product.name}</p>
-                            </td>
-                            <td>
-                                <p>${product.quantity}</p>
-                            </td>
-                            <td>
-                                <input type="text">
-                            </td>
-                            </tr>
-                        `)
-                        .join('');
-                }
-                else {
-                    quantity = quantityElement.value;
-                }
-            })
-
-
-            i.addEventListener('change', () => {
-                if (i.checked) {
-                    selectedProducts.push({ code, name, quantity });
-                    selectedProducts = [...new Set(selectedProducts)];
-                } else {
-                    selectedProducts = selectedProducts.filter((product) => product.code !== code);
-                }
-
-                productHTML = selectedProducts
-                .map((product) => `
-                    <tr>
-                    <td>
-                        <p>${product.code}</p>
-                    </td>
-                    <td>
-                        <p>${product.name}</p>
-                    </td>
-                    <td>
-                        <p>${product.quantity}</p>
-                    </td>
-                    <td>
-                        <input type="text">
-                    </td>
-                    </tr>
-                `)
-                .join('');
-
-            });
-        }
-
-        openDialog.addEventListener("click", () => {
-            dialogRequest.showModal();
-            const productList = document.getElementById('listProductReq');
-            productList.innerHTML = productHTML;
-        });   
-    </script>
-
-    
+    <script src="assets/js/dialog.js"></script>
 </body>
 </html>

@@ -22,39 +22,125 @@
 <style>
     body{
         background-color: transparent;
+        overflow-y: hidden;
     }
+
     .info-product .info li{
-        display: flex;
+        min-width: 70%;
     }
-    .info-product .info li :first-child{
+    .info-product .info li h3:first-child, .info-product .info li h4:first-child{
         min-width: 80px;
     }
     .info-product input{
-        max-width: 150px;
+        min-width: 80%;
     }
+    .div_img input{
+        width: fit-content;
+        text-align: center;
+    }
+    .div_img{
+        align-items: center;
+        /* border: 1px solid black; */
+        display: block;
+    }
+    .div_img .img_product{
+        min-height: 220px;
+        min-width: 230px;
+        max-height: 220px;
+        max-width: 230px; 
+        border: 1px dashed #767575;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+    .div_img li:last-child{
+        display: block;
+    }
+    .sub_info .list{
+        display: flex;
+        gap: 15px;
+        border: 1px solid black;
+        border-radius: 7px;
+        min-width: 100%;
+        align-items: center;
+    }
+    .sub_info .list .contentList{
+        display: flex;
+        gap: 15px;
+        padding: 10px;
+        align-items: center;
+    }
+    .sub_info .list .contentList div{
+        border: 1px solid black;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .sub_info .list .contentList div span{
+        font-size: 16px;
+    }
+    .sub_info .list div:focus{
+        background-color: hsl(33, 87%, 70%);
+        font-weight: bold;
+    }
+    .btn_add{
+        color: green;
+    }
+   
 </style>
 <body>
 <!-- <div style="padding: 0; display: block;" class="detail product" id="detail">    -->
-    <div style="width: 100%; margin: 0;" class="detail-content product">
+    <div style="width: 100%; height: 100%; margin: 0;" class="detail-content product">
         <!-- <span class="close_chitiet" onclick="closeDetail()">&times;</span> -->
         <div class="info-product">
-            <div class="header-detail" style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="header-detail" style="display: flex;">
                 <div style="display: flex;">
-                    <h3 class="id">ID:</h3>
-                    <input style="height: 80%; font-size: large;" type="text" name="" class="id" id="">
+                    <input style="padding: 4px 5px; " type="submit" value="Save">
                 </div>
-                <input style="padding: 4px 5px;" type="submit" value="Save">
             </div>
-            <form style="display: flex;">
+            <form style="display: flex; padding: 10px 0;">
                 <div style="flex: 5; justify-content: center;">
                     <ul class="info">
+                        <li>
+                            <h3 class="id">ID:</h3>
+                            <input style="height: 80%; font-size: large;" type="text" name="" class="id" id="">
+                        </li>
                         <li>
                             <h3>Name: </h3>
                             <input type="text" class="name"></input>
                         </li>
-                        <li>
+                        <li class="sub_info" style="display: block;">
                             <h3>Size: </h3>
-                            <input type="text" class="size"></input>
+                            <div class="list">
+                                <div class="contentList">
+                                    <div class="6"><span>6</span></div>
+                                    <div class="7"><span>7</span></div>
+                                    <div class="8"><span>8</span></div>
+                                    <div class="9"><span>9</span></div>
+                                    <div class="10"><span>10</span></div>
+                                    <div class="11"><span>11</span></div>
+                                </div>
+                                <a class="btn_add">
+                                    <i class="lni lni-circle-plus"></i>
+                                </a>
+                                <input style="display: none; max-width: 50px;min-width: 50px; text-align: center;" type="number" min="3" max="15" class="input_addOption">
+                            </div>
+                        </li>
+                        <li class="sub_info" style="display: block;">
+                            <h4>Color:</h4>
+                            <div class="list">
+                                <div class="contentList">
+                                    <div class="Black"><span>Black</span></div>
+                                    <div class="White"><span>White</span></div>
+                                    <div class="Red"><span>Red</span></div>
+                                    <div class="Blue"><span>Blue</span></div>
+                                </div>
+                                <a class="btn_add">
+                                    <i class="lni lni-circle-plus"></i>
+                                </a>
+                                <input style="display: none; max-width: 50px;min-width: 50px; text-align: center;" type="text" min="3" max="15"
+
+                                    class="input_addOption">
+                            </div>
                         </li>
                         <li>
                             <h4>Object: </h4>
@@ -64,62 +150,119 @@
                             <h4>Category:</h4>
                             <input type="text" class="category"></input>
                         </li>
-                        <li>
-                            <h4>Color:</h4>
-                            <input type="text" class="clr"></input>
-                        </li>
+                        
                         <li>
                             <h4>Material:</h4>
                             <input type="text" class="mal"></input>
                         </li>
                         <li>
                             <h4>Mfg:</h4>
-                            <input type="text" class="mfg"></input>
+                            <input type="date" class="mfg"></input>
                         </li>
-                        <li>
+                        <!-- <li>
                             <h3>Price:</h3>
                             <input type="text"
                                 class="prc"></input>
                             <h3>$</h3>
-                        </li>
-
+                        </li> -->
                     </ul>
                 </div>
-                <div style="flex: 5;text-align: center;">
+                <div class="div_img" style="flex: 5;text-align: center;">
                     <ul class="img">
                         <li>
                             <span>Made in</span>
                             <input style="font-weight: 200; font-style: italic; max-width: 150px; margin-left: 10px;" type="text" class="suppl"></input>
                         </li>
                         <li>
-                            <input style="width: 100%;" type="file" name="" id="input__img">
-                            <img src="" class="img_product" style="max-height: 200px;" alt="">
-                            
+                            <input type="file" name="" class="input__img">
                         </li>
-
+                        <li>
+                            <img src="" class="img_product"  alt="">
+                        </li>
+                        <li>
+                            <span>Add image from URL</span>
+                            <input type="text" class="input__img" value="">
+                        </li>
                     </ul>
-                </div>
-
+                </div>          
             </form>
-
         </div>
-
-
     </div>
 <!-- </div> -->
 </body>
 <!-- <script src="assets/js/main.js"></script>   -->
-<script>
+<script> 
     // Xu li input type = 'file'
-        var input_imgProduct = document.getElementById("input__img");
-        if (input_imgProduct) {
-            input_imgProduct.addEventListener("change", function () {
-                var preView_img = document.getElementsByClassName("img_product")[0];
-                var input_value = input_imgProduct.value;
-                var fileName = input_value.substring(input_value.lastIndexOf("\\") + 1);
-                preView_img.src = "assets/img/product/" + fileName;
-                console.log(preView_img.src);
-            });
+        const input_imgProduct = document.getElementsByClassName("input__img");
+        for (let i = 0; i < input_imgProduct.length; i++) {
+            input_imgProduct[i].addEventListener("change", addImg);    
         }
+        const btn_size = document.querySelectorAll(".list .contentList div");
+        for (let i = 0; i < btn_size.length; i++) {       
+            btn_size[i].addEventListener("click", saveSelected);
+        }
+        const btn_addOption = document.getElementsByClassName("btn_add");
+            for (let i = 0; i < btn_addOption.length; i++) {
+                btn_addOption[i].addEventListener("click", addOption);
+        }
+
+        
+
+        function addImg(event){
+            var preView_img = document.getElementsByClassName("img_product")[0];
+            var input = event.currentTarget;
+          
+                var input_value = input.value;
+                if (input.getAttribute("type") === "file") {
+                    var fileName = input_value.substring(input_value.lastIndexOf("\\") + 1);
+                    preView_img.src = "assets/img/product/" + fileName;
+                    // console.log(preView_img.src);
+                } else {
+                    preView_img.src = input_value;
+                    console.log(input_value);
+                }  
+           
+        }
+        //add Option
+        function addOption(event) {
+            var btn_add = event.currentTarget;
+            var div_list = btn_add.parentNode.querySelector(".contentList");
+            var input_add = btn_add.parentNode.getElementsByClassName("input_addOption")[0];
+            input_add.style.display = "block";
+            if (input_add.addEventListener("change", function(){
+                if (document.getElementsByClassName(input_add.value).length < 1 && input_add.value !==""){
+                    var newOption = document.createElement("div");
+                    newOption.classList.add(input_add.value.trim());
+                    var newContent = `<span>${input_add.value}</span>`
+                    newOption.innerHTML = newContent;
+                    div_list.append(newOption);
+                    newOption.addEventListener("click", saveSelected)
+                    input_add.value = "";
+                }   
+            }));
+        }
+
+        //del select
+        var arr = [];
+        function saveSelected(event) {
+            var selected = event.currentTarget;
+            selected.style.backgroundColor = "hsl(31, 76%, 74%)"; 
+            arr.push(selected.className);
+        }  
+
+        // del();
+        // function del() {
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Delete") {
+                    for (let y = 0; y < arr.length; y++) {
+                        const element = document.getElementsByClassName(arr[y])[0];
+                        if (element)
+                            element.remove();
+                    }
+                }
+            });
+        // }
+            
+        
 </script>
 </html>
