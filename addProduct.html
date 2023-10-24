@@ -44,10 +44,10 @@
         display: block;
     }
     .div_img .img_product{
-        min-height: 220px;
-        min-width: 230px;
-        max-height: 220px;
-        max-width: 230px; 
+        min-height: 110px;
+        min-width: 130px;
+        max-height: 110px;
+        max-width: 130px; 
         border: 1px dashed #767575;
         margin-top: 10px;
         border-radius: 10px;
@@ -128,13 +128,13 @@
                         <li class="sub_info" style="display: block;">
                             <h4>Color:</h4>
                             <div class="list">
-                                <div class="contentList">
+                                <div class="contentList color">
                                     <div class="Black"><span>Black</span></div>
                                     <div class="White"><span>White</span></div>
-                                    <div class="Red"><span>Red</span></div>
-                                    <div class="Blue"><span>Blue</span></div>
+                                    <!-- <div class="Red"><span>Red</span></div>
+                                    <div class="Blue"><span>Blue</span></div> -->
                                 </div>
-                                <a class="btn_add">
+                                <a class="btn_add color">
                                     <i class="lni lni-circle-plus"></i>
                                 </a>
                                 <input style="display: none; max-width: 50px;min-width: 50px; text-align: center;" type="text" min="3" max="15"
@@ -173,16 +173,23 @@
                             <span>Made in</span>
                             <input style="font-weight: 200; font-style: italic; max-width: 150px; margin-left: 10px;" type="text" class="suppl"></input>
                         </li>
-                        <li>
+                        <!-- <li>
                             <input type="file" name="" class="input__img">
+                        </li> -->
+                        <li style="display: grid; grid-template-columns: auto auto auto; gap: 10px">
+                            <div class = "Black">
+                            <P>Black</P>
+                            <img src="" id ="Black" class="img_product">
+                            </div>
+                            <div class ="White">
+                                <p>White</p>
+                                <img src="" id ="White" class="img_product" alt="">
+                            </div>
                         </li>
-                        <li>
-                            <img src="" class="img_product"  alt="">
-                        </li>
-                        <li>
+                        <!-- <li>
                             <span>Add image from URL</span>
-                            <input type="text" class="input__img" value="">
-                        </li>
+                            <input style="padding: 5px; border-radius: 5px;" type="text" class="input__img" value="">
+                        </li> -->
                     </ul>
                 </div>          
             </form>
@@ -193,9 +200,9 @@
 <!-- <script src="assets/js/main.js"></script>   -->
 <script> 
     // Xu li input type = 'file'
-        const input_imgProduct = document.getElementsByClassName("input__img");
-        for (let i = 0; i < input_imgProduct.length; i++) {
-            input_imgProduct[i].addEventListener("change", addImg);    
+        const imgProduct = document.getElementsByClassName("img_product");
+        for (let i = 0; i < imgProduct.length; i++) {
+            imgProduct[i].addEventListener("click", addImg);    
         }
         const btn_size = document.querySelectorAll(".list .contentList div");
         for (let i = 0; i < btn_size.length; i++) {       
@@ -205,24 +212,24 @@
             for (let i = 0; i < btn_addOption.length; i++) {
                 btn_addOption[i].addEventListener("click", addOption);
         }
+    
 
-        
-
-        function addImg(event){
-            var preView_img = document.getElementsByClassName("img_product")[0];
-            var input = event.currentTarget;
-          
-                var input_value = input.value;
-                if (input.getAttribute("type") === "file") {
-                    var fileName = input_value.substring(input_value.lastIndexOf("\\") + 1);
-                    preView_img.src = "assets/img/product/" + fileName;
-                    // console.log(preView_img.src);
-                } else {
-                    preView_img.src = input_value;
-                    console.log(input_value);
-                }  
-           
+        function addImg(event) {
+            imgProducts = event.currentTarget;
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            fileInput.onchange = function (event) {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imgProducts.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            };
+            fileInput.click();
         }
+        
         //add Option
         function addOption(event) {
             var btn_add = event.currentTarget;
@@ -237,11 +244,22 @@
                     newOption.innerHTML = newContent;
                     div_list.append(newOption);
                     newOption.addEventListener("click", saveSelected)
-                    input_add.value = "";
-                }   
+                    
+                    if (btn_add.className === "btn_add color"){
+                        var ul = document.getElementsByClassName("img")[0];
+                        var newImg = document.createElement("div");
+                        newImg.classList.add(input_add.value.trim());
+                        var contentImg = `<p>${input_add.value}</p>
+                                        <img src="" id=" ${input_add.value}" class="img_product"  alt="">`
+                        var imgFirst = ul.querySelectorAll("li")[1];
+                        newImg.innerHTML = contentImg;
+                        imgFirst.append(newImg);
+                        newImg.getElementsByClassName("img_product")[0].addEventListener("click", addImg)
+                    } 
+                    input_add.value="";
+                }  
             }));
         }
-
         //del select
         var arr = [];
         function saveSelected(event) {
@@ -251,17 +269,24 @@
         }  
 
         // del();
-        // function del() {
+       
             document.addEventListener("keydown", function (event) {
                 if (event.key === "Delete") {
                     for (let y = 0; y < arr.length; y++) {
-                        const element = document.getElementsByClassName(arr[y])[0];
-                        if (element)
-                            element.remove();
+                        console.log(arr[y]);
+                        var element = document.getElementsByClassName(arr[y])[0];
+                        var img = document.getElementsByClassName(arr[y])[1];
+                        console.log(img)
+                            if(img)
+                                img.remove();
+                            if(element)
+                                element.remove();
                     }
+                    arr = [];
                 }
+                
             });
-        // }
+        
             
         
 </script>
