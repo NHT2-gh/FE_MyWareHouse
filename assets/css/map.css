@@ -169,3 +169,8 @@ p {
 #barcode{
     height: 100px;
 }
+.quantity{
+    width: 100%;
+    text-align: center;
+
+}

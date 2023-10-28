@@ -62,6 +62,7 @@
         border-radius: 7px;
         min-width: 100%;
         align-items: center;
+        padding: 0 10px;
     }
     .sub_info .list .contentList{
         display: flex;
@@ -122,7 +123,7 @@
                                 <a class="btn_add">
                                     <i class="lni lni-circle-plus"></i>
                                 </a>
-                                <input style="display: none; max-width: 50px;min-width: 50px; text-align: center;" type="number" min="3" max="15" class="input_addOption">
+                                <input style="display: none; max-width: 50px;min-width: 50px; padding: 3px 5px;text-align: center; border-radius: 5px;" type="number" min="3" max="15" class="input_addOption">
                             </div>
                         </li>
                         <li class="sub_info" style="display: block;">
@@ -131,13 +132,11 @@
                                 <div class="contentList color">
                                     <div class="Black"><span>Black</span></div>
                                     <div class="White"><span>White</span></div>
-                                    <!-- <div class="Red"><span>Red</span></div>
-                                    <div class="Blue"><span>Blue</span></div> -->
                                 </div>
                                 <a class="btn_add color">
                                     <i class="lni lni-circle-plus"></i>
                                 </a>
-                                <input style="display: none; max-width: 50px;min-width: 50px; text-align: center;" type="text" min="3" max="15"
+                                <input style="display: none; max-width: 70px;min-width: 70px; padding: 3px 5px; text-align: center; border-radius: 5px;" type="text" min="3" max="15"
 
                                     class="input_addOption">
                             </div>
@@ -220,14 +219,19 @@
             fileInput.type = 'file';
             fileInput.accept = 'image/*';
             fileInput.onchange = function (event) {
-                const file = event.target.files[0];
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    imgProducts.src = e.target.result;
-                };
-                reader.readAsDataURL(file);
+                // const file = event.target.files[0];
+                // const reader = new FileReader();
+                // reader.onload = function (e) {
+                //     imgProducts.src = e.target.result;
+                //     console.log(imgProducts.src);
+                // };
+                // reader.readAsDataURL(file);
+                var fileName = fileInput.value.substring(fileInput.value.lastIndexOf("\\") + 1);
+                imgProducts.src = "assets/img/product/" + fileName;
+                console.log(imgProducts.src);
             };
             fileInput.click();
+            
         }
         
         //add Option

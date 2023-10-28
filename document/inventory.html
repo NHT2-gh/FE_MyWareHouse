@@ -277,9 +277,42 @@
                             </td>
                             <td><p>0</p></td>
                             <td><p>0</p></td>
-                            <td><input type="checkbox" name="" id=""></td>
-                            <td><input type="checkbox" name="" id=""></td>
-                            <td><input type="checkbox" name="" id=""></td>
+                            <td><input type="checkbox" name="" id="" class="quality 1" value="2"></td>
+                            <td><input type="checkbox" name="" id="" class="quality 2" value="2"></td>
+                            <td><input type="checkbox" name="" id="" class="quality 3" value="2"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <p>SI01</p>
+                            </td>
+                            <td>
+                                <p>Nike Air Max 1</p>
+                            </td>
+                            <td>
+                                <p>170</p>
+                            </td>
+                            <td>
+                                <p>100</p>
+                            </td>
+                            <td>
+                                <p>17000</p>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="" min="0" value="100">
+                            </td>
+                            <td>
+                                <input type="number" name="" id="" min="0" value="17000">
+                            </td>
+                            <td>
+                                <p>0</p>
+                            </td>
+                            <td>
+                                <p>0</p>
+                            </td>
+                            <td><input type="checkbox" name="" id="" class="quality 1" value="3"></td>
+                            <td><input type="checkbox" name="" id="" class="quality 2" value="3"></td>
+                            <td><input type="checkbox" name="" id="" class="quality 3" value="3"></td>
                         </tr>
                         <tr id="row-tmp" style="display: none;">
                         </tr>
@@ -360,4 +393,43 @@
 
     </script>
 
+    <script>
+        
+        const tr = document.querySelectorAll("#product-table tbody tr");
+        for (let y = 0; y < tr.length-1; y++) {
+            var getValue = tr[y].getElementsByClassName("quality")[0].value;
+            console.log(getValue);
+            var quality = tr[y].getElementsByClassName("quality")[getValue - 1]; 
+            quality.checked = "true";
+        }
+
+            const checkBox = document.getElementsByClassName("quality");
+            for (let c = 0; c < checkBox.length; c++) {
+                checkBox[c].addEventListener("click", check_clicked);
+                
+            }
+            // checkBox
+                function check_clicked(event) {
+                    var checkBox = event.target;
+                    var thisRow = checkBox.parentElement.parentElement;
+                    var checkboxs = thisRow.querySelectorAll(".quality"); 
+                    const classListArray = Array.from(checkBox.classList);
+                    for (let y = 0; y < checkboxs.length; y++) {
+                            checkboxs[y].value = classListArray[1];
+                    }
+                    console.log(checkboxs)
+                    checkboxs.forEach(function (checkbox) {
+                        checkbox.addEventListener('change', function () {
+                            if (this.checked) {
+                                // Hủy chọn tất cả các checkbox khác
+                                checkboxs.forEach(function (otherCheckbox) {
+                                    if (otherCheckbox !== checkbox) {
+                                        otherCheckbox.checked = false;
+                                    }
+                                });
+                            }
+                        });
+                    });
+                }
+    </script>
 </body>

@@ -53,31 +53,49 @@ for (let i = 0; i < 3; i++) {
   new_tr.classList.add(claslist[i]);
   var content_tr = `
                         <td class ="101">
-                            <div class="bin_detail"></div>
+                            <div class="bin_detail">
+                              <input class ="quantity" type="number" value = "200" />
+                            </div>
                         </td>
                         <td class ="102">
-                            <div class="bin_detail"></div>
+                            <div class="bin_detail">
+                              <input class ="quantity" type="number" value = "200" />
+                            </div>
                         </td>
                         <td class ="103">
-                            <div class="bin_detail"></div>
+                            <div class="bin_detail">
+                              <input class ="quantity" type="number" value = "200" />
+                            </div>
                         </td>
                         <td class ="104">
-                            <div class="bin_detail"></div>
+                            <div class="bin_detail">
+                              <input class ="quantity" type="number" value = "200" />
+                            </div>
                         </td>
                         <td class ="105">
-                            <div class="bin_detail"></div>
+                            <div class="bin_detail">
+                              <input class ="quantity" type="number" value = "200" />
+                            </div>
                         </td>
                         <td class ="106">
-                            <div class="bin_detail"></div>
+                            <div class="bin_detail">
+                              <input class ="quantity" type="number" value = "200" />
+                            </div>
                         </td>
                         <td class ="107">
-                            <div class="bin_detail"></div>
+                            <div class="bin_detail">
+                              <input class ="quantity" type="number" value = "200" />
+                            </div>
                         </td>
                         <td class ="108">
-                            <div class="bin_detail"></div>
+                            <div class="bin_detail">
+                              <input class ="quantity" type="number" value = "200" />
+                            </div>
                         </td>
                         <td class ="109">
-                            <div class="bin_detail"></div>
+                            <div class="bin_detail">
+                              <input class ="quantity" type="text" value = "0" />
+                            </div>
                         </td>`;
   new_tr.innerHTML = content_tr;
   tbody.append(new_tr);
@@ -89,6 +107,7 @@ const idShelf = document.getElementById("id_shelf").innerText;
 const unit_shelf = document.getElementsByClassName("unit_shelf");
 const position = positionElement.innerText;
 const positionWithoutHyphens = position.replace(/-/g, " ");
+
 // find bin
 for (let t = 0; t < bin.length; t++) {
   const element = bin[t];
@@ -98,6 +117,7 @@ for (let t = 0; t < bin.length; t++) {
   var row = tr.className;
   element.classList.add(row, col);
   const classListArray = Array.from(element.classList);
+  const quantityProduct = element.getElementsByClassName("quantity")[0];
   // Lấy độ dài của mảng
   const length = classListArray.length;
   // Lấy hai lớp cuối cùng
@@ -107,6 +127,14 @@ for (let t = 0; t < bin.length; t++) {
     if (positionWithoutHyphens === className) {
       element.style.backgroundColor = "#FCC686";
     }
+  }
+  console.log(quantityProduct.value);
+  if (quantityProduct.value === 0) {
+    element.style.backgroundColor = "grey";
+    const new_p = document.createElement("p");
+    const content_p = `Empty`;
+    new_p.innerHTML = content_p;
+    element.append(new_p);
   }
 }
 // find shelf
@@ -137,4 +165,5 @@ window.onclick = function (event) {
     div_detail.style.display = "none";
   }
 };
-// click shelf open detail
+
+//Show span when bin empty
