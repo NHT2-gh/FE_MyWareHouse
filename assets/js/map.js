@@ -54,47 +54,47 @@ for (let i = 0; i < 3; i++) {
   var content_tr = `
                         <td class ="101">
                             <div class="bin_detail">
-                              <input class ="quantity" type="number" value = "200" />
+                               
                             </div>
                         </td>
                         <td class ="102">
                             <div class="bin_detail">
-                              <input class ="quantity" type="number" value = "200" />
+                               
                             </div>
                         </td>
                         <td class ="103">
                             <div class="bin_detail">
-                              <input class ="quantity" type="number" value = "200" />
+                               
                             </div>
                         </td>
                         <td class ="104">
                             <div class="bin_detail">
-                              <input class ="quantity" type="number" value = "200" />
+                               
                             </div>
                         </td>
                         <td class ="105">
                             <div class="bin_detail">
-                              <input class ="quantity" type="number" value = "200" />
+                               
                             </div>
                         </td>
                         <td class ="106">
                             <div class="bin_detail">
-                              <input class ="quantity" type="number" value = "200" />
+                               
                             </div>
                         </td>
                         <td class ="107">
                             <div class="bin_detail">
-                              <input class ="quantity" type="number" value = "200" />
+                               
                             </div>
                         </td>
                         <td class ="108">
                             <div class="bin_detail">
-                              <input class ="quantity" type="number" value = "200" />
+                               
                             </div>
                         </td>
                         <td class ="109">
                             <div class="bin_detail">
-                              <input class ="quantity" type="text" value = "0" />
+                              
                             </div>
                         </td>`;
   new_tr.innerHTML = content_tr;
@@ -128,14 +128,14 @@ for (let t = 0; t < bin.length; t++) {
       element.style.backgroundColor = "#FCC686";
     }
   }
-  console.log(quantityProduct.value);
-  if (quantityProduct.value === 0) {
-    element.style.backgroundColor = "grey";
-    const new_p = document.createElement("p");
-    const content_p = `Empty`;
-    new_p.innerHTML = content_p;
-    element.append(new_p);
-  }
+
+  // if (quantityProduct.value === 0) {
+  //   element.style.backgroundColor = "grey";
+  //   const new_p = document.createElement("p");
+  //   const content_p = `Empty`;
+  //   new_p.innerHTML = content_p;
+  //   element.append(new_p);
+  // }
 }
 // find shelf
 for (let v = 0; v < unit_shelf.length; v++) {

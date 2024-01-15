@@ -306,6 +306,10 @@ input {
 .overlay-right {
   right: 0;
   transform: translateX(0);
+  background-color: rgb(143, 141, 141);
+  border-top-left-radius: 30%;
+  border-bottom-left-radius: 30%;
+  color: white;
 }
 
 .container.right-panel-active .overlay-right {

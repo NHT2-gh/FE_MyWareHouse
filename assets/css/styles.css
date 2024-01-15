@@ -121,6 +121,7 @@ body.dark-theme {
   --body-color-mgr: hsl(190, 8%, 16%);
   --seach__bar-color: rgba(59, 59, 59, 0.726);
   --dropMenu-color: hsla(0, 0%, 39%, 0.521);
+  --light-first-color: hsl(190, 8%, 16%);
 }
 
 /*========== Button Dark/Light ==========*/

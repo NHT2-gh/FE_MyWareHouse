@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container" id="container">
-        <div class="form-container register-container">
+        <!-- <div class="form-container register-container">
           <form action="#" id ="register-form">
             <h1>Đăng Kí</h1>
             <input id="input__userName" type="text" placeholder="Tên đăng nhập" oninput="validateUsername()">
@@ -24,7 +24,7 @@
             <input type="email" placeholder="Email">
             <a class="button" id="btn__signUp" style="margin:0 0;" href="OTP.html" >Đăng kí</a>
           </form >
-      </div>
+      </div> -->
       <div class="form-container login-container" id ="login-container">
         <form action="#" style="justify-content: start;">
           <h1>Đăng Nhập</h1>
@@ -36,7 +36,7 @@
               <label>Ghi nhớ</label>
             </div>
           </div>
-          <a class="button" href="dashboard.html">Đăng nhập</a>
+          <a class="button" id="login" href="dashboard.html">Đăng nhập</a>
         </form>
       </div>
       <div class="overlay-container" >
@@ -44,13 +44,13 @@
           <div class="overlay-panel overlay-left">
             <h1 class="title">Chào bạn,</h1>
             <p>Nếu bạn đã có tài khoản, vui lòng đăng nhập tại đây</p>
-            <a class="ghost button" id="login">Đăng nhập
+            <a class="ghost button">Đăng nhập
               <i class="lni lni-arrow-left login"></i>
             </a>
           </div>
           <div class="overlay-panel overlay-right">
             <h2 class="title">Hệ thống quản lý nhà kho tiện ích hàng đầu</h2>
-            <h1 class="logo" style="font-style:oblique;"><i class='bx bxl-medium-old' ></i> MY WERAHOUSE</h1>
+            <h1 class="logo" style="font-style:oblique; color:hsl(31, 96%, 68%);"><i class='bx bxl-medium-old'></i> MY WERAHOUSE</h1>
             <!-- <p>Nếu bạn chưa có tài khoản, bạn có thể đăng ki tại đây.</p>
             <a class="ghost button" id="register">Đăng kí
               <i class="lni lni-arrow-right register"></i>

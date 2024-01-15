@@ -33,6 +33,7 @@
     }
     .info-product input{
         min-width: 80%;
+        padding: 2px 3px;
     }
     .div_img input{
         width: fit-content;
@@ -62,7 +63,6 @@
         border-radius: 7px;
         min-width: 100%;
         align-items: center;
-        padding: 0 10px;
     }
     .sub_info .list .contentList{
         display: flex;
@@ -94,9 +94,7 @@
         <!-- <span class="close_chitiet" onclick="closeDetail()">&times;</span> -->
         <div class="info-product">
             <div class="header-detail" style="display: flex;">
-                <div style="display: flex;">
-                    <input style="padding: 4px 5px; " type="submit" value="Save">
-                </div>
+                
             </div>
             <form style="display: flex; padding: 10px 0;">
                 <div style="flex: 5; justify-content: center;">
@@ -190,8 +188,12 @@
                             <input style="padding: 5px; border-radius: 5px;" type="text" class="input__img" value="">
                         </li> -->
                     </ul>
+                    
                 </div>          
             </form>
+            <div style="width: fit-content; ">
+                <input style="padding: 4px 5px; margin-bottom: 10px; font-size: 14px; font-weight: 500; float: righ; background-color: rgb(248, 180, 90);" type="submit" value="Save">
+            </div>
         </div>
     </div>
 <!-- </div> -->
@@ -228,7 +230,7 @@
                 // reader.readAsDataURL(file);
                 var fileName = fileInput.value.substring(fileInput.value.lastIndexOf("\\") + 1);
                 imgProducts.src = "assets/img/product/" + fileName;
-                console.log(imgProducts.src);
+                // console.log(imgProducts.src);
             };
             fileInput.click();
             
@@ -277,10 +279,8 @@
             document.addEventListener("keydown", function (event) {
                 if (event.key === "Delete") {
                     for (let y = 0; y < arr.length; y++) {
-                        console.log(arr[y]);
                         var element = document.getElementsByClassName(arr[y])[0];
                         var img = document.getElementsByClassName(arr[y])[1];
-                        console.log(img)
                             if(img)
                                 img.remove();
                             if(element)

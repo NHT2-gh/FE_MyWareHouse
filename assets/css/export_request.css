@@ -14,7 +14,10 @@
 table .quantityRe {
     max-width: 80px;
     text-align: center;
-    
+    margin: 10px;
+    color: var(--title-color);
+    background-color: var(--body-color);
+    border: 1px var(--body-color);
 }
 
 .cr-btn {

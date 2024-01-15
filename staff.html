@@ -219,7 +219,7 @@
                                     <td>
                                         <p>2</p></td>
                                         <td>Nguyễn Thanh</td>
-                                        <td><p>Nữ</p></t>
+                                        <td><p>Nam</p></t>
                                         <td><p>2002-05-01</p></td>
                                         <td><p>Phước Long B</p></t>
                                         <td><p>0845002405</p></td>
@@ -241,15 +241,23 @@
         <div class="detail" id="detail">
             <div class="detail-content">
                 <div class="staff__account">
-                    <span onclick="closeDetail()" class="close_chitiet">&times;</span>
+                    <!-- <span onclick="closeDetail()" class="close_chitiet">&times;</span> -->
                     <form class="form-input">
                         <ul id="myList">
-                            <li>
-                                <input  type="text" id="input__staffID" name="userID"  class="field-style field-full align-none"  placeholder="Staff ID">
-                            </li>
-                            <li>
-                                <input  type="text" id="input__loginName"  name="userName" class="field-style field-full align-none" placeholder="Login Name">
-                            </li>
+                            <div style="display: flex;">
+                                <li style="flex: 1;">
+                                    <img id ="output_img" src="assets/img/boy.png" alt="">
+                                </li>
+                                <div style="flex: 2;">
+                                    <li>
+                                        <input  type="text" id="input__staffID" name="userID"  class="field-style field-full align-none"  placeholder="Staff ID">
+                                    </li>
+                                    <li>
+                                        <input  type="text" id="input__loginName"  name="userName" class="field-style field-full align-none" placeholder="Login Name">
+                                    </li>
+                                </div>
+                            </div>
+                            
                             <li>
                                 <input type="password" id="input__pass" name="passUser" class="field-style field-full align-none" placeholder="Password">
                             </li>
@@ -273,7 +281,7 @@
                                 <input  id="input__phone" type="text" class="field-style field-full align-none" placeholder="Phone" name="phone">
                             </li>
                             <li>
-                                <input  type="submit" value="Save" />
+                                <input style="margin: 0;" type="submit" value="Save" />
                             </li>
                 
                         </ul>
@@ -294,5 +302,6 @@
     <script src="assets/js/main.js"></script>
 	<script src="assets/js/chart.js"></script>
 	<!-- <script src="assets/js/mgr_script.js"></script> -->
+    <script src="assets/js/theme.js"></script>
 </body>
 </html>

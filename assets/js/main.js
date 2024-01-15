@@ -145,14 +145,6 @@ function resetDetail() {
     });
   }
 }
-// // get ID form table
-// function getID(event) {
-//   if (document.getElementsByClassName("detail")) {
-//     var row = event.currentTarget.closest("tr");
-//     var id = row.querySelector("td p");
-//     document.getElementById("id_").innerHTML = id.innerText;
-//   }
-// }
 
 //STAFF
 
@@ -176,13 +168,19 @@ function getDetailInfoAcc() {
           }
         });
       });
+      
       var length = cells.length;
-      console.log(length);
+      var gender = cells[2].innerText;
       var id_user = cells[length - 2].innerText;
       var name_user = cells[1].innerText;
       var phone_user = cells[length - 3].innerText;
       var status = cells[7].querySelector("input").value;
-      console.log(length, id_user, name_user, phone_user, status);
+      if (gender === "Nữ"){
+        document.getElementById("output_img").src = "assets/img/girl.png";
+      }else{
+        document.getElementById("output_img").src = "assets/img/boy.png";
+      }
+      
       document.getElementById("input__status").value = status;
       document.getElementById("input__staffID").value = id_user;
       document.getElementById("input__loginName").value = name_user;
@@ -213,26 +211,6 @@ for (var i = 0; i < table_Staff.length; i++) {
     td.append(icon_status);
   }
 }
-// function resetDetail() {
-//   var infoProduct = document.getElementsByClassName("info-product")[0];
-//   var cell = document.querySelectorAll("td *");
-//   var listClassName = [];
-//   for (var i = 0; i < cell.length; i++) {
-//     if (cell[i].className) {
-//       listClassName.push(cell[i].className);
-//     }
-//   }
-//   for (var i = 0; i < listClassName.length; i++) {
-//     var detailInfo = infoProduct.getElementsByClassName(listClassName[i])[0];
-//     if (detailInfo && listClassName[i] !== "img_product") {
-//       detailInfo.value = "";
-//       detailInfo.readOnly = false;
-//     } else if (listClassName[i] == "img_product") {
-//       detailInfo.src = "";
-//     }
-//   }
-//   openDetail();
-// }
 
 //END DETAIL
 
@@ -258,44 +236,6 @@ for (let i = 0; i < rows.length; i++) {
     chidl.style.display = "none";
   }
 }
-
-// function exportToExcel() {
-//   // Lấy đối tượng bảng cần xuất
-//   var table2excel = new Table2Excel();
-//   table2excel.export(document.querySelectorAll("table-to-export"));
-//   // Sử dụng TableExport để xuất dữ liệu ra Excel
-//   // var exportTable = new TableExport(table, {
-//   //   headers: true, // Bao gồm tiêu đề trong Excel
-//   //   footers: false, // Không bao gồm chân trang trong Excel
-//   //   formats: ["xlsx"], // Định dạng xuất (xlsx, csv, txt, ...)
-//   //   filename: "exported_data", // Tên tệp xuất
-//   // });
-
-//   // var exportData = exportTable.getExportData()["table-to-export"]["xlsx"];
-//   // var xlsxData = exportData.data;
-//   // var xlsxColumns = exportData.mimeType;
-//   // var xlsxFilename = "your-filename.xlsx";
-
-//   // var wb = XLSX.utils.book_new();
-//   // wb.SheetNames.push("Sheet1");
-//   // var ws = XLSX.utils.json_to_sheet(xlsxData, { header: xlsxColumns });
-//   // wb.Sheets["Sheet1"] = ws;
-//   // var wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
-
-//   // function s2ab(s) {
-//   //   var buf = new btn_dlDashBuffer(s.length);
-//   //   var view = new Uint8btn_dlDash(buf);
-//   //   for (var i = 0; i < s.length; i++) {
-//   //     view[i] = s.charCodeAt(i) & 0xff;
-//   //   }
-//   //   return buf;
-//   // }
-
-//   // saveAs(
-//   //   new Blob([s2ab(wbout)], { type: "application/octet-stream" }),
-//   //   xlsxFilename
-//   // );
-// }
 
 // REQUEST
 function request_addProduct(event) {
@@ -399,3 +339,16 @@ function updateNo() {
   }
 }
 updateNo();
+
+//PROFILE
+
+//get avt by gender user
+const img_avt = document.querySelector('#avt-user img');
+if (img_avt){
+  const selectGender = document.getElementById('input_gender');
+  selectGender.value = "Nữ"
+  if (selectGender.value === "Nữ"){
+    img_avt.src ="assets/img/girl.png"
+}
+
+}

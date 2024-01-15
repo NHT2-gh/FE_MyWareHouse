@@ -237,10 +237,10 @@
 						<div class="head">
 							<img src="assets/img/notification.png" alt="">
 							<h3>Notification</h3>
-							<h4>3</h4>
+							<h4 id="numberOfNotification">3</h4>
 						</div>
 						<div>
-							<ul>
+							<ul class="list_notification">
 								<li class="document/import_request">
 									<img src="assets/img/warning.png" alt="">
 									<span>Có vài sản phẩm đang trong tình trạng không đủ cung ứng </span>
@@ -287,8 +287,10 @@
 
 
 	<script>
-		var id = document.getElementById("id_request").innerText;
-		localStorage.setItem('data', id);
+		const listNotification = document.getElementsByClassName('list_notification')[0];
+		let number = listNotification.querySelectorAll('li');
+		const show_number = document.getElementById('numberOfNotification');
+		show_number.innerText = number.length;
 	</script>
 
 </body>
