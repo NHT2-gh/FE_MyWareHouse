@@ -144,8 +144,8 @@
 
 <body>
     <!-- <a class="btn" href="dashboard.html">&lt;</a> -->
-    <div class="request-content">
-        <div class="head_request">
+    <div class="request-content" id ="print_frame">
+        <div class="head_request" >
             <div>
                     <h4><i class='bx bxl-medium-old hidden_icon'></i>  MY WAREHOUSE</h4>
                     <h5>Address: ABC, DEF, HG</h5>
@@ -262,82 +262,32 @@
 <input style="background-color: rgb(87, 173, 47); width: 100px;" class="btn" id="exportExcel" type="submit" value="Export Excel">
 <input style="background-color: rgb(248, 177, 85); width: 100px;" class="btn" id="export-pdf" type="submit" value="Export PDF">
 <!--=============== MAIN JS ===============-->
-
 <script src="../assets/js/main.js"></script>
-<script src="../assets/js/table2excel.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- EXCEL JS -->
 <script src="../assets/dist/jspdf.umd.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
-
-<!-- Export to Excel -->
+<script src="../assets/js/table2excel.js"></script>
+<!-- PDF JS -->
+<script src="../assets/js/printThis.js"></script>
 <script>
-    // Excel
-    document.getElementById("exportExcel").addEventListener("click", function(){
-        var table2excel = new Table2Excel();
-        table2excel.export(document.querySelectorAll("#table-to-export"));
-    })
-
-    // PDF
+    // Export Excel
+     document.getElementById("exportExcel").addEventListener("click", function () {
+            fileName = "import_request";
+            var table2excel = new Table2Excel(fileName);
+            table2excel.export(document.querySelector("#product-table"));
+        })
+    // Export PDF
     window.jsPDF = window.jspdf.jsPDF
-    document.getElementById('export-pdf').addEventListener('click', function () {
-        var doc = new jsPDF({
-            format: 'a4'
-            
-        });
-        var icon = document.getElementsByClassName("hidden_icon");
-        for (let i = 0; i < icon.length; i++) {
+
+    jQuery(document).ready(function(){
+        $('#export-pdf').click(function () {
+            var icon = document.getElementsByClassName("hidden_icon");
+            for (let i = 0; i < icon.length; i++) {
             var element = icon[i];
             element.style.display = "none";
         }
-        // Lấy toàn bộ thẻ trong thẻ <body>
-        var content = document.querySelector(".request-content");
-        doc.html(content, {
-            callback: function (doc) {
-                doc.save('request.pdf');
-            },
-                margin: [10, 20, 20, 10],
-                autoPaging: 'text',
-                x: 0,
-                y: 0,
-                width: 190,
-                windowWidth: 1200
-            });
-            // Lấy toàn bộ thẻ trong thẻ <body>
-        //     var content = document.getElementsByClassName("request-content")[0];
-        //     var icon = document.getElementsByClassName("hidden_icon");
-        //     for (let i = 0; i < icon.length; i++) {
-        //         var element = icon[i];
-        //         element.style.display = "none";
-        //     }
-        //     // Sử dụng html2canvas để chuyển đổi nội dung HTML thành hình ảnh
-        //     html2canvas(content).then(function (canvas) {
-        //         // Tạo đối tượng jsPDF để tạo tài liệu PDF
-        //         var doc = new jsPDF({
-        //             orientation: 'portrait', // hoặc 'landscape' nếu bạn muốn làm ngang
-        //             unit: 'mm',
-        //             format: 'a4',
-        //         });
-
-        //         // Chuyển đổi hình ảnh thành dạng dữ liệu URL
-        //         var imgData = canvas.toDataURL('image/jpeg');
-
-        //         // Thêm hình ảnh vào tài liệu PDF
-        //         doc.addImage(imgData, 'JPEG', 0, 0, 210, 297); // 210x297mm là kích thước A4
-
-        //          doc.setProperties({
-        //             x: 0,           // Đặt x
-        //             y: 0,           // Đặt y
-        //             width: 210,      // Đặt width
-        //             windowWidth: 1200 // Đặt windowWidth
-        //         });
-
-        //         // Lưu tệp PDF
-        //         doc.save('my-pdf.pdf');
-        //     });
+            $('#print_frame').printThis();
         });
-    
-</script>
-<script>
+    });
 
 </script>
 

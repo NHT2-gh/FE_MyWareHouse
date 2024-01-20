@@ -1,0 +1,64 @@
+
+<html>
+<body>
+  <div class="main__email" style="width: 700px;justify-content: center;color: black;margin: 30px auto">
+    <div class="title_email" style="text-align: center;width: 100%;padding: 15px;border: 1px solid rgb(173, 168, 168);box-shadow: rgb(180, 179, 179) 2px 2px; margin-bottom: 10px;">
+      <span>
+        <a style=" margin-bottom: 10px; color: black; text-decoration: none; font-size: 25px; font-weight: bold;" href="home.html" class="nav__logo">Order Confirmation - MY WAREHOUSE</a>
+        <p style="text-align: start;">Dear [Tên người nhận đơn đặt hàng],</p>
+        <p style="text-align: start;">We hope this email finds you well. </p>
+        <p style="text-align: start;">Thank you for choosing MY WAREHOUSE! We are pleased to confirm the receipt of your recent order. Your business is important to us, and we appreciate the opportunity to fulfill your needs.</p>
+        <!-- <p style="margin-top: 20px;">Tải xuống đơn đặt hàng tại đây <a href="#"> tại đây </a></p> -->
+      </span>
+    </div>
+    <div class="content_email" style="width: 100%;">
+        
+      <div class="div__info" style="width: 100%;padding: 15px;border: 1px solid rgb(173, 168, 168);box-shadow: rgb(180, 179, 179) 2px 2px;">
+        <span style="color: black;font-size: 18px; font-weight: bolder;">Order Details</span>
+        <ul style="list-style: none;margin: 10px  ;">
+          <li style="margin-bottom: 5px;"><p>Order Number: [id]</p></li>
+          <li style="margin-bottom: 5px;"><p>Date Of Order: [date]</p></li>
+        </ul>
+      </div>
+      <div class="div__info" style="width: 100%;padding: 15px;border: 1px solid rgb(173, 168, 168);box-shadow: rgb(180, 179, 179) 2px 2px;">
+        <span style="color: black;font-size: 18px; font-weight: bolder;">Shipping Information</span>
+        <ul style="list-style: none;margin: 10px  ;">
+            <li style="margin-bottom: 5px;"><p>Customer's Name: [name]</p></li>
+          <li style="margin-bottom: 5px;"><p>Shipping Address: [Address]</p></li>
+          
+        </ul>   
+      </div>
+        <div class="table-data" style="width: 100%;padding: 15px;border: 1px solid rgb(173, 168, 168);box-shadow: rgb(180, 179, 179) 2px 2px; ">
+          <span style="color: black;font-size: 18px; font-weight: bolder;">List Product</span>
+          <div style="box-shadow: none;width: 100%;display: flex;flex-wrap: wrap;grid-gap: 24px;margin-top: 24px;" class="order">
+          <table style="width: 100%;border-collapse: collapse;">
+              <thead> 
+                  <tr>
+                      <th style="padding-bottom: 12px;font-size: 13px;text-align: left;border-bottom: 1px solid grey;">No</th>
+                      <th style="padding-bottom: 12px;font-size: 13px;text-align: left;border-bottom: 1px solid grey;">Name</th>
+                      <th style="padding-bottom: 12px;font-size: 13px;text-align: left;border-bottom: 1px solid grey;">Quanlity</th>
+                      <th style="padding-bottom: 12px;font-size: 13px;text-align: left;border-bottom: 1px solid grey;">Price</th>
+                      <th style="padding-bottom: 12px;font-size: 13px;text-align: left;border-bottom: 1px solid grey;">Amount</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr style="font-size: 15px;">
+                          <td style="padding: 12px 10px;align-items: center;display: flex;align-items: center;grid-gap: 12px;padding-left: 6px;"><p>[No]</p></td>
+                          <td style="padding: 12px 10px;align-items: center;"><p>[Name]</p></td>
+                          <td style="padding: 12px 10px;align-items: center;"><p>[Quanlity]</p></td>
+                          <td style="padding: 12px 10px;align-items: center;">[Price]</td>
+                          <td style="padding: 12px 10px;align-items: center;">[Amount]</td>
+
+                      </tr>
+              </tbody>
+          </table>
+        </div>
+        <div style="font-weight:bolder; box-shadow: none;text-align:end;display:flex;justify-content:end;gap:10px;" class="total_oder"> 
+          <p>Total: </p> <p>[$]</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>

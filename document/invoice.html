@@ -149,7 +149,7 @@
 </head>
 <body>
     <div class="invoice">
-            <div style="display: block;" class="invoice-content">
+            <div style="display: block;" class="invoice-content" id="print_frame">
                 <div class="head_invoice">
                     <div>
                         <h4>MY WAREHOUSE</h4>
@@ -287,35 +287,34 @@
             <input style="background-color: rgb(248, 177, 85);" class="btn" id="export-pdf" type="submit" value="Export PDF" />
         </div>
     </div>
-    <script src="../assets/js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="../assets/dist/jspdf.umd.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <!--=============== MAIN JS ===============-->
+<script src="../assets/js/main.js"></script>
+<!-- EXCEL JS -->
+<script src="../assets/dist/jspdf.umd.js"></script>
+<script src="../assets/js/table2excel.js"></script>
+<!-- PDF JS -->
+<script src="../assets/js/printThis.js"></script>
+<script>
+    // Export Excel
+     document.getElementById("exportExcel").addEventListener("click", function () {
+            fileName = "invoice";
+            var table2excel = new Table2Excel(fileName);
+            table2excel.export(document.querySelector("#product-table"));
+        })
+    // Export PDF
+    window.jsPDF = window.jspdf.jsPDF
 
-    <script>
-        window.jsPDF = window.jspdf.jsPDF
-        document.getElementById('export-pdf').addEventListener('click', function () {
-
-            var doc = new jsPDF({
-                format: 'a4'
-
-            });
-            // Lấy toàn bộ thẻ trong thẻ <body>
-            var content = document.querySelector(".invoice");
-            doc.html(content, {
-                callback: function (doc) {
-                    doc.save('invoice.pdf');
-                },
-                margin: [10, 10, 10, 10],
-                autoPaging: 'text',
-                x: 0,
-                y: 0,
-                width: 190,
-                windowWidth: 1024
-            });
-
+    jQuery(document).ready(function(){
+        $('#export-pdf').click(function () {
+            var icon = document.getElementsByClassName("hidden_icon");
+            for (let i = 0; i < icon.length; i++) {
+            var element = icon[i];
+            element.style.display = "none";
+        }
+            $('#print_frame').printThis();
         });
+    });
 
-    </script>
+</script>
 </body>
 </html>

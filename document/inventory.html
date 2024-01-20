@@ -53,7 +53,7 @@
         }
         .inventory-content {
             background-color: var(--body-color);
-            padding: 20px;
+            /* padding: 10px; */
             font-size: 16px;
             font-family: 'Poppins';
         }
@@ -162,14 +162,12 @@
 <body>
     <div>
         <!-- <a class="btn" href="dashboard.html">&lt;</a> -->
-    <div style="display: block; padding: 0;" class="inventory" id="">
+    <div class="inventory" id="print_frame">
         <div class="inventory-content">
             <div class="head_inventory">
                 <div>
-                    <h4><a href="../dashboard.html"><i class='bx bxl-medium-old hidden_icon'></i> MY WAREHOUSE</a></h4>
+                    <h4><a href="../dashboard.html"><i class='bx bxl-medium-old'></i> MY WAREHOUSE</a></h4>
                     <h5>Address: ABC, DEF, HG</h5>
-                    <div class="state pending">Pending</div>
-                    <div class="state complete">Complete</div>
                 </div>
                 <div>
                     <h5>SOCIALIST REPUBLIC OF VIETNAM</h5>
@@ -194,7 +192,7 @@
                                     <input type="text" name="" id="">
                                 </td>
                             </tr>
-                            <tr id="row-hidden" style="display: none;">
+                            <!-- <tr id="row-hidden" style="display: none;">
                                 <td>
                                     <span>-</span>
                                     <span>Full Name:</span>
@@ -206,7 +204,7 @@
                                 </td>
                                 
                                 <td><i class='bx bx-trash'></i></td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                         <a href="#" class="staff_inventory hidden_icon" id="btnInventory__addMember"><i class="lni lni-circle-plus"></i></a>
                     </table>
@@ -264,19 +262,23 @@
                                 <p>170</p>
                             </td>
                             <td>
-                                <p>100</p>
+                                <p id = "quantity_order">100</p>
                             </td>
                             <td>
                                 <p>17000</p>
                             </td>
                             <td>
-                                <input type="number" name="" id="" min="0" value="100">
+                                <input type="number" name="" id="quanlity_real" min="0" value="100">
                             </td>
                             <td>
-                                <input type="number" name="" id="" min="0" value="17000">
+                                <input type="number" name="" id="price_real" min="0" value="17000">
                             </td>
-                            <td><p>0</p></td>
-                            <td><p>0</p></td>
+                            <td>
+                                <p id="quantity_excess">0</p>
+                            </td>
+                            <td>
+                                <p id = "quantity_shortage">0</p>
+                            </td>
                             <td><input type="checkbox" name="" id="" class="quality 1" value="2"></td>
                             <td><input type="checkbox" name="" id="" class="quality 2" value="2"></td>
                             <td><input type="checkbox" name="" id="" class="quality 3" value="2"></td>
@@ -293,22 +295,22 @@
                                 <p>170</p>
                             </td>
                             <td>
-                                <p>100</p>
+                                <p id = "quantity_order">100</p>
                             </td>
                             <td>
                                 <p>17000</p>
                             </td>
                             <td>
-                                <input type="number" name="" id="" min="0" value="100">
+                                <input type="number" name="" id="quanlity_real" min="0" value="100">
                             </td>
                             <td>
-                                <input type="number" name="" id="" min="0" value="17000">
+                                <input type="number" name="" id="price_real" min="0" value="17000">
                             </td>
                             <td>
-                                <p>0</p>
+                                <p id="quantity_excess">0</p>
                             </td>
                             <td>
-                                <p>0</p>
+                                <p id = "quantity_shortage">0</p>
                             </td>
                             <td><input type="checkbox" name="" id="" class="quality 1" value="3"></td>
                             <td><input type="checkbox" name="" id="" class="quality 2" value="3"></td>
@@ -318,7 +320,11 @@
                         </tr>
                     </tbody>
                 </table>
-
+                <div style="display: flex; align-items: start;">
+                    <span>Result Evaluation : </span>
+                    <textarea style="min-width: 80%; max-width: 80%; margin-left: 10px; font-size: 16px;" class="hidden_icon"></textarea>
+                </div>
+          
             </div>
             <div class="sign_request">
                 <div class="sign-area">
@@ -350,45 +356,37 @@
     </div>
     
     <!--=============== MAIN JS ===============-->
-        <script src="../assets/js/main.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-        <script src="../assets/dist/jspdf.umd.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
-
-    <!-- Export to Excel -->
+    <script src="../assets/js/main.js"></script>
+    <!-- EXCEL JS -->
+    <script src="../assets/dist/jspdf.umd.js"></script>
+    <script src="../assets/js/table2excel.js"></script>
+    <!-- PDF JS -->
+    <script src="../assets/js/printThis.js"></script>
     <script>
-    document.getElementById("exportExcel").addEventListener("click", function(){
-        var table2excel = new Table2Excel();
-        table2excel.export(document.querySelectorAll("#table-to-export"));
-    })
-    </script>
-    <script>
+        // Export Excel
+         document.getElementById("exportExcel").addEventListener("click", function () {
+                fileName = "inventory";
+                var table2excel = new Table2Excel(fileName);
+                table2excel.export(document.querySelector("#product-table"));
+            })
+        // Export PDF
         window.jsPDF = window.jspdf.jsPDF
-        document.getElementById('export-pdf').addEventListener('click', function () {
 
-            var doc = new jsPDF({
-                format: 'a4',
-                orientation: 'landscape'// hoặc 'landscape' nếu bạn muốn làm ngang
-            });
-            var icon = document.getElementsByClassName("hidden_icon");
-            for (let i = 0; i < icon.length; i++) {
+        jQuery(document).ready(function(){
+            $('#export-pdf').click(function () {
+                var icon = document.getElementsByClassName("hidden_icon");
+                for (let i = 0; i < icon.length; i++) {
                 var element = icon[i];
-                element.style.display = "none";
+                console.log(element.tagName)
+                if(element.tagName === "TEXTAREA"){
+                    element.style.border = "none";
+                }else{
+                    element.style.display = "none";
+                }
+               
             }
-            // Lấy toàn bộ thẻ trong thẻ <body>
-            var content = document.querySelector(".inventory");
-            doc.html(content, {
-                callback: function (doc) {
-                    doc.save('inventory.pdf');
-                },
-                margin: [10, 10, 10, 10],
-                autoPaging: 'text',
-                x: 0,
-                y: 0,
-                width: 270,
-                windowWidth: 1024
+                $('#print_frame').printThis();
             });
-
         });
 
     </script>
@@ -398,10 +396,26 @@
         const tr = document.querySelectorAll("#product-table tbody tr");
         for (let y = 0; y < tr.length-1; y++) {
             var getValue = tr[y].getElementsByClassName("quality")[0].value;
-            console.log(getValue);
             var quality = tr[y].getElementsByClassName("quality")[getValue - 1]; 
             quality.checked = "true";
+
         }
+
+        // for (let y = 0; y < tr.length-1; y++) {
+        //     var row = tr[y];
+        //     var input_quantity = row.querySelector('#quanlity_real');
+            
+        //     input_quantity.addEventListener('change', function(){
+        //         var input_value = parseInt(row.querySelector('#quanlity_real').value);
+        //         var quantity_order_value = parseInt(row.querySelector('#quantity_order').innerText);
+        //         let result = input_value - quantity_order_value;
+        //         if (result > 0){
+        //             row.querySelector("#quantity_excess").innerText = result;
+        //         }else{
+        //             row.querySelector("#quantity_shortage").innerText = result/(-1);
+        //         }
+        //     })
+        // }
 
             const checkBox = document.getElementsByClassName("quality");
             for (let c = 0; c < checkBox.length; c++) {
@@ -417,7 +431,6 @@
                     for (let y = 0; y < checkboxs.length; y++) {
                             checkboxs[y].value = classListArray[1];
                     }
-                    console.log(checkboxs)
                     checkboxs.forEach(function (checkbox) {
                         checkbox.addEventListener('change', function () {
                             if (this.checked) {
@@ -431,5 +444,13 @@
                         });
                     });
                 }
+    </script>
+    <script>
+                
+        // tính số lượng thừa thiếu trong quá trình kiểm kê 
+        
+      
+        
+        
     </script>
 </body>

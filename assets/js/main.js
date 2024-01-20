@@ -41,12 +41,12 @@ function ready() {
     btn_dlDash[i].addEventListener("click", openIframe);
   }
 
-  const btnInventory_addMember = document.getElementById(
-    "btnInventory__addMember"
-  );
-  if (btnInventory_addMember) {
-    btnInventory_addMember.addEventListener("click", addMember);
-  }
+  // const btnInventory_addMember = document.getElementById(
+  //   "btnInventory__addMember"
+  // );
+  // if (btnInventory_addMember) {
+  //   btnInventory_addMember.addEventListener("click", addMember);
+  // }
 }
 
 // ACTIVE SIDEBAR
@@ -171,9 +171,9 @@ function getDetailInfoAcc() {
       
       var length = cells.length;
       var gender = cells[2].innerText;
-      var id_user = cells[length - 2].innerText;
+      var id_user = cells[length - 3].innerText;
       var name_user = cells[1].innerText;
-      var phone_user = cells[length - 3].innerText;
+      var phone_user = cells[length - 4].innerText;
       var status = cells[7].querySelector("input").value;
       if (gender === "Nữ"){
         document.getElementById("output_img").src = "assets/img/girl.png";
@@ -257,48 +257,23 @@ function request_addProduct(event) {
 
 //INVENTORY
 // add inventory member
-function addMember(event) {
-  const Table = document.getElementById("listMember");
-  const rowTmp = document.getElementById("row-hidden");
-  const Tbody = Table.querySelector("tbody");
-  const newMember = rowTmp.cloneNode(true);
-  newMember.style.display = "table-row";
+// function addMember(event) {
+//   const Table = document.getElementById("listMember");
+//   const rowTmp = document.getElementById("row-hidden");
+//   const Tbody = Table.querySelector("tbody");
+//   const newMember = rowTmp.cloneNode(true);
+//   newMember.style.display = "table-row";
 
-  // Thêm hàng mới vào bảng
-  Tbody.appendChild(newMember);
-  // delete
-  const removeMember = newMember.querySelector(".bx-trash");
-  removeMember.addEventListener("click", function () {
-    Tbody.removeChild(newMember); // Xóa hàng khi nhấn nút "Xóa"
-  });
-}
-
-// function secletProduct(event) {
-//   var btn = event.currentTarget;
-//   if (btn.checked) {
-//     var row = btn.closest("tr");
-//     var codeProduct = row.getElementsByClassName("code")[0].innerText;
-//     var nameProduct = row.getElementsByClassName("name")[0].innerText;
-//     console.log(codeProduct, nameProduct);
-//     addProduct_inRequest(codeProduct, nameProduct);
-//   }
-// }
-// function addProduct_inRequest(codeProduct, nameProduct) {
-//   const productTable = document.getElementById("product-table");
-//   const rowTemplate = document.getElementById("row-tmp");
-//   const tbody = productTable.querySelector("tbody");
-//   const newRow = rowTemplate.cloneNode(true);
-//   newRow.style.display = "table-row";
-//   newRow.querySelectorAll("td")[0].innerHTML = codeProduct;
-//   newRow.querySelectorAll("td")[1].innerHTML = nameProduct;
 //   // Thêm hàng mới vào bảng
-//   tbody.appendChild(newRow);
-//   // // delete
-//   // const removeButton = newRow.querySelector(".bx-trash");
-//   // removeButton.addEventListener("click", function () {
-//   //   tbody.removeChild(newRow); // Xóa hàng khi nhấn nút "Xóa"
-//   // });
+//   Tbody.appendChild(newMember);
+//   // delete
+//   const removeMember = newMember.querySelector(".bx-trash");
+//   removeMember.addEventListener("click", function () {
+//     Tbody.removeChild(newMember); // Xóa hàng khi nhấn nút "Xóa"
+//   });
 // }
+
+
 
 // DASHBOARD
 // open iframe
@@ -350,5 +325,5 @@ if (img_avt){
   if (selectGender.value === "Nữ"){
     img_avt.src ="assets/img/girl.png"
 }
-
 }
+

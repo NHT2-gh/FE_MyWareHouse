@@ -149,10 +149,14 @@
 	  /**
 	   * @param {object} options - Overrides the default options.
 	   */
-	  function Table2Excel() {
+	  function Table2Excel(filename) {
+		var defaultOptions = {
+			defaultFileName: filename,
+			tableNameDataAttribute: 'excel-name',
+		}
 	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	    (0, _classCallCheck3.default)(this, Table2Excel);
-
+		
 	    (0, _extends3.default)(this, defaultOptions, options);
 	  }
 

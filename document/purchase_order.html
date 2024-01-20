@@ -19,6 +19,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"
         integrity="sha512-XmZS54be9JGMZjf+zk61JZaLZyjTRgs41JLSmx5QlIP5F+sSGIyzD2eJyxD4K6kGGr7AsVhaitzZ2WTfzpsQzg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -34,6 +35,7 @@
         }
         a{
             text-decoration: none;
+            color:black;
         }
         .btn{
             background-color: #94d88c;
@@ -143,11 +145,12 @@
 
 <body>
     <div>
-    <div style="display: block; padding: 0;" class="pur_request" id="">
+    <div style="display: block; padding: 0;" class="pur_request" id="print_frame">
             <div class="oder-content">
                 <div class="head_oder">
                     <div>
-                        <h4><i class='bx bxl-medium-old'></i> MY WAREHOUSE</h4>
+                        <h4><a href="../dashboard.html"><i class='bx bxl-medium-old hidden_icon'></i> MY WAREHOUSE</a></h4>
+
                         <h5>Address: ABC, DEF, HG</h5>
                     </div>
                     <div>
@@ -172,6 +175,8 @@
                         <span>Requisition Code: </span><span>DNNH01</span>
                         <br>
                         <span>Purchaser: </span><span>Sales Department</span>
+                        <br>
+                        <span>Type: </span><span>EX/IM</span>
                         <p></p>
                     </div>
                 </div>
@@ -257,40 +262,33 @@
     <input style="background-color: rgb(87, 173, 47); width: 100px;" class="btn" id="exportExcel" type="submit"
         value="Export Excel">
     <input style="background-color: rgb(248, 177, 85);" class="btn" id="export-pdf" type="submit" value="Export PDF" />
-    <!--=============== MAIN JS ===============-->
 
-    <script src="assets/js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="assets/dist/jspdf.umd.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
-    <script src="assets/js/table2excel.js"></script>
+    <!--=============== MAIN JS ===============-->
+    <script src="../assets/js/main.js"></script>
+    <!-- EXCEL JS -->
+    <script src="../assets/dist/jspdf.umd.js"></script>
+    <script src="../assets/js/table2excel.js"></script>
+    <!-- PDF JS -->
+    <script src="../assets/js/printThis.js"></script>
     <script>
         // Export Excel
          document.getElementById("exportExcel").addEventListener("click", function () {
-                var table2excel = new Table2Excel();
-                table2excel.export(document.querySelector(".table-to-export"));
+                fileName = "order";
+                var table2excel = new Table2Excel(fileName);
+                table2excel.export(document.querySelector("#product-table"));
             })
         // Export PDF
         window.jsPDF = window.jspdf.jsPDF
-        document.getElementById('export-pdf').addEventListener('click', function () {
-            var doc = new jsPDF({
-                format: 'a4'
 
+        jQuery(document).ready(function(){
+            $('#export-pdf').click(function () {
+                var icon = document.getElementsByClassName("hidden_icon");
+                for (let i = 0; i < icon.length; i++) {
+                var element = icon[i];
+                element.style.display = "none";
+            }
+                $('#print_frame').printThis();
             });
-            // Lấy toàn bộ thẻ trong thẻ <body>
-            var content = document.querySelector(".pur_request");
-            doc.html(content, {
-                callback: function (doc) {
-                    doc.save('request.pdf');
-                },
-                margin: [10, 10, 10, 10],
-                autoPaging: 'text',
-                x: 0,
-                y: 0,
-                width: 190,
-                windowWidth: 800
-            });
-
         });
 
     </script>

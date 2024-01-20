@@ -363,13 +363,12 @@ body.dark-theme {
   cursor: pointer;
 }
 .table-data .search .search__input{
-  background-color: white;
-  color: black;
+  background-color: var(--body-color);
+  color: var(--title-color);
 }
 .table-data .search{
-  border:black solid 2px;
-  background-color: white;
-
+  border:var(--title-color) solid 2px ;
+  background-color:var(--body-color);
 }
 .search{
   border:var(--title-color) solid 2px;
